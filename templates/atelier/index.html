@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier — A design studio for products that refuse to be boring</title>
+<meta name="description" content="Atelier is a brand and product design studio. Agency landing page template.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#f4f2ed;
+  --black:#111110;
+  --gray:#6b6963;
+  --acid:#d8ff3d;
+  --line:#d9d5cc;
+  --head:'Syne',sans-serif;
+  --body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--black);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--head);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+section{padding:100px 0}
+.tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--black);border-radius:100px;padding:6px 16px;margin-bottom:24px}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.04em;padding:16px 30px;border-radius:100px;cursor:pointer;border:1.5px solid var(--black);transition:all .18s ease}
+.btn:focus-visible{outline:3px solid var(--black);outline-offset:3px}
+.btn-black{background:var(--black);color:var(--white)}
+.btn-black:hover{background:var(--acid);color:var(--black);border-color:var(--black)}
+.btn-line{background:transparent}
+.btn-line:hover{background:var(--black);color:var(--white)}
+
+/* nav */
+.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(244,242,237,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--head);font-weight:800;font-size:20px;text-transform:uppercase;letter-spacing:.02em}
+.logo i{font-style:normal;color:transparent;-webkit-text-stroke:1.2px var(--black)}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center}
+.nav-links a{font-size:13.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--black);transition:width .2s}
+.nav-links a:hover::after{width:100%}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;padding:8px}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--black);margin:6px 0}
+
+/* hero */
+.hero{padding:190px 0 90px}
+.hero h1{font-size:clamp(46px,9.5vw,124px);font-weight:800;margin-bottom:8px}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:2px var(--black)}
+.hero h1 .acid{background:var(--acid);padding:0 14px;display:inline-block}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:48px;flex-wrap:wrap}
+.hero-row p{max-width:420px;font-size:17px;color:var(--gray)}
+.hero-row p b{color:var(--black)}
+
+/* marquee */
+.marquee{border-top:1.5px solid var(--black);border-bottom:1.5px solid var(--black);padding:16px 0;overflow:hidden;background:var(--black);color:var(--white)}
+.marquee-track{display:flex;gap:48px;white-space:nowrap;animation:scroll 24s linear infinite;width:max-content}
+.marquee span{font-family:var(--head);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:48px}
+.marquee i{font-style:normal;color:var(--acid)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* work */
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.work{border:1.5px solid var(--black);border-radius:6px;overflow:hidden;background:#fff;transition:transform .2s ease,box-shadow .2s ease;cursor:pointer}
+.work:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--black)}
+.work-visual{aspect-ratio:16/10;display:grid;place-items:center;border-bottom:1.5px solid var(--black);position:relative;overflow:hidden}
+.work-visual .big{font-family:var(--head);font-weight:800;font-size:clamp(40px,6vw,72px);text-transform:uppercase;letter-spacing:-.02em}
+.work-info{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;gap:12px;flex-wrap:wrap}
+.work-info h3{font-size:17px}
+.work-info span{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+.work-result{position:absolute;bottom:14px;left:18px;background:var(--black);color:var(--acid);font-family:var(--head);font-weight:700;font-size:13px;padding:6px 14px;border-radius:100px;text-transform:uppercase}
+
+/* services */
+.services{background:var(--black);color:var(--white)}
+.services .tag{border-color:var(--white)}
+.svc{display:grid;grid-template-columns:80px 1fr 1.2fr;gap:28px;align-items:baseline;padding:34px 0;border-bottom:1px solid #333;transition:padding-left .2s}
+.svc:hover{padding-left:14px}
+.svc:hover .svc-num{color:var(--acid)}
+.svc:last-child{border-bottom:none}
+.svc-num{font-family:var(--head);font-weight:800;font-size:22px;color:#555;transition:color .2s}
+.svc h3{font-size:clamp(22px,3.4vw,34px)}
+.svc p{color:#9c9a94;font-size:15.5px}
+.svc p b{color:var(--white)}
+
+/* numbers */
+.numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.numbers>div{padding:28px 12px;border:1.5px solid var(--black);border-radius:6px}
+.numbers b{font-family:var(--head);font-weight:800;font-size:clamp(30px,4.6vw,52px);display:block}
+.numbers span{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+
+/* quote */
+.bigquote{max-width:880px;margin:0 auto;text-align:center}
+.bigquote p{font-family:var(--head);font-weight:700;font-size:clamp(22px,3.8vw,38px);text-transform:uppercase;line-height:1.15;margin-bottom:28px}
+.bigquote p em{font-style:normal;background:var(--acid);padding:0 8px}
+.bigquote cite{font-style:normal;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray)}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1.5px solid var(--black);border-radius:6px;overflow:hidden}
+.ph{padding:30px 26px;border-right:1.5px solid var(--black);background:#fff}
+.ph:last-child{border-right:none}
+.ph b{font-family:var(--head);font-size:13px;letter-spacing:.1em;color:var(--gray);display:block;margin-bottom:14px;text-transform:uppercase}
+.ph h3{font-size:18px;margin-bottom:10px}
+.ph p{font-size:14px;color:var(--gray)}
+
+/* cta */
+.endcta{text-align:center;padding:120px 0}
+.endcta h2{font-size:clamp(40px,8.5vw,104px);font-weight:800;margin-bottom:12px}
+.endcta h2 .outline{color:transparent;-webkit-text-stroke:2px var(--black)}
+.endcta p{color:var(--gray);margin-bottom:40px;font-size:17px}
+.endcta .email{font-family:var(--head);font-weight:700;font-size:clamp(17px,3vw,26px);text-transform:uppercase;border-bottom:3px solid var(--acid);padding-bottom:4px;display:inline-block;margin-top:28px;transition:background .18s}
+.endcta .email:hover{background:var(--acid)}
+
+footer.site{border-top:1.5px solid var(--black);padding:38px 0}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--gray)}
+.foot .links{display:flex;gap:26px}
+.foot a:hover{color:var(--black)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+  .marquee-track{animation:none}
+}
+@media (max-width:920px){
+  .work-grid{grid-template-columns:1fr}
+  .numbers{grid-template-columns:1fr 1fr}
+  .process{grid-template-columns:1fr 1fr}
+  .ph{border-bottom:1.5px solid var(--black)}
+  .ph:nth-child(3),.ph:nth-child(4){border-bottom:none}
+  .ph:nth-child(2n){border-right:none}
+  .svc{grid-template-columns:52px 1fr}
+  .svc p{grid-column:2}
+}
+@media (max-width:620px){
+  section{padding:64px 0}
+  .hero{padding:140px 0 60px}
+  .process{grid-template-columns:1fr}
+  .ph{border-right:none!important;border-bottom:1.5px solid var(--black)}
+  .ph:last-child{border-bottom:none}
+  .numbers{grid-template-columns:1fr 1fr}
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--white);border-bottom:1.5px solid var(--black);flex-direction:column;align-items:flex-start;padding:26px;gap:20px}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+  .nav-cta{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav class="container">
+    <a class="logo" href="#" aria-label="Atelier home">Atel<i>ier</i>*</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-black nav-cta" href="#contact" style="padding:11px 22px;font-size:13px">Start a project</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <span class="tag">Brand & product studio — est. 2019</span>
+    <h1>We design<br><span class="outline">brands</span> that<br>get <span class="acid">remembered</span></h1>
+    <div class="hero-row">
+      <p>Atelier is an eight-person studio for founders who'd rather be <b>someone's favorite</b> than everyone's option. Strategy, identity, and product design under one roof.</p>
+      <a class="btn btn-black" href="#work">See the work <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Brand identity <i>✳</i> Product design <i>✳</i> Design systems <i>✳</i> Naming <i>✳</i> Motion <i>✳</i> Webflow builds <i>✳</i></span>
+    <span>Brand identity <i>✳</i> Product design <i>✳</i> Design systems <i>✳</i> Naming <i>✳</i> Motion <i>✳</i> Webflow builds <i>✳</i></span>
+  </div>
+</div>
+
+<section id="work">
+  <div class="container">
+    <span class="tag reveal">Selected work</span>
+    <h2 class="reveal" style="font-size:clamp(30px,5vw,54px);margin-bottom:44px">Four projects<br>we'd do again for free</h2>
+    <div class="work-grid">
+      <a class="work reveal" href="#">
+        <div class="work-visual" style="background:#7c6cff">
+          <span class="big" style="color:#f4f2ed">Kite</span>
+          <span class="work-result">+212% signups</span>
+        </div>
+        <div class="work-info"><h3>Kite Banking</h3><span>Rebrand · Product</span></div>
+      </a>
+      <a class="work reveal" href="#">
+        <div class="work-visual" style="background:var(--acid)">
+          <span class="big">Fern</span>
+          <span class="work-result">Acquired 2025</span>
+        </div>
+        <div class="work-info"><h3>Fern Climate</h3><span>Identity · Web</span></div>
+      </a>
+      <a class="work reveal" href="#">
+        <div class="work-visual" style="background:#111110">
+          <span class="big" style="color:transparent;-webkit-text-stroke:2px #f4f2ed">Volt</span>
+          <span class="work-result">3× conversion</span>
+        </div>
+        <div class="work-info"><h3>Volt Mobility</h3><span>Product · Design system</span></div>
+      </a>
+      <a class="work reveal" href="#">
+        <div class="work-visual" style="background:#ff6b4a">
+          <span class="big" style="color:#f4f2ed">Onda</span>
+          <span class="work-result">Series A raised</span>
+        </div>
+        <div class="work-info"><h3>Onda Audio</h3><span>Naming · Brand · Packaging</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <span class="tag reveal">What we do</span>
+    <div style="margin-top:24px">
+      <div class="svc reveal">
+        <span class="svc-num">01</span>
+        <h3>Brand identity</h3>
+        <p>Strategy, naming, logo, voice, and a system that survives contact with reality. <b>4–6 weeks.</b></p>
+      </div>
+      <div class="svc reveal">
+        <span class="svc-num">02</span>
+        <h3>Product design</h3>
+        <p>From zero-to-one MVPs to redesigns of products with millions of users. We ship Figma files engineers actually thank us for. <b>Ongoing or sprint-based.</b></p>
+      </div>
+      <div class="svc reveal">
+        <span class="svc-num">03</span>
+        <h3>Design systems</h3>
+        <p>Tokens, components, docs, governance. The boring infrastructure that makes every future designer 2× faster. <b>6–10 weeks.</b></p>
+      </div>
+      <div class="svc reveal">
+        <span class="svc-num">04</span>
+        <h3>Launch sites</h3>
+        <p>Marketing sites with a pulse — designed, written, and built in Webflow or code. <b>3–5 weeks.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="numbers reveal">
+      <div><b>63</b><span>Brands shipped</span></div>
+      <div><b>9</b><span>Design awards</span></div>
+      <div><b>$410M</b><span>Raised by clients</span></div>
+      <div><b>92%</b><span>Return clients</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="container">
+    <div class="bigquote reveal">
+      <p>"Atelier didn't give us a brand. They gave us <em>an unfair advantage</em> that happens to look great."</p>
+      <cite>Lena Kovač — CEO, Kite Banking</cite>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="padding-top:40px">
+  <div class="container">
+    <span class="tag reveal">Process</span>
+    <h2 class="reveal" style="font-size:clamp(26px,4.4vw,44px);margin-bottom:40px">No mystery. No 40-page decks.</h2>
+    <div class="process reveal">
+      <div class="ph"><b>Week 0</b><h3>Interrogate</h3><p>We ask uncomfortable questions until your strategy stops being a mood board.</p></div>
+      <div class="ph"><b>Weeks 1–2</b><h3>Diverge</h3><p>Three genuinely different directions. Not one idea and two decoys.</p></div>
+      <div class="ph"><b>Weeks 3–5</b><h3>Converge</h3><p>One direction, pushed hard. Reviews twice a week, in your Slack, no ceremony.</p></div>
+      <div class="ph"><b>Week 6</b><h3>Arm you</h3><p>Files, systems, and a working session so your team can run without us.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="endcta" id="contact">
+  <div class="container reveal">
+    <h2>Let's make<br>your thing <span class="outline">their</span><br>favorite thing</h2>
+    <p>Two project slots open for Q4 2026.</p>
+    <a class="btn btn-black" href="#">Book an intro call</a>
+    <br>
+    <a class="email" href="#">hello@atelier.studio</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container foot">
+    <span>Atelier* © 2026 — NYC / Lisbon</span>
+    <div class="links"><a href="#">Instagram</a><a href="#">Dribbble</a><a href="#">LinkedIn</a></div>
+    <span>Template: Atelier — LaunchPages kit</span>
+  </div>
+</footer>
+
+<script>
+const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>
