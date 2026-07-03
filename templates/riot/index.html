@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIOT · Rio Kane, designer for brands that want trouble</title>
+<meta name="description" content="Riot is a maximalist portfolio and link-in-bio landing page template for creators, designers, and internet people.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef4ff;
+  --ink:#101014;
+  --red:#ff2e2e;
+  --yellow:#ffd400;
+  --purple:#7c2eff;
+  --green:#00c46a;
+  --cyan:#25d8ff;
+  --disp:'Archivo Black',sans-serif;
+  --head:'Space Grotesk',sans-serif;
+  --body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+background-image:linear-gradient(rgba(16,16,20,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(16,16,20,.06) 1px,transparent 1px);background-size:34px 34px}
+h1,h2,h3{font-family:var(--disp);line-height:1;text-transform:uppercase;letter-spacing:-.01em;font-weight:400}
+a{color:inherit;text-decoration:none}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:92px 0;position:relative}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--disp);font-size:14px;text-transform:uppercase;padding:17px 30px;cursor:pointer;border:3px solid var(--ink);border-radius:0;background:#fff;color:var(--ink);box-shadow:6px 6px 0 var(--ink);transition:transform .14s ease,box-shadow .14s ease;letter-spacing:.02em}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
+.btn-red{background:var(--red);color:#fff}
+.btn-yellow{background:var(--yellow)}
+
+/* ticker */
+.ticker{background:var(--ink);color:var(--yellow);overflow:hidden;padding:11px 0;border-bottom:3px solid var(--ink)}
+.ticker-track{display:flex;gap:42px;white-space:nowrap;animation:tick 20s linear infinite;width:max-content}
+.ticker span{font-family:var(--disp);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;display:flex;gap:42px}
+.ticker i{font-style:normal;color:var(--red)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* nav */
+.nav-wrap{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:3px solid var(--ink)}
+nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:var(--disp);font-size:21px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.logo i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;background:var(--red);color:#fff;border:3px solid var(--ink);border-radius:50%;font-size:15px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-8deg)}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.05em;border-bottom:3px solid transparent;padding:4px 0}
+.nav-links a:hover{border-bottom-color:var(--red)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;padding:8px}
+.nav-toggle span{display:block;width:24px;height:3px;background:var(--ink);margin:5px 0}
+
+/* hero */
+.hero{padding:76px 0 90px;overflow:hidden;text-align:center}
+.hero .avail{display:inline-flex;align-items:center;gap:9px;background:#fff;border:3px solid var(--ink);border-radius:100px;padding:9px 20px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em;box-shadow:4px 4px 0 var(--ink);margin-bottom:34px}
+.hero .avail i{width:10px;height:10px;border-radius:50%;background:var(--green);animation:blink 1.3s steps(1) infinite}
+@keyframes blink{50%{opacity:.3}}
+.hero h1{font-size:clamp(58px,13vw,168px);position:relative;z-index:2}
+.hero h1 .r1{display:block;color:var(--ink)}
+.hero h1 .r2{display:block;color:var(--red);text-shadow:6px 6px 0 var(--ink);transform:rotate(-2deg);margin-top:4px}
+.hero .tag-line{font-family:var(--head);font-weight:600;font-size:clamp(16px,2.4vw,21px);max-width:560px;margin:34px auto 40px}
+.hero .tag-line mark{background:var(--yellow);padding:2px 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.spinner{position:absolute;width:120px;height:120px;z-index:3;animation:spin 14s linear infinite;pointer-events:none}
+.spinner text{font-family:var(--disp);font-size:12px;letter-spacing:.2em;text-transform:uppercase;fill:var(--ink)}
+.spinner .core{fill:var(--yellow);stroke:var(--ink);stroke-width:3}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sp1{top:30px;left:6%}
+.sticker{position:absolute;font-family:var(--disp);text-transform:uppercase;border:3px solid var(--ink);padding:12px 20px;font-size:14px;box-shadow:5px 5px 0 var(--ink);z-index:3;white-space:nowrap;animation:bob 5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-10px) rotate(var(--rot,0deg))}}
+.stk1{--rot:-7deg;top:150px;right:7%;background:var(--purple);color:#fff}
+.stk2{--rot:5deg;bottom:130px;left:8%;background:var(--cyan);animation-delay:1.2s}
+.stk3{--rot:-4deg;bottom:60px;right:12%;background:var(--green);color:#fff;animation-delay:2s}
+
+/* marquee band */
+.band{border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);background:var(--yellow);padding:14px 0;overflow:hidden}
+.band .track{display:flex;gap:48px;width:max-content;animation:tick 16s linear infinite}
+.band span{font-family:var(--disp);font-size:16px;text-transform:uppercase;display:flex;gap:48px;white-space:nowrap}
+.band i{font-style:normal;color:var(--red)}
+
+/* work grid */
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+.head-row h2{font-size:clamp(34px,6vw,64px)}
+.head-row h2 em{font-style:normal;color:var(--purple);text-shadow:4px 4px 0 var(--ink)}
+.head-row p{font-weight:600;max-width:340px}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.work{border:3px solid var(--ink);background:#fff;box-shadow:8px 8px 0 var(--ink);transition:transform .16s ease,box-shadow .16s ease;position:relative}
+.work:nth-child(odd){transform:rotate(-1deg)}
+.work:nth-child(even){transform:rotate(1.2deg)}
+.work:hover{transform:translate(-4px,-4px) rotate(0deg);box-shadow:14px 14px 0 var(--ink);z-index:2}
+.work-vis{aspect-ratio:1/.82;display:grid;place-items:center;border-bottom:3px solid var(--ink);position:relative;overflow:hidden}
+.work-vis b{font-family:var(--disp);font-size:clamp(26px,3.6vw,40px);text-transform:uppercase;color:#fff;text-shadow:4px 4px 0 var(--ink);transform:rotate(-3deg)}
+.work-vis .price-tag{position:absolute;top:12px;right:12px;background:#fff;border:2.5px solid var(--ink);font-family:var(--disp);font-size:11px;padding:6px 10px;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink)}
+.work-info{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.work-info b{font-family:var(--head);font-weight:700;font-size:15px}
+.work-info span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#5c5c66}
+
+/* stats */
+.stats{background:var(--ink);color:var(--paper);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.stats .container{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:36px 18px;text-align:center;border-right:3px solid #2c2c33}
+.stat:last-child{border-right:none}
+.stat b{font-family:var(--disp);font-size:clamp(28px,4.4vw,48px);display:block}
+.stat:nth-child(1) b{color:var(--yellow)}.stat:nth-child(2) b{color:var(--cyan)}.stat:nth-child(3) b{color:var(--green)}.stat:nth-child(4) b{color:var(--red)}
+.stat span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9c9ca6}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:start}
+.svc{border:3px solid var(--ink);background:#fff;box-shadow:8px 8px 0 var(--ink);padding:30px;position:relative}
+.svc:nth-child(2){box-shadow:8px 8px 0 var(--red)}
+.svc:nth-child(3){box-shadow:8px 8px 0 var(--purple)}
+.svc .price{font-family:var(--disp);font-size:38px;margin:14px 0 4px}
+.svc .per{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#5c5c66;margin-bottom:18px;display:block}
+.svc h3{font-size:19px;background:var(--yellow);display:inline-block;padding:6px 12px;border:2.5px solid var(--ink);transform:rotate(-1.5deg);box-shadow:3px 3px 0 var(--ink)}
+.svc:nth-child(2) h3{background:var(--cyan)}
+.svc:nth-child(3) h3{background:var(--green);color:#fff}
+.svc ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.svc li{font-size:14.5px;font-weight:600;padding-left:28px;position:relative}
+.svc li::before{content:"★";position:absolute;left:0;color:var(--red)}
+.svc .btn{width:100%}
+
+/* shouts (testimonials as chat) */
+.shouts{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.shout{display:flex;gap:14px;align-items:flex-end}
+.shout.right{flex-direction:row-reverse}
+.shout .face{width:46px;height:46px;border-radius:50%;border:3px solid var(--ink);flex-shrink:0;display:grid;place-items:center;font-family:var(--disp);font-size:15px;color:#fff;box-shadow:3px 3px 0 var(--ink)}
+.bubble{background:#fff;border:3px solid var(--ink);padding:16px 20px;box-shadow:5px 5px 0 var(--ink);max-width:520px}
+.shout.right .bubble{background:var(--yellow)}
+.bubble p{font-weight:600;font-size:15px;margin-bottom:6px}
+.bubble span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#5c5c66}
+
+/* links (link-in-bio) */
+.links-list{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.biglink{display:flex;justify-content:space-between;align-items:center;gap:16px;background:#fff;border:3px solid var(--ink);padding:20px 26px;box-shadow:6px 6px 0 var(--ink);font-family:var(--disp);font-size:16px;text-transform:uppercase;transition:transform .14s,box-shadow .14s}
+.biglink:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}
+.biglink:nth-child(1):hover{background:var(--yellow)}
+.biglink:nth-child(2):hover{background:var(--cyan)}
+.biglink:nth-child(3):hover{background:var(--green);color:#fff}
+.biglink:nth-child(4):hover{background:var(--purple);color:#fff}
+.biglink .arr{font-size:20px}
+
+/* cta */
+.endcta{background:var(--red);border-top:3px solid var(--ink);text-align:center;color:#fff;overflow:hidden}
+.endcta h2{font-size:clamp(42px,9vw,110px);margin-bottom:14px;text-shadow:6px 6px 0 var(--ink)}
+.endcta h2 .outline{color:transparent;-webkit-text-stroke:3px #fff;text-shadow:none}
+.endcta p{font-weight:700;font-size:17px;margin-bottom:36px}
+.endcta .btn{box-shadow:8px 8px 0 var(--ink)}
+
+footer.site{background:var(--ink);color:#9c9ca6;padding:32px 0}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
+.foot a{border-bottom:2px solid var(--yellow)}
+
+/* confetti */
+.confetti{position:fixed;width:10px;height:10px;pointer-events:none;z-index:999}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(22px) rotate(0deg)!important;transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.3,1)}
+.stagger.in>.work:nth-child(odd),.stagger.in>.svc:nth-child(odd){transform:rotate(-1deg)!important}
+.stagger.in>.work:nth-child(even),.stagger.in>.svc:nth-child(even){transform:rotate(1.2deg)!important}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(1){transition-delay:0s}.stagger.in>*:nth-child(2){transition-delay:.09s}.stagger.in>*:nth-child(3){transition-delay:.18s}.stagger.in>*:nth-child(4){transition-delay:.27s}.stagger.in>*:nth-child(5){transition-delay:.36s}.stagger.in>*:nth-child(6){transition-delay:.45s}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal,.stagger>*{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+@media (max-width:940px){
+  .work-grid,.svc-grid{grid-template-columns:1fr 1fr}
+  .stats .container{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:none}
+  .stat{border-bottom:3px solid #2c2c33}
+  .spinner,.sticker{display:none}
+}
+@media (max-width:620px){
+  section{padding:60px 0}
+  .work-grid,.svc-grid{grid-template-columns:1fr}
+  .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:var(--paper);border-bottom:3px solid var(--ink);flex-direction:column;align-items:flex-start;padding:24px;gap:18px;z-index:99}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+  .shout,.shout.right{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Booking for August <i>★</i> Brand chaos <i>★</i> Merch that sells out <i>★</i> Album art <i>★</i> Memes as a service <i>★</i> Booking for August <i>★</i> Brand chaos <i>★</i> Merch that sells out <i>★</i> Album art <i>★</i> Memes as a service <i>★</i></span>
+    <span>Booking for August <i>★</i> Brand chaos <i>★</i> Merch that sells out <i>★</i> Album art <i>★</i> Memes as a service <i>★</i> Booking for August <i>★</i> Brand chaos <i>★</i> Merch that sells out <i>★</i> Album art <i>★</i> Memes as a service <i>★</i></span>
+  </div>
+</div>
+
+<div class="nav-wrap">
+  <nav class="container">
+    <a class="logo" href="#" aria-label="Riot home"><i>R!</i>Riot</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#shouts">Shouts</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a class="btn btn-red" href="#book" style="padding:11px 20px;font-size:12.5px;box-shadow:4px 4px 0 var(--ink)">Book me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</div>
+
+<header class="hero">
+  <svg class="spinner sp1" viewBox="0 0 120 120" aria-hidden="true">
+    <defs><path id="c" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+    <circle class="core" cx="60" cy="60" r="26"/>
+    <text><textPath href="#c">★ HIRE ME ★ HIRE ME ★ HIRE ME ★ HIRE</textPath></text>
+  </svg>
+  <span class="sticker stk1">100% chaos</span>
+  <span class="sticker stk2">est. 2019</span>
+  <span class="sticker stk3">No beige. ever.</span>
+  <div class="container">
+    <span class="avail"><i aria-hidden="true"></i> 2 slots open for August</span>
+    <h1><span class="r1">Rio Kane</span><span class="r2">makes noise</span></h1>
+    <p class="tag-line">Designer &amp; illustrator for brands that want <mark>trouble, in a good way.</mark> Album covers, merch drops, brand systems, and the occasional meme empire.</p>
+    <div class="hero-actions">
+      <a class="btn btn-red" href="#book">Book a project</a>
+      <a class="btn" href="#work">See the damage ↓</a>
+    </div>
+  </div>
+</header>
+
+<div class="band" aria-hidden="true">
+  <div class="track">
+    <span>Spotify <i>✕</i> Nike SB <i>✕</i> A24 (in my dreams) <i>✕</i> Local taco spot <i>✕</i> Your band probably <i>✕</i> Spotify <i>✕</i> Nike SB <i>✕</i> A24 (in my dreams) <i>✕</i> Local taco spot <i>✕</i> Your band probably <i>✕</i></span>
+  </div>
+</div>
+
+<section id="work">
+  <div class="container">
+    <div class="head-row reveal">
+      <h2>Recent <em>damage</em></h2>
+      <p>Six things I shipped lately. Every one of them made someone at a brand meeting nervous first.</p>
+    </div>
+    <div class="work-grid stagger">
+      <a class="work" href="#"><div class="work-vis" style="background:var(--purple)"><b>Howl FM</b><span class="price-tag">Brand</span></div><div class="work-info"><b>Pirate radio rebrand</b><span>2026</span></div></a>
+      <a class="work" href="#"><div class="work-vis" style="background:var(--red)"><b>Molt</b><span class="price-tag">Merch</span></div><div class="work-info"><b>Tour merch, sold out 2×</b><span>2026</span></div></a>
+      <a class="work" href="#"><div class="work-vis" style="background:var(--green)"><b>Gutsy</b><span class="price-tag">Packaging</span></div><div class="work-info"><b>Kombucha that looks illegal</b><span>2025</span></div></a>
+      <a class="work" href="#"><div class="work-vis" style="background:var(--cyan)"><b style="color:var(--ink);text-shadow:4px 4px 0 #fff">Loop</b><span class="price-tag">App</span></div><div class="work-info"><b>Icon set + app store kit</b><span>2025</span></div></a>
+      <a class="work" href="#"><div class="work-vis" style="background:var(--yellow)"><b style="color:var(--ink);text-shadow:4px 4px 0 #fff">Yolk</b><span class="price-tag">Identity</span></div><div class="work-info"><b>Breakfast chain, full chaos</b><span>2025</span></div></a>
+      <a class="work" href="#"><div class="work-vis" style="background:var(--ink)"><b>Static</b><span class="price-tag">Album</span></div><div class="work-info"><b>Album art + vinyl gatefold</b><span>2024</span></div></a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container">
+    <div class="stat"><b class="count" data-to="63">0</b><span>projects shipped</span></div>
+    <div class="stat"><b class="count" data-to="11">0</b><span>sold-out drops</span></div>
+    <div class="stat"><b class="count" data-to="4" data-suffix="M">0</b><span>meme impressions</span></div>
+    <div class="stat"><b>0</b><span>beige deliverables</span></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="head-row reveal">
+      <h2>Pick your <em>poison</em></h2>
+      <p>Flat prices. No discovery calls that should've been emails.</p>
+    </div>
+    <div class="svc-grid stagger">
+      <div class="svc">
+        <h3>The Sticker Pack</h3>
+        <div class="price">$800</div>
+        <span class="per">1 week · fixed</span>
+        <ul>
+          <li>Logo + 5 sticker-ready marks</li>
+          <li>Color chaos palette</li>
+          <li>Everything as SVG</li>
+        </ul>
+        <a class="btn btn-yellow" href="#book">Grab it</a>
+      </div>
+      <div class="svc">
+        <h3>The Full Riot</h3>
+        <div class="price">$3,500</div>
+        <span class="per">3 weeks · fixed</span>
+        <ul>
+          <li>Complete identity system</li>
+          <li>Merch + social templates</li>
+          <li>Launch assets, all formats</li>
+          <li>One free "make it louder" round</li>
+        </ul>
+        <a class="btn btn-red" href="#book">Start the riot</a>
+      </div>
+      <div class="svc">
+        <h3>Chaos Retainer</h3>
+        <div class="price">$2k<span style="font-size:16px">/mo</span></div>
+        <span class="per">Monthly · 2 slots</span>
+        <ul>
+          <li>Unlimited requests, one at a time</li>
+          <li>48h turnaround average</li>
+          <li>Pause or cancel whenever</li>
+        </ul>
+        <a class="btn" href="#book">Claim a slot</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="shouts" style="background:#fff;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)">
+  <div class="container">
+    <div class="head-row reveal">
+      <h2>The group <em>chat</em></h2>
+      <p>Real messages from real clients. Screenshots available on request.</p>
+    </div>
+    <div class="shouts stagger">
+      <div class="shout"><span class="face" style="background:var(--purple)">MW</span><div class="bubble"><p>"the merch sold out in 41 minutes. FORTY ONE. print more NOW"</p><span>Mara W · Howl FM</span></div></div>
+      <div class="shout right"><span class="face" style="background:var(--red)">DK</span><div class="bubble"><p>"our investor asked who did the branding before he asked about revenue lol"</p><span>Dev K · Gutsy</span></div></div>
+      <div class="shout"><span class="face" style="background:var(--green)">SJ</span><div class="bubble"><p>"legal said the packaging 'feels risky.' customers said TAKE MY MONEY. we sided with customers"</p><span>Sam J · Yolk</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="links">
+  <div class="container">
+    <div class="head-row reveal">
+      <h2>Every<em>where</em> else</h2>
+    </div>
+    <div class="links-list stagger">
+      <a class="biglink" href="#"><span>The meme account (400k)</span><span class="arr">→</span></a>
+      <a class="biglink" href="#"><span>Print shop, posters &amp; zines</span><span class="arr">→</span></a>
+      <a class="biglink" href="#"><span>Monthly chaos newsletter</span><span class="arr">→</span></a>
+      <a class="biglink" href="#"><span>Spotify: what I design to</span><span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="endcta" id="book">
+  <div class="container reveal">
+    <h2>Let's make <span class="outline">noise</span></h2>
+    <p>Tell me what you're building. I'll tell you how loud it can get.</p>
+    <a class="btn btn-yellow" href="#" id="bookBtn">hello@riot.design</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container foot">
+    <span>Riot · © 2026 Rio Kane</span>
+    <div style="display:flex;gap:20px"><a href="#">Instagram</a><a href="#">Dribbble</a><a href="#">The memes</a></div>
+    <span>Template: Riot · LaunchPages kit</span>
+  </div>
+</footer>
+
+<script>
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* nav */
+const navT=document.getElementById('navToggle'),navL=document.getElementById('navLinks');
+if(navT&&navL){
+  navT.addEventListener('click',()=>{const o=navL.classList.toggle('open');navT.setAttribute('aria-expanded',o)});
+  navL.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navL.classList.remove('open')));
+}
+
+/* reveal */
+if(!reduced){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+  document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal,.stagger').forEach(el=>el.classList.add('in'))}
+
+/* count-up */
+function countUp(el){
+  const to=parseFloat(el.dataset.to),suf=el.dataset.suffix||'';
+  const dur=1300,t0=performance.now();
+  (function f(t){
+    const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(to*e)+suf;
+    if(p<1)requestAnimationFrame(f);
+  })(t0);
+}
+if(!reduced){
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target)}}),{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+}else{document.querySelectorAll('.count').forEach(el=>el.textContent=el.dataset.to+(el.dataset.suffix||''))}
+
+/* confetti on book click */
+document.getElementById('bookBtn').addEventListener('click',e=>{
+  if(reduced)return;
+  const colors=['#ff2e2e','#ffd400','#7c2eff','#00c46a','#25d8ff'];
+  for(let i=0;i<26;i++){
+    const c=document.createElement('span');c.className='confetti';
+    c.style.background=colors[i%colors.length];
+    c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';
+    document.body.appendChild(c);
+    const ang=Math.random()*Math.PI*2,dist=60+Math.random()*130;
+    c.animate([
+      {transform:'translate(0,0) rotate(0)',opacity:1},
+      {transform:`translate(${Math.cos(ang)*dist}px,${Math.sin(ang)*dist-40}px) rotate(${Math.random()*540}deg)`,opacity:0}
+    ],{duration:800+Math.random()*500,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>c.remove();
+  }
+});
+</script>
+</body>
+</html>
