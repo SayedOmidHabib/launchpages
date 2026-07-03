@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('anim')</script>
 <style>
 :root{
   --paper:#f3efe4;
@@ -75,6 +76,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:74px}
 /* hero */
 .hero{padding:84px 0 110px;overflow:hidden}
 .hero-grid{position:relative;text-align:center}
+html.anim .hero h1 .row1,html.anim .hero .lead,html.anim .hero .hero-actions,html.anim .hero .hero-note,html.anim .hero .sticker,html.anim .hero .starburst{opacity:0;will-change:transform,opacity}
 .hero h1{font-size:clamp(40px,8.2vw,104px);font-weight:900;margin-bottom:8px}
 .hero h1 .row1{display:block}
 .hero h1 .outline{color:transparent;-webkit-text-stroke:3px var(--black)}
@@ -413,6 +415,48 @@ footer.site{background:var(--black);color:#b7b3a6;padding:34px 0}
 </footer>
 
 <script>
+/* ── kinetic hero: staggered entrance + scroll parallax ── */
+(function(){
+  if(!document.documentElement.classList.contains('anim'))return;
+  const hero=document.querySelector('.hero');if(!hero)return;
+  const easeC=t=>1-Math.pow(1-t,3);
+  const back=t=>{const c=1.7;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2)};
+  const cfg=[
+    {sel:'.hero h1 .row1:nth-child(1)',delay:80, dy:48,speed:-.06},
+    {sel:'.hero h1 .row1:nth-child(2)',delay:210,dy:48,speed:.05},
+    {sel:'.hero h1 .row1:nth-child(3)',delay:340,dy:48,speed:-.11},
+    {sel:'.hero .lead',    delay:500,dy:30,speed:.06},
+    {sel:'.hero-actions',  delay:620,dy:26,speed:.1},
+    {sel:'.hero-note',     delay:720,dy:20,speed:.1},
+    {sel:'.sticker.st1',   delay:560,pop:1,rot:-8,speed:.26, rotSpeed:.03},
+    {sel:'.sticker.st2',   delay:680,pop:1,rot:6, speed:-.18,rotSpeed:-.034},
+    {sel:'.sticker.st3',   delay:800,pop:1,rot:5, speed:.34, rotSpeed:.026},
+    {sel:'.sticker.st4',   delay:920,pop:1,rot:-7,speed:-.28,rotSpeed:-.028},
+    {sel:'.starburst.sb1', delay:1000,pop:1,rot:14,speed:.22,rotSpeed:.16,spinIn:1}
+  ].map(c=>({...c,el:hero.querySelector(c.sel)})).filter(c=>c.el);
+  const t0=performance.now();
+  let sy=0,target=0;
+  const heroLimit=()=>hero.offsetTop+hero.offsetHeight+300;
+  addEventListener('scroll',()=>{target=Math.min(scrollY,heroLimit())},{passive:true});
+  function frame(now){
+    sy+=(target-sy)*.09;                       // lerp for buttery motion
+    const t=now-t0;
+    for(const c of cfg){
+      const e=Math.min(Math.max((t-c.delay)/700,0),1);
+      if(e===0){requestAnimationFrame.bind(null);continue}
+      const enterY=(1-easeC(e))*(c.dy||0);
+      const scale=c.pop?Math.max(back(e),.001):1;
+      const spin=c.spinIn?(1-easeC(e))*-160:0;
+      const rot=(c.rot||0)+spin+sy*(c.rotSpeed||0);
+      c.el.style.opacity=e;
+      c.el.style.transform=`translate3d(0,${(enterY+sy*c.speed).toFixed(2)}px,0) rotate(${rot.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+    }
+    hero.style.backgroundPosition=`0 ${(sy*.3).toFixed(1)}px`;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
 const navT=document.getElementById('navToggle'),navL=document.getElementById('navLinks');
 if(navT&&navL){
   navT.addEventListener('click',()=>{const o=navL.classList.toggle('open');navT.setAttribute('aria-expanded',o)});
