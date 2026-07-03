@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HORIZON 2026 — Two days at the edge of what ships</title>
+<title>HORIZON 2026 · Two days at the edge of what ships</title>
 <meta name="description" content="Horizon is a two-day conference for people who build. Event landing page template.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +45,8 @@ nav{display:flex;align-items:center;justify-content:space-between;height:68px}
 .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
 .nav-links a{font-size:14px;font-weight:600;color:rgba(255,244,234,.75)}
 .nav-links a:hover{color:var(--sun)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;padding:8px}
+.nav-toggle span{display:block;width:23px;height:2.5px;background:var(--cream);margin:5px 0;border-radius:3px}
 
 /* hero */
 .hero{padding:170px 0 90px;position:relative;overflow:hidden;text-align:center}
@@ -142,7 +144,9 @@ footer.site{border-top:1px solid var(--line);padding:40px 0}
   section{padding:60px 0}
   .hero{padding:130px 0 70px}
   .speakers{grid-template-columns:1fr}
-  .nav-links{display:none}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--night-2);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:24px;gap:18px;z-index:99}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
   .hero-sun{display:none}
   .hero-meta{gap:18px 28px}
 }
@@ -153,13 +157,13 @@ footer.site{border-top:1px solid var(--line);padding:40px 0}
 <div class="nav-wrap">
   <nav class="container">
     <a class="logo" href="#" aria-label="Horizon home">HORIZON<span>'26</span></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#speakers">Speakers</a></li>
       <li><a href="#schedule">Schedule</a></li>
       <li><a href="#venue">Venue</a></li>
       <li><a href="#tickets">Tickets</a></li>
     </ul>
-    <a class="btn btn-sun" href="#tickets" style="padding:10px 22px;font-size:13.5px">Get tickets</a>
+    <div style="display:flex;align-items:center;gap:8px"><a class="btn btn-sun" href="#tickets" style="padding:10px 22px;font-size:13.5px">Get tickets</a><button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
   </nav>
 </div>
 
@@ -169,7 +173,7 @@ footer.site{border-top:1px solid var(--line);padding:40px 0}
   <div class="container">
     <span class="date-chip"><b>Oct 8–9, 2026</b> · Pier 70, San Francisco</span>
     <h1>Hori<span class="grad-text">zon</span></h1>
-    <p class="sub">Two days with 600 people who ship. No panels about panels — just builders showing what's next, and the hallway track of the year.</p>
+    <p class="sub">Two days with 600 people who ship. No panels about panels, just builders showing what's next, and the hallway track of the year.</p>
     <div class="hero-actions">
       <a class="btn btn-sun" href="#tickets">Get your ticket</a>
       <a class="btn btn-line" href="#schedule">Browse the schedule</a>
@@ -206,20 +210,20 @@ footer.site{border-top:1px solid var(--line);padding:40px 0}
       <h2>Two days, zero filler</h2>
     </div>
     <div class="days reveal" role="tablist" aria-label="Choose day">
-      <button class="day-tab on" id="tabD1" role="tab" aria-selected="true">Day 1 — Ship</button>
-      <button class="day-tab" id="tabD2" role="tab" aria-selected="false">Day 2 — Scale</button>
+      <button class="day-tab on" id="tabD1" role="tab" aria-selected="true">Day 1, Ship</button>
+      <button class="day-tab" id="tabD2" role="tab" aria-selected="false">Day 2, Scale</button>
     </div>
     <div class="slots reveal" id="day1" role="tabpanel">
       <div class="slot"><time>9:00</time><div><b>Doors + coffee on the pier</b><span>Badge pickup, breakfast burritos, ocean</span></div><span class="kind">Social</span></div>
-      <div class="slot"><time>10:00</time><div><b>Rebuilding our stack live, in 18 minutes</b><span>Amara Kide — with a real production cutover</span></div><span class="kind talk">Keynote</span></div>
+      <div class="slot"><time>10:00</time><div><b>Rebuilding our stack live, in 18 minutes</b><span>Amara Kide, with a real production cutover</span></div><span class="kind talk">Keynote</span></div>
       <div class="slot"><time>11:30</time><div><b>Lightning demos ×8</b><span>Eight builders, six minutes each, no slides allowed</span></div><span class="kind talk">Demos</span></div>
-      <div class="slot"><time>13:00</time><div><b>Long lunch — the hallway track</b><span>90 minutes on purpose. This is where the good stuff happens</span></div><span class="kind">Social</span></div>
-      <div class="slot"><time>15:00</time><div><b>$1M ARR with zero employees</b><span>Leo Vance — dashboard open, numbers visible</span></div><span class="kind talk">Talk</span></div>
-      <div class="slot"><time>17:30</time><div><b>Sunset sessions</b><span>Unconference — pitch a topic at lunch, run it at sunset</span></div><span class="kind">Open</span></div>
+      <div class="slot"><time>13:00</time><div><b>Long lunch, the hallway track</b><span>90 minutes on purpose. This is where the good stuff happens</span></div><span class="kind">Social</span></div>
+      <div class="slot"><time>15:00</time><div><b>$1M ARR with zero employees</b><span>Leo Vance, dashboard open, numbers visible</span></div><span class="kind talk">Talk</span></div>
+      <div class="slot"><time>17:30</time><div><b>Sunset sessions</b><span>Unconference, pitch a topic at lunch, run it at sunset</span></div><span class="kind">Open</span></div>
     </div>
     <div class="slots reveal" id="day2" role="tabpanel" hidden>
-      <div class="slot"><time>9:30</time><div><b>Deleting 400k lines of code</b><span>Sana Patel — a love story with diffs</span></div><span class="kind talk">Keynote</span></div>
-      <div class="slot"><time>11:00</time><div><b>The demo that raised our Series B</b><span>Jules Okonkwo — the actual demo, warts included</span></div><span class="kind talk">Talk</span></div>
+      <div class="slot"><time>9:30</time><div><b>Deleting 400k lines of code</b><span>Sana Patel, a love story with diffs</span></div><span class="kind talk">Keynote</span></div>
+      <div class="slot"><time>11:00</time><div><b>The demo that raised our Series B</b><span>Jules Okonkwo, the actual demo, warts included</span></div><span class="kind talk">Talk</span></div>
       <div class="slot"><time>13:00</time><div><b>Lunch + office hours</b><span>Book 15 minutes with any speaker. Free, first-come</span></div><span class="kind">Social</span></div>
       <div class="slot"><time>15:00</time><div><b>Live teardowns</b><span>Submit your landing page. The room fixes it together</span></div><span class="kind talk">Workshop</span></div>
       <div class="slot"><time>18:00</time><div><b>The bonfire</b><span>On the beach. Bring a hoodie. Deals get done here</span></div><span class="kind">Social</span></div>
@@ -232,8 +236,8 @@ footer.site{border-top:1px solid var(--line);padding:40px 0}
     <div class="reveal">
       <span class="eyebrow">The venue</span>
       <h2>A shipyard, obviously</h2>
-      <p>Pier 70 — a restored 19th-century shipbuilding hall on the San Francisco waterfront. Exposed steel, ocean air, and enough space to think.</p>
-      <p>10 minutes from downtown. Bike valet, shuttle from Caltrain, and yes — the coffee is from the good place.</p>
+      <p>Pier 70, a restored 19th-century shipbuilding hall on the San Francisco waterfront. Exposed steel, ocean air, and enough space to think.</p>
+      <p>10 minutes from downtown. Bike valet, shuttle from Caltrain, and yes, the coffee is from the good place.</p>
     </div>
     <div class="map reveal" aria-label="Stylized venue map, Pier 70 San Francisco"></div>
   </div>
@@ -296,13 +300,15 @@ footer.site{border-top:1px solid var(--line);padding:40px 0}
 
 <footer class="site">
   <div class="container foot">
-    <span>HORIZON '26 — produced by people who also have to demo</span>
+    <span>HORIZON '26, produced by people who also have to demo</span>
     <div class="links"><a href="#">Code of conduct</a><a href="#">Sponsors</a><a href="#">Contact</a></div>
-    <span>Template: Horizon — LaunchPages kit</span>
+    <span>Template: Horizon · LaunchPages kit</span>
   </div>
 </footer>
 
 <script>
+const navT=document.getElementById('navToggle'),navL=document.getElementById('navLinks');
+if(navT&&navL){navT.addEventListener('click',()=>{const o=navL.classList.toggle('open');navT.setAttribute('aria-expanded',o)});navL.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navL.classList.remove('open')))}
 const d1=document.getElementById('day1'),d2=document.getElementById('day2'),t1=document.getElementById('tabD1'),t2=document.getElementById('tabD2');
 function pick(a){
   const one=a===1;

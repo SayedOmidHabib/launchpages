@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PULSE ONE — The drop lands Friday</title>
-<meta name="description" content="Pulse One wireless earbuds — limited drop of 500 units. E-commerce product drop landing page template.">
+<title>PULSE ONE · The drop lands Friday</title>
+<meta name="description" content="Pulse One wireless earbuds, limited drop of 500 units. E-commerce product drop landing page template.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -49,6 +49,8 @@ nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-links a:hover{color:var(--red)}
 .cart{position:relative;font-weight:700;font-size:13.5px;text-transform:uppercase;border:2px solid var(--black);padding:9px 18px;transition:all .15s}
 .cart:hover{background:var(--black);color:var(--white)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;padding:8px}
+.nav-toggle span{display:block;width:24px;height:3px;background:var(--black);margin:5px 0}
 
 /* hero */
 .hero{border-bottom:2px solid var(--black);position:relative;overflow:hidden}
@@ -177,7 +179,9 @@ footer.site{border-top:2px solid var(--black);padding:36px 0;background:var(--wh
 }
 @media (max-width:620px){
   section{padding:60px 0}
-  .nav-links{display:none}
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--white);border-bottom:2px solid var(--black);flex-direction:column;align-items:flex-start;padding:22px;gap:18px;z-index:99}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
   .countdown{flex-wrap:wrap}
 }
 </style>
@@ -186,31 +190,31 @@ footer.site{border-top:2px solid var(--black);padding:36px 0;background:var(--wh
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>Limited drop — 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■ Limited drop — 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■</span>
-    <span>Limited drop — 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■ Limited drop — 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■</span>
+    <span>Limited drop, 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■ Limited drop, 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■</span>
+    <span>Limited drop, 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■ Limited drop, 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■</span>
   </div>
 </div>
 
 <div class="nav-wrap">
   <nav class="container">
     <a class="logo" href="#" aria-label="Pulse home">Pulse<i>.</i></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#story">The One</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="cart" href="#buy">Get the drop</a>
+    <div style="display:flex;align-items:center;gap:6px"><a class="cart" href="#buy">Get the drop</a><button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
   </nav>
 </div>
 
 <header class="hero">
   <div class="container">
     <div>
-      <span class="drop-tag"><i aria-hidden="true"></i> Drop 004 — 500 units only</span>
+      <span class="drop-tag"><i aria-hidden="true"></i> Drop 004, 500 units only</span>
       <h1>Pulse <span>One</span></h1>
       <p><b>Wireless earbuds tuned by producers, not committees.</b> 40-hour battery, studio-flat sound profile, and a case you'll fidget with in meetings.</p>
       <div class="hero-actions">
-        <a class="btn btn-red" href="#buy">Reserve yours — $129</a>
+        <a class="btn btn-red" href="#buy">Reserve yours, $129</a>
         <a class="btn btn-line" href="#story">Why it slaps</a>
       </div>
       <div class="countdown" id="countdown" aria-label="Time until the drop">
@@ -245,7 +249,7 @@ footer.site{border-top:2px solid var(--black);padding:36px 0;background:var(--wh
       <div class="block">
         <span class="num">01</span>
         <h3>Tuned flat, on purpose</h3>
-        <p>Most earbuds boost bass until everything sounds like a car ad. Pulse One ships with the studio-flat profile our producer friends actually mix on — and an EQ if you want to ruin it.</p>
+        <p>Most earbuds boost bass until everything sounds like a car ad. Pulse One ships with the studio-flat profile our producer friends actually mix on, and an EQ if you want to ruin it.</p>
       </div>
       <div class="block fill">
         <span class="num">02</span>
@@ -257,9 +261,9 @@ footer.site{border-top:2px solid var(--black);padding:36px 0;background:var(--wh
 </section>
 
 <div class="band" aria-hidden="true">
-  <div class="cell"><div class="mini"></div><span class="cap">Bone — 250 units</span></div>
-  <div class="cell"><div class="mini"></div><span class="cap">Chalk — 150 units</span></div>
-  <div class="cell"><div class="mini"></div><span class="cap">Signal Red — 100 units</span></div>
+  <div class="cell"><div class="mini"></div><span class="cap">Bone, 250 units</span></div>
+  <div class="cell"><div class="mini"></div><span class="cap">Chalk, 150 units</span></div>
+  <div class="cell"><div class="mini"></div><span class="cap">Signal Red, 100 units</span></div>
 </div>
 
 <section id="reviews">
@@ -269,17 +273,17 @@ footer.site{border-top:2px solid var(--black);padding:36px 0;background:var(--wh
       <div class="review">
         <span class="stars" aria-label="5 stars">★★★★★</span>
         <p>"Flat profile is a revelation. Heard a hi-hat in a song I've played 400 times. Never going back to boomy buds."</p>
-        <b>— Dre M., verified buyer</b>
+        <b>Dre M., verified buyer</b>
       </div>
       <div class="review">
         <span class="stars" aria-label="5 stars">★★★★★</span>
-        <p>"Case magnets are stupidly satisfying. Battery claim is real — charged mine twice in three weeks."</p>
-        <b>— Keiko T., verified buyer</b>
+        <p>"Case magnets are stupidly satisfying. Battery claim is real, charged mine twice in three weeks."</p>
+        <b>Keiko T., verified buyer</b>
       </div>
       <div class="review">
         <span class="stars" aria-label="5 stars">★★★★★</span>
         <p>"Missed drop 002 and cried about it on two continents. Set six alarms for this one. Worth it."</p>
-        <b>— Sam R., verified buyer</b>
+        <b>Sam R., verified buyer</b>
       </div>
     </div>
   </div>
@@ -305,7 +309,7 @@ footer.site{border-top:2px solid var(--black);padding:36px 0;background:var(--wh
       </ul>
     </div>
     <div>
-      <a class="btn btn-red" href="#">Reserve — drop opens Friday 10AM EST</a>
+      <a class="btn btn-red" href="#">Reserve, drop opens Friday 10AM EST</a>
       <p class="note">Card charged only when the drop opens. Cancel anytime before.</p>
     </div>
   </div>
@@ -315,7 +319,7 @@ footer.site{border-top:2px solid var(--black);padding:36px 0;background:var(--wh
   <div class="container">
     <h2 class="reveal" style="font-size:clamp(28px,4.6vw,48px);margin-bottom:36px">Questions</h2>
     <div class="faq reveal">
-      <details><summary>When exactly does the drop open?</summary><div>Friday, 10:00 AM EST. Reservations lock your unit; open sales (if any remain) run until sellout — drop 003 lasted 41 minutes.</div></details>
+      <details><summary>When exactly does the drop open?</summary><div>Friday, 10:00 AM EST. Reservations lock your unit; open sales (if any remain) run until sellout, drop 003 lasted 41 minutes.</div></details>
       <details><summary>Will there be a restock?</summary><div>No. Each drop is one production run. The next drop will be a different product. That's the whole point.</div></details>
       <details><summary>What's in the box?</summary><div>Pulse One buds, charging case, three tip sizes, USB-C cable, and a sticker sheet you'll pretend not to care about.</div></details>
       <details><summary>What if they don't fit / I don't like them?</summary><div>30-day returns for any reason, full refund, we pay return shipping. Warranty covers everything else for 2 years.</div></details>
@@ -325,14 +329,16 @@ footer.site{border-top:2px solid var(--black);padding:36px 0;background:var(--wh
 
 <footer class="site">
   <div class="container foot">
-    <span>Pulse. © 2026 — Drop 004</span>
+    <span>Pulse. © 2026 · Drop 004</span>
     <div class="links"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Support</a></div>
-    <span>Template: Pulse — LaunchPages kit</span>
+    <span>Template: Pulse · LaunchPages kit</span>
   </div>
 </footer>
 
 <script>
-// countdown to next Friday 10:00 (demo logic — replace with your real drop date)
+const navT=document.getElementById('navToggle'),navL=document.getElementById('navLinks');
+if(navT&&navL){navT.addEventListener('click',()=>{const o=navL.classList.toggle('open');navT.setAttribute('aria-expanded',o)});navL.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navL.classList.remove('open')))}
+// countdown to next Friday 10:00 (demo logic, replace with your real drop date)
 const target=(()=>{const d=new Date();d.setDate(d.getDate()+((5-d.getDay()+7)%7||7));d.setHours(10,0,0,0);return d})();
 const pad=n=>String(n).padStart(2,'0');
 function tick(){
