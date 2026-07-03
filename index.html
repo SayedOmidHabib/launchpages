@@ -3,301 +3,394 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LaunchPages — 5 premium landing page templates for $9</title>
-<meta name="description" content="5 conversion-ready landing page templates (AI SaaS, dev tool, mobile app, newsletter, agency). Zero dependencies, pure HTML/CSS. Ship a beautiful landing page tonight — $9 launch price.">
-<meta property="og:title" content="LaunchPages — 5 premium landing page templates for $9">
-<meta property="og:description" content="5 zero-dependency landing page templates with genuinely distinct designs. Open the HTML, change 6 CSS variables, ship tonight.">
+<title>LaunchPages — 8 premium landing page templates for $9</title>
+<meta name="description" content="8 conversion-ready landing page templates (AI SaaS, dev tool, mobile app, newsletter, agency, e-commerce drop, fintech, event). Zero dependencies, pure HTML/CSS. $9 launch price.">
+<meta property="og:title" content="LaunchPages — 8 premium landing page templates for $9">
+<meta property="og:description" content="8 zero-dependency landing page templates with genuinely distinct designs. Open the HTML, change 6 CSS variables, ship tonight.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fafaf8;
-  --card:#ffffff;
-  --ink:#16161a;
-  --ink-2:#5c5c66;
-  --ink-3:#9797a1;
-  --violet:#6d28d9;
-  --violet-soft:#f1eafe;
-  --lime:#d8ff3d;
-  --border:#e7e7e2;
-  --head:'Space Grotesk',sans-serif;
+  --paper:#f3efe4;
+  --black:#141311;
+  --pink:#ff2e88;
+  --blue:#2e58ff;
+  --acid:#d8ff3d;
+  --orange:#ff8a00;
+  --purple:#8b2eff;
+  --disp:'Unbounded',sans-serif;
   --body:'Inter',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3{font-family:var(--head);line-height:1.12;letter-spacing:-.02em}
+body{background:var(--paper);color:var(--black);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--disp);line-height:1.04;letter-spacing:-.01em;text-transform:uppercase}
 a{color:inherit;text-decoration:none}
-.container{max-width:1140px;margin:0 auto;padding:0 24px}
-section{padding:88px 0}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:96px 0;position:relative}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--head);font-weight:600;font-size:16px;padding:15px 30px;border-radius:12px;cursor:pointer;border:2px solid transparent;transition:transform .16s ease,box-shadow .16s ease,background .16s}
-.btn:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
-.btn-buy{background:var(--ink);color:#fff;box-shadow:0 10px 28px rgba(22,22,26,.22)}
-.btn-buy:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(22,22,26,.3)}
-.btn-buy .price-tag{background:var(--lime);color:var(--ink);font-size:13.5px;padding:3px 10px;border-radius:100px}
-.btn-line{border-color:var(--border);background:var(--card)}
-.btn-line:hover{border-color:var(--ink-3)}
+/* dots + checker utility backgrounds */
+.dots{background-image:radial-gradient(var(--black) 1.2px,transparent 1.2px);background-size:22px 22px}
+.checker-strip{height:26px;background:repeating-conic-gradient(var(--black) 0% 25%,var(--paper) 0% 50%);background-size:26px 26px;border-top:3px solid var(--black);border-bottom:3px solid var(--black)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:14px;text-transform:uppercase;padding:18px 32px;cursor:pointer;border:3px solid var(--black);border-radius:14px;transition:transform .15s ease,box-shadow .15s ease;box-shadow:6px 6px 0 var(--black);background:#fff;color:var(--black)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 var(--black)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--black)}
+.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.btn-pink{background:var(--pink);color:#fff}
+.btn-acid{background:var(--acid)}
+.btn-blue{background:var(--blue);color:#fff}
+
+/* ticker */
+.ticker{background:var(--black);color:var(--acid);overflow:hidden;padding:12px 0}
+.ticker-track{display:flex;gap:44px;white-space:nowrap;animation:tick 22s linear infinite;width:max-content}
+.ticker span{font-family:var(--disp);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em;display:flex;gap:44px}
+.ticker i{font-style:normal;color:var(--pink)}
+@keyframes tick{to{transform:translateX(-50%)}}
 
 /* nav */
-.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(250,250,248,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{font-family:var(--head);font-weight:700;font-size:19px;display:flex;align-items:center;gap:9px}
-.logo i{width:26px;height:26px;background:var(--ink);color:var(--lime);border-radius:7px;display:grid;place-items:center;font-style:normal;font-size:14px}
-.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
-.nav-links a{font-size:14.5px;font-weight:500;color:var(--ink-2)}
-.nav-links a:hover{color:var(--ink)}
+.nav-wrap{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:3px solid var(--black)}
+nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:var(--disp);font-weight:900;font-size:19px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.logo i{width:34px;height:34px;background:var(--pink);border:3px solid var(--black);border-radius:10px;display:grid;place-items:center;font-style:normal;color:#fff;font-size:16px;box-shadow:3px 3px 0 var(--black)}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.04em;padding:6px 2px;border-bottom:3px solid transparent}
+.nav-links a:hover{border-bottom-color:var(--pink)}
+.nav-buy{font-family:var(--disp);font-weight:700;font-size:12.5px;text-transform:uppercase;background:var(--acid);border:3px solid var(--black);border-radius:10px;padding:11px 20px;box-shadow:4px 4px 0 var(--black);transition:transform .15s,box-shadow .15s}
+.nav-buy:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--black)}
 
 /* hero */
-.hero{padding:158px 0 64px;text-align:center}
-.story-badge{display:inline-flex;align-items:center;gap:9px;background:var(--violet-soft);color:var(--violet);border-radius:100px;padding:8px 18px;font-size:14px;font-weight:600;margin-bottom:26px}
-.story-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--violet);animation:pulse 1.8s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.hero h1{font-size:clamp(36px,6vw,64px);max-width:840px;margin:0 auto 20px}
-.hero h1 mark{background:var(--lime);padding:0 10px;border-radius:6px}
-.hero .lead{font-size:clamp(16.5px,2.2vw,19px);color:var(--ink-2);max-width:620px;margin:0 auto 36px}
-.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
-.hero-note{font-size:13.5px;color:var(--ink-3)}
+.hero{padding:84px 0 110px;overflow:hidden}
+.hero-grid{position:relative;text-align:center}
+.hero h1{font-size:clamp(40px,8.2vw,104px);font-weight:900;margin-bottom:8px}
+.hero h1 .row1{display:block}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:3px var(--black)}
+.hero h1 .fill-pink{color:var(--pink);text-shadow:5px 5px 0 var(--black)}
+.hero h1 .fill-blue{color:var(--blue);text-shadow:5px 5px 0 var(--black)}
+.hero .lead{font-size:clamp(16.5px,2.2vw,20px);font-weight:600;max-width:640px;margin:28px auto 40px}
+.hero .lead mark{background:var(--acid);padding:2px 8px;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.hero-note{font-size:13.5px;font-weight:600;color:#6b675c}
 
-/* template gallery */
-.gallery-head{max-width:640px;margin-bottom:48px}
-.gallery-head h2{font-size:clamp(28px,4.2vw,42px);margin-bottom:12px}
-.gallery-head p{color:var(--ink-2);font-size:17px}
-.temp{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:44px 0;border-top:1px solid var(--border)}
-.temp:first-of-type{border-top:none}
-.temp-info .num{font-family:var(--head);font-size:14px;font-weight:600;color:var(--violet);display:block;margin-bottom:10px}
-.temp-info h3{font-size:clamp(24px,3vw,32px);margin-bottom:12px}
-.temp-info p{color:var(--ink-2);font-size:15.5px;margin-bottom:20px}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.chips span{font-size:12.5px;font-weight:600;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:5px 13px;color:var(--ink-2)}
-.preview{position:relative;border-radius:16px;border:1px solid var(--border);overflow:hidden;background:var(--card);box-shadow:0 24px 60px rgba(22,22,26,.1);aspect-ratio:16/10.6}
-.preview iframe{width:1280px;height:848px;border:none;transform:scale(.415);transform-origin:0 0;pointer-events:none}
-.preview .open-overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(22,22,26,0);transition:background .2s}
-.preview .open-overlay span{font-family:var(--head);font-weight:600;font-size:15px;background:#fff;border-radius:100px;padding:12px 24px;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;box-shadow:0 8px 24px rgba(0,0,0,.18)}
-.preview:hover .open-overlay{background:rgba(22,22,26,.42)}
-.preview:hover .open-overlay span{opacity:1;transform:none}
-.temp:nth-child(even) .temp-info{order:2}
+/* stickers */
+.sticker{position:absolute;font-family:var(--disp);font-weight:700;text-transform:uppercase;border:3px solid var(--black);padding:12px 20px;border-radius:100px;box-shadow:5px 5px 0 var(--black);font-size:14px;z-index:3;white-space:nowrap}
+.sticker.st1{top:-14px;left:4%;background:var(--orange);color:var(--black);transform:rotate(-8deg)}
+.sticker.st2{top:36px;right:3%;background:var(--blue);color:#fff;transform:rotate(6deg)}
+.sticker.st3{bottom:-8px;left:10%;background:var(--pink);color:#fff;transform:rotate(5deg)}
+.sticker.st4{bottom:26px;right:9%;background:var(--acid);transform:rotate(-7deg)}
+.starburst{position:absolute;width:120px;height:120px;background:var(--acid);border:3px solid var(--black);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);display:grid;place-items:center;font-family:var(--disp);font-weight:900;font-size:20px;z-index:3}
+.starburst.sb1{top:-30px;right:16%;transform:rotate(14deg)}
 
-/* included */
-.included{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 44px}
-.inc h3{font-size:17px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
-.inc h3 svg{stroke:var(--violet);flex-shrink:0}
-.inc p{font-size:14.5px;color:var(--ink-2)}
+/* big number strip */
+.stats{background:var(--blue);border-top:3px solid var(--black);border-bottom:3px solid var(--black);color:#fff}
+.stats .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 20px;text-align:center;border-right:3px solid var(--black)}
+.stat:first-child{border-left:3px solid var(--black)}
+.stat b{font-family:var(--disp);font-weight:900;font-size:clamp(26px,4vw,44px);display:block;color:var(--acid);text-shadow:3px 3px 0 var(--black)}
+.stat span{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+
+/* gallery */
+.gal-head{text-align:center;max-width:760px;margin:0 auto 64px}
+.gal-head h2{font-size:clamp(30px,5.4vw,58px);font-weight:900;margin-bottom:16px}
+.gal-head h2 em{font-style:normal;color:var(--pink);text-shadow:4px 4px 0 var(--black)}
+.gal-head p{font-size:17px;font-weight:600}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.card{border:3px solid var(--black);border-radius:20px;background:#fff;box-shadow:10px 10px 0 var(--black);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease;position:relative}
+.card:hover{transform:translate(-4px,-4px) rotate(0deg)!important;box-shadow:16px 16px 0 var(--black)}
+.card:nth-child(odd){transform:rotate(-1deg)}
+.card:nth-child(even){transform:rotate(1.2deg)}
+.card-top{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:3px solid var(--black)}
+.card-top b{font-family:var(--disp);font-weight:900;font-size:17px;text-transform:uppercase}
+.card-top .cat{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;border:2.5px solid var(--black);border-radius:100px;padding:5px 13px;background:#fff}
+.pv{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:3px solid var(--black);background:#eee}
+.pv iframe{width:1280px;height:800px;border:none;transform:scale(.433);transform-origin:0 0;pointer-events:none}
+.pv .go{position:absolute;inset:0;display:grid;place-items:center;background:rgba(20,19,17,0);transition:background .18s}
+.pv .go span{font-family:var(--disp);font-weight:700;font-size:13px;text-transform:uppercase;background:var(--acid);border:3px solid var(--black);border-radius:100px;padding:12px 24px;box-shadow:4px 4px 0 var(--black);opacity:0;transform:translateY(10px);transition:all .18s}
+.pv:hover .go{background:rgba(20,19,17,.4)}
+.pv:hover .go span{opacity:1;transform:none}
+.card-bot{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.card-bot p{font-size:13.5px;font-weight:600;color:#55524a}
+.card-bot a{font-family:var(--disp);font-weight:700;font-size:12px;text-transform:uppercase;white-space:nowrap;border-bottom:3px solid var(--pink)}
+.card-bot a:hover{background:var(--acid)}
+
+/* included — black section */
+.inside{background:var(--black);color:var(--paper);border-top:3px solid var(--black);border-bottom:3px solid var(--black)}
+.inside h2{font-size:clamp(30px,5vw,54px);font-weight:900;text-align:center;margin-bottom:14px}
+.inside h2 em{font-style:normal;color:var(--acid)}
+.inside .sub{text-align:center;font-weight:600;color:#b7b3a6;margin-bottom:56px}
+.inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.inc{border:3px solid var(--paper);border-radius:18px;padding:28px;background:#1d1c19;box-shadow:7px 7px 0 rgba(216,255,61,.9);transition:transform .15s}
+.inc:hover{transform:translate(-2px,-2px)}
+.inc:nth-child(2){box-shadow:7px 7px 0 var(--pink)}
+.inc:nth-child(4){box-shadow:7px 7px 0 var(--orange)}
+.inc:nth-child(6){box-shadow:7px 7px 0 var(--blue)}
+.inc .big{font-size:32px;display:block;margin-bottom:14px;line-height:1}
+.inc h3{font-size:16px;font-weight:700;margin-bottom:8px;text-transform:none;font-family:var(--disp)}
+.inc p{font-size:14px;color:#b7b3a6;font-weight:500}
 
 /* pricing */
-.buy-card{max-width:560px;margin:0 auto;background:var(--card);border:2px solid var(--ink);border-radius:24px;padding:clamp(32px,5vw,52px);text-align:center;box-shadow:10px 10px 0 var(--lime)}
-.buy-card .was{font-size:17px;color:var(--ink-3);text-decoration:line-through;margin-right:10px}
-.buy-card .now{font-family:var(--head);font-size:56px;font-weight:700}
-.buy-card .launch{display:inline-block;background:var(--violet-soft);color:var(--violet);font-weight:600;font-size:13px;border-radius:100px;padding:6px 16px;margin-bottom:18px}
-.buy-card ul{list-style:none;margin:26px 0 30px;display:flex;flex-direction:column;gap:11px;text-align:left;max-width:340px;margin-left:auto;margin-right:auto}
-.buy-card li{display:flex;gap:10px;font-size:15px;color:var(--ink-2)}
-.buy-card li svg{flex-shrink:0;margin-top:4px;stroke:var(--violet)}
-.buy-card .btn{width:100%;font-size:17px;padding:17px}
-.guarantee{margin-top:16px;font-size:13.5px;color:var(--ink-3)}
+.price-zone{position:relative}
+.price-card{max-width:620px;margin:0 auto;background:#fff;border:4px solid var(--black);border-radius:28px;box-shadow:14px 14px 0 var(--pink);padding:clamp(36px,5vw,60px);text-align:center;position:relative}
+.price-card .burst{position:absolute;top:-46px;right:-36px;width:130px;height:130px;background:var(--orange);border:3px solid var(--black);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);display:grid;place-items:center;font-family:var(--disp);font-weight:900;font-size:15px;transform:rotate(12deg);color:var(--black)}
+.price-card h2{font-size:clamp(26px,4vw,40px);font-weight:900;margin-bottom:20px}
+.price-line{display:flex;align-items:baseline;justify-content:center;gap:18px;margin-bottom:8px}
+.was{font-size:26px;font-weight:800;color:#a09b8c;text-decoration:line-through}
+.now{font-family:var(--disp);font-weight:900;font-size:clamp(64px,10vw,96px);color:var(--pink);text-shadow:5px 5px 0 var(--black)}
+.price-card .per{font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:30px;color:#6b675c}
+.price-card ul{list-style:none;display:flex;flex-direction:column;gap:12px;max-width:380px;margin:0 auto 34px;text-align:left}
+.price-card li{font-weight:600;font-size:15px;padding-left:36px;position:relative}
+.price-card li::before{content:"★";position:absolute;left:0;top:-2px;width:24px;height:24px;background:var(--acid);border:2.5px solid var(--black);border-radius:50%;display:grid;place-items:center;font-size:11px}
+.price-card .btn{width:100%;font-size:16px;padding:22px}
+.guarantee{margin-top:18px;font-size:13.5px;font-weight:600;color:#6b675c}
 
 /* faq */
-.faq{max-width:700px;margin:0 auto}
-.faq details{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}
-.faq summary{padding:20px 24px;cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;font-family:var(--head)}
+.faq-head{text-align:center;margin-bottom:48px}
+.faq-head h2{font-size:clamp(28px,4.6vw,48px);font-weight:900}
+.faq{max-width:760px;margin:0 auto}
+.faq details{border:3px solid var(--black);border-radius:16px;background:#fff;margin-bottom:16px;box-shadow:6px 6px 0 var(--black);overflow:hidden}
+.faq details:nth-child(2){box-shadow:6px 6px 0 var(--pink)}
+.faq details:nth-child(3){box-shadow:6px 6px 0 var(--blue)}
+.faq details:nth-child(4){box-shadow:6px 6px 0 var(--orange)}
+.faq summary{padding:20px 26px;cursor:pointer;font-family:var(--disp);font-weight:700;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:20px;color:var(--violet)}
+.faq summary::after{content:"+";font-size:26px;color:var(--pink);flex-shrink:0}
 .faq details[open] summary::after{content:"–"}
-.faq details div{padding:0 24px 20px;font-size:14.5px;color:var(--ink-2)}
+.faq details div{padding:0 26px 22px;font-size:14.5px;font-weight:500;color:#55524a}
 
-footer.site{border-top:1px solid var(--border);padding:44px 0}
-.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13.5px;color:var(--ink-3)}
+/* end cta */
+.endcta{background:var(--pink);border-top:3px solid var(--black);text-align:center;color:#fff;overflow:hidden;position:relative}
+.endcta h2{font-size:clamp(38px,8vw,96px);font-weight:900;margin-bottom:10px;text-shadow:5px 5px 0 var(--black)}
+.endcta h2 .outline{color:transparent;-webkit-text-stroke:3px #fff;text-shadow:none}
+.endcta p{font-weight:700;font-size:17px;margin-bottom:38px}
+.endcta .btn{box-shadow:8px 8px 0 var(--black)}
 
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+footer.site{background:var(--black);color:#b7b3a6;padding:34px 0}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+.foot a{border-bottom:2px solid var(--acid)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .55s ease}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
   html{scroll-behavior:auto}
+  .ticker-track{animation:none}
 }
+@media (max-width:1240px){.pv iframe{transform:scale(.428)}}
 @media (max-width:980px){
-  .preview iframe{transform:scale(.34)}
-}
-@media (max-width:900px){
-  .temp{grid-template-columns:1fr;gap:24px}
-  .temp:nth-child(even) .temp-info{order:0}
+  .gal{grid-template-columns:1fr;gap:36px}
   .inc-grid{grid-template-columns:1fr 1fr}
-  .preview iframe{width:1280px;transform:scale(calc((100vw - 50px)/1280))}
-  .preview{aspect-ratio:16/10.6}
+  .stats .container{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:3px solid var(--black)}
+  .stat{border-bottom:3px solid var(--black)}
+  .pv iframe{width:1280px;transform:scale(calc((100vw - 60px)/1280))}
 }
-@media (max-width:620px){
-  section{padding:60px 0}
-  .hero{padding:126px 0 48px}
+@media (max-width:640px){
+  section{padding:64px 0}
+  .hero{padding:56px 0 80px}
   .inc-grid{grid-template-columns:1fr}
   .nav-links{display:none}
+  .sticker{display:none}
+  .starburst{display:none}
+  .price-card .burst{width:96px;height:96px;top:-34px;right:-16px;font-size:12px}
 }
 </style>
 </head>
 <body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>8 templates <i>★</i> $9 launch week <i>★</i> zero dependencies <i>★</i> no npm <i>★</i> no build step <i>★</i> commercial license <i>★</i> ship tonight <i>★</i> 8 templates <i>★</i> $9 launch week <i>★</i> zero dependencies <i>★</i> no npm <i>★</i> no build step <i>★</i> commercial license <i>★</i> ship tonight <i>★</i></span>
+    <span>8 templates <i>★</i> $9 launch week <i>★</i> zero dependencies <i>★</i> no npm <i>★</i> no build step <i>★</i> commercial license <i>★</i> ship tonight <i>★</i> 8 templates <i>★</i> $9 launch week <i>★</i> zero dependencies <i>★</i> no npm <i>★</i> no build step <i>★</i> commercial license <i>★</i> ship tonight <i>★</i></span>
+  </div>
+</div>
 
 <div class="nav-wrap">
   <nav class="container">
     <a class="logo" href="#"><i>▲</i>LaunchPages</a>
     <ul class="nav-links">
       <li><a href="#templates">Templates</a></li>
+      <li><a href="#inside">What's inside</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn btn-buy buy-link" style="padding:10px 20px;font-size:14px" href="#pricing">Get the kit — $9</a>
+    <a class="nav-buy buy-link" href="#pricing">Get all 8 → $9</a>
   </nav>
 </div>
 
-<header class="hero">
-  <div class="container">
-    <div class="story-badge"><span class="dot" aria-hidden="true"></span> Launch week — $9 instead of $19</div>
-    <h1>5 landing pages you'd pay a designer $2,000 for. <mark>$9.</mark></h1>
-    <p class="lead">Five genuinely distinct, conversion-ready landing page templates — pure HTML/CSS, zero dependencies, yours forever. Open the file, change six CSS variables, ship tonight.</p>
+<header class="hero dots">
+  <div class="container hero-grid">
+    <span class="sticker st1">No npm!!</span>
+    <span class="sticker st2">8 templates</span>
+    <span class="starburst sb1" aria-hidden="true">$9</span>
+    <h1>
+      <span class="row1">Landing pages</span>
+      <span class="row1 outline">that look</span>
+      <span class="row1"><span class="fill-pink">$2,000</span> <span class="outline">but</span> <span class="fill-blue">cost $9</span></span>
+    </h1>
+    <span class="sticker st3">Ship tonight</span>
+    <span class="sticker st4">Pure HTML/CSS</span>
+    <p class="lead">Eight genuinely different templates — <mark>each one a single HTML file.</mark> No React. No Tailwind. No build step. Open it, change six CSS variables, put your name on the internet tonight.</p>
     <div class="hero-actions">
-      <a class="btn btn-buy buy-link" href="#pricing">Get all 5 templates <span class="price-tag">$9 launch</span></a>
-      <a class="btn btn-line" href="#templates">Browse live demos</a>
+      <a class="btn btn-pink buy-link" href="#pricing">Get all 8 templates — $9</a>
+      <a class="btn" href="#templates">See the live demos ↓</a>
     </div>
-    <p class="hero-note">Instant download · MIT-style license · Use on unlimited projects</p>
+    <p class="hero-note">Instant download · Commercial license · 30-day refund, no questions</p>
   </div>
 </header>
 
-<section id="templates" style="padding-top:20px">
+<div class="checker-strip" aria-hidden="true"></div>
+
+<div class="stats">
   <div class="container">
-    <div class="gallery-head reveal">
-      <h2>Five templates. Five personalities.</h2>
-      <p>Not one design exported five times — each template has its own typography, palette, and point of view. Click any preview to open the full live demo.</p>
-    </div>
+    <div class="stat"><b>8</b><span>Templates</span></div>
+    <div class="stat"><b>0</b><span>Dependencies</span></div>
+    <div class="stat"><b>6</b><span>Variables to rebrand</span></div>
+    <div class="stat"><b>∞</b><span>Projects allowed</span></div>
+  </div>
+</div>
 
-    <div class="temp reveal">
-      <div class="temp-info">
-        <span class="num">01 — AI / SaaS</span>
-        <h3>Nova</h3>
-        <p>Dark, electric, and glassy — for AI products that want to look like they raised a Series A. Bento feature grid, chat-style product mockup, glow-lit pricing.</p>
-        <div class="chips"><span>Dark mode</span><span>Bento grid</span><span>3-tier pricing</span><span>FAQ accordion</span></div>
-        <a class="btn btn-line" href="templates/nova/" target="_blank" rel="noopener">Open live demo ↗</a>
-      </div>
-      <a class="preview" href="templates/nova/" target="_blank" rel="noopener" aria-label="Open Nova live demo">
-        <iframe src="templates/nova/" loading="lazy" title="Nova template preview" tabindex="-1"></iframe>
-        <span class="open-overlay"><span>Open live demo ↗</span></span>
-      </a>
+<section id="templates">
+  <div class="container">
+    <div class="gal-head reveal">
+      <h2>Eight templates. <em>Eight personalities.</em></h2>
+      <p>Not one design exported eight times. Click any card for the full live demo.</p>
     </div>
-
-    <div class="temp reveal">
-      <div class="temp-info">
-        <span class="num">02 — Developer tool</span>
-        <h3>Forge</h3>
-        <p>Terminal-native design for CLIs, APIs, and infrastructure products. Animated terminal hero, before/after code comparison, copy-to-clipboard install command.</p>
-        <div class="chips"><span>Terminal hero</span><span>Code compare</span><span>Monospace accents</span><span>GitHub stars nav</span></div>
-        <a class="btn btn-line" href="templates/forge/" target="_blank" rel="noopener">Open live demo ↗</a>
+    <div class="gal">
+      <div class="card reveal">
+        <div class="card-top"><b>Nova</b><span class="cat" style="background:var(--acid)">AI / SaaS</span></div>
+        <a class="pv" href="templates/nova/" target="_blank" rel="noopener" aria-label="Open Nova live demo">
+          <iframe src="templates/nova/" loading="lazy" title="Nova preview" tabindex="-1"></iframe>
+          <span class="go"><span>Open demo ↗</span></span>
+        </a>
+        <div class="card-bot"><p>Dark, ember-lit, glassy. Bento grid + chat mockup.</p><a href="templates/nova/" target="_blank" rel="noopener">Live demo</a></div>
       </div>
-      <a class="preview" href="templates/forge/" target="_blank" rel="noopener" aria-label="Open Forge live demo">
-        <iframe src="templates/forge/" loading="lazy" title="Forge template preview" tabindex="-1"></iframe>
-        <span class="open-overlay"><span>Open live demo ↗</span></span>
-      </a>
-    </div>
-
-    <div class="temp reveal">
-      <div class="temp-info">
-        <span class="num">03 — Mobile app</span>
-        <h3>Bloom</h3>
-        <p>Warm, playful, and human — for consumer apps that live on feelings. Pure-CSS phone mockup (no screenshots needed), app-store buttons, wall of love.</p>
-        <div class="chips"><span>CSS phone mockup</span><span>App store badges</span><span>Warm palette</span><span>Review cards</span></div>
-        <a class="btn btn-line" href="templates/bloom/" target="_blank" rel="noopener">Open live demo ↗</a>
+      <div class="card reveal">
+        <div class="card-top"><b>Forge</b><span class="cat" style="background:#3ddc84;color:#06130b">Dev tool</span></div>
+        <a class="pv" href="templates/forge/" target="_blank" rel="noopener" aria-label="Open Forge live demo">
+          <iframe src="templates/forge/" loading="lazy" title="Forge preview" tabindex="-1"></iframe>
+          <span class="go"><span>Open demo ↗</span></span>
+        </a>
+        <div class="card-bot"><p>Terminal hero, code compare, monospace everything.</p><a href="templates/forge/" target="_blank" rel="noopener">Live demo</a></div>
       </div>
-      <a class="preview" href="templates/bloom/" target="_blank" rel="noopener" aria-label="Open Bloom live demo">
-        <iframe src="templates/bloom/" loading="lazy" title="Bloom template preview" tabindex="-1"></iframe>
-        <span class="open-overlay"><span>Open live demo ↗</span></span>
-      </a>
-    </div>
-
-    <div class="temp reveal">
-      <div class="temp-info">
-        <span class="num">04 — Newsletter / creator</span>
-        <h3>Signal</h3>
-        <p>Editorial elegance for writers who take themselves seriously. Serif typography, drop caps, a real sample-issue section, and free/member pricing tiers.</p>
-        <div class="chips"><span>Editorial serif</span><span>Sample issue</span><span>Email capture</span><span>Archive list</span></div>
-        <a class="btn btn-line" href="templates/signal/" target="_blank" rel="noopener">Open live demo ↗</a>
+      <div class="card reveal">
+        <div class="card-top"><b>Bloom</b><span class="cat" style="background:#ffd9c4">Mobile app</span></div>
+        <a class="pv" href="templates/bloom/" target="_blank" rel="noopener" aria-label="Open Bloom live demo">
+          <iframe src="templates/bloom/" loading="lazy" title="Bloom preview" tabindex="-1"></iframe>
+          <span class="go"><span>Open demo ↗</span></span>
+        </a>
+        <div class="card-bot"><p>Warm & playful, pure-CSS phone mockup, wall of love.</p><a href="templates/bloom/" target="_blank" rel="noopener">Live demo</a></div>
       </div>
-      <a class="preview" href="templates/signal/" target="_blank" rel="noopener" aria-label="Open Signal live demo">
-        <iframe src="templates/signal/" loading="lazy" title="Signal template preview" tabindex="-1"></iframe>
-        <span class="open-overlay"><span>Open live demo ↗</span></span>
-      </a>
-    </div>
-
-    <div class="temp reveal">
-      <div class="temp-info">
-        <span class="num">05 — Agency / studio</span>
-        <h3>Atelier</h3>
-        <p>Loud, confident, near-brutalist — for studios and portfolios that refuse to whisper. Outline type, marquee strip, hover-shadow work grid, acid accent.</p>
-        <div class="chips"><span>Big type</span><span>Marquee</span><span>Case study grid</span><span>Acid accent</span></div>
-        <a class="btn btn-line" href="templates/atelier/" target="_blank" rel="noopener">Open live demo ↗</a>
+      <div class="card reveal">
+        <div class="card-top"><b>Signal</b><span class="cat" style="background:#fbe9dd">Newsletter</span></div>
+        <a class="pv" href="templates/signal/" target="_blank" rel="noopener" aria-label="Open Signal live demo">
+          <iframe src="templates/signal/" loading="lazy" title="Signal preview" tabindex="-1"></iframe>
+          <span class="go"><span>Open demo ↗</span></span>
+        </a>
+        <div class="card-bot"><p>Editorial serif, drop caps, sample issue, email capture.</p><a href="templates/signal/" target="_blank" rel="noopener">Live demo</a></div>
       </div>
-      <a class="preview" href="templates/atelier/" target="_blank" rel="noopener" aria-label="Open Atelier live demo">
-        <iframe src="templates/atelier/" loading="lazy" title="Atelier template preview" tabindex="-1"></iframe>
-        <span class="open-overlay"><span>Open live demo ↗</span></span>
-      </a>
+      <div class="card reveal">
+        <div class="card-top"><b>Atelier</b><span class="cat" style="background:#d8ff3d">Agency</span></div>
+        <a class="pv" href="templates/atelier/" target="_blank" rel="noopener" aria-label="Open Atelier live demo">
+          <iframe src="templates/atelier/" loading="lazy" title="Atelier preview" tabindex="-1"></iframe>
+          <span class="go"><span>Open demo ↗</span></span>
+        </a>
+        <div class="card-bot"><p>Huge type, marquee, hover-shadow work grid, acid accent.</p><a href="templates/atelier/" target="_blank" rel="noopener">Live demo</a></div>
+      </div>
+      <div class="card reveal">
+        <div class="card-top"><b>Pulse</b><span class="cat" style="background:#ff2e00;color:#fff">E-commerce</span></div>
+        <a class="pv" href="templates/pulse/" target="_blank" rel="noopener" aria-label="Open Pulse live demo">
+          <iframe src="templates/pulse/" loading="lazy" title="Pulse preview" tabindex="-1"></iframe>
+          <span class="go"><span>Open demo ↗</span></span>
+        </a>
+        <div class="card-bot"><p>Product-drop energy: countdown, colorways, sticky hype.</p><a href="templates/pulse/" target="_blank" rel="noopener">Live demo</a></div>
+      </div>
+      <div class="card reveal">
+        <div class="card-top"><b>Ledger</b><span class="cat" style="background:#bde3c8">Fintech</span></div>
+        <a class="pv" href="templates/ledger/" target="_blank" rel="noopener" aria-label="Open Ledger live demo">
+          <iframe src="templates/ledger/" loading="lazy" title="Ledger preview" tabindex="-1"></iframe>
+          <span class="go"><span>Open demo ↗</span></span>
+        </a>
+        <div class="card-bot"><p>Serif trust, reconciliation mockup, deep-green calm.</p><a href="templates/ledger/" target="_blank" rel="noopener">Live demo</a></div>
+      </div>
+      <div class="card reveal">
+        <div class="card-top"><b>Horizon</b><span class="cat" style="background:#ff8a3d">Event</span></div>
+        <a class="pv" href="templates/horizon/" target="_blank" rel="noopener" aria-label="Open Horizon live demo">
+          <iframe src="templates/horizon/" loading="lazy" title="Horizon preview" tabindex="-1"></iframe>
+          <span class="go"><span>Open demo ↗</span></span>
+        </a>
+        <div class="card-bot"><p>Sunset gradients, tabbed schedule, speakers, ticket tiers.</p><a href="templates/horizon/" target="_blank" rel="noopener">Live demo</a></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="included">
+<div class="checker-strip" aria-hidden="true"></div>
+
+<section class="inside" id="inside">
   <div class="container">
-    <div class="gallery-head reveal">
-      <h2>What's in the box</h2>
-    </div>
+    <h2 class="reveal">What's in <em>the box</em></h2>
+    <p class="sub reveal">Everything you need. Nothing you have to install.</p>
     <div class="inc-grid">
-      <div class="inc reveal"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Zero dependencies</h3><p>No React, no Tailwind build step, no npm install. One HTML file per template — open it, edit it, ship it.</p></div>
-      <div class="inc reveal"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>Actually accessible</h3><p>Semantic HTML, visible focus states, 4.5:1 contrast, reduced-motion support. Not an afterthought.</p></div>
-      <div class="inc reveal"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>Responsive by default</h3><p>Tested at 375, 768, 1024, and 1440px. Mobile nav, fluid type, no horizontal scroll.</p></div>
-      <div class="inc reveal"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>5-minute rebrand</h3><p>Every color, font, and radius is a CSS variable at the top of the file. Change 6 lines, own the look.</p></div>
-      <div class="inc reveal"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Conversion patterns baked in</h3><p>Social proof strips, objection-killing FAQs, single primary CTA per screen — the boring stuff that sells.</p></div>
-      <div class="inc reveal"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6"/></svg>Commercial license</h3><p>Use on unlimited client and personal projects. Just don't resell the templates themselves.</p></div>
+      <div class="inc reveal"><span class="big" aria-hidden="true">📦</span><h3>Zero dependencies</h3><p>No React, no Tailwind, no npm. One HTML file per template — open it, edit it, ship it.</p></div>
+      <div class="inc reveal"><span class="big" aria-hidden="true">🎨</span><h3>5-minute rebrand</h3><p>Every color, font, and radius is a CSS variable at the top of the file. Change 6 lines, own the look.</p></div>
+      <div class="inc reveal"><span class="big" aria-hidden="true">📱</span><h3>Responsive for real</h3><p>Tested at 375, 768, 1024, and 1440px. Mobile nav, fluid type, no horizontal scroll.</p></div>
+      <div class="inc reveal"><span class="big" aria-hidden="true">♿</span><h3>Actually accessible</h3><p>Semantic HTML, visible focus states, 4.5:1 contrast, reduced-motion support baked in.</p></div>
+      <div class="inc reveal"><span class="big" aria-hidden="true">📈</span><h3>Built to convert</h3><p>Social proof strips, objection-killing FAQs, one primary CTA per screen. The boring stuff that sells.</p></div>
+      <div class="inc reveal"><span class="big" aria-hidden="true">📜</span><h3>Commercial license</h3><p>Unlimited personal and client projects. Just don't resell the templates themselves.</p></div>
     </div>
   </div>
 </section>
 
-<section id="pricing">
+<section id="pricing" class="price-zone dots">
   <div class="container">
-    <div class="buy-card reveal">
-      <span class="launch">⚡ Launch-week price — then $19</span>
-      <div><span class="was">$19</span><span class="now">$9</span></div>
-      <p style="color:var(--ink-2);font-size:15px">One payment. All five templates. Every future update.</p>
+    <div class="price-card reveal">
+      <span class="burst" aria-hidden="true">-53%!</span>
+      <h2>All 8. One price.</h2>
+      <div class="price-line"><span class="was">$19</span><span class="now">$9</span></div>
+      <p class="per">Launch week only — then $19</p>
       <ul>
-        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>All 5 templates (HTML + CSS + vanilla JS)</li>
-        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Customization guide (rebrand in 5 minutes)</li>
-        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Commercial license, unlimited projects</li>
-        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Every future update, free forever</li>
+        <li>All 8 templates (HTML + CSS + vanilla JS)</li>
+        <li>Customization guide — rebrand in 5 minutes</li>
+        <li>Commercial license, unlimited projects</li>
+        <li>Every future template added to the pack, free</li>
       </ul>
-      <a class="btn btn-buy buy-link" href="#" id="buyBtn">Get LaunchPages — $9</a>
-      <p class="guarantee">Not happy? Reply to your receipt within 30 days for a full refund.</p>
+      <a class="btn btn-pink buy-link" href="#" id="buyBtn">Get LaunchPages — $9</a>
+      <p class="guarantee">30-day refund. Reply to your receipt, get your money back, keep the files.</p>
     </div>
   </div>
 </section>
 
 <section id="faq" style="padding-top:20px">
   <div class="container">
-    <div class="gallery-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
-      <h2>Fair questions</h2>
+    <div class="faq-head reveal"><h2>Fair questions</h2></div>
+    <div class="faq reveal">
+      <details><summary>Can't I just view-source the demos?</summary><div>Sure — the demos are HTML, like every website. What you're buying is the clean, organized source, the customization guide, a commercial license that makes client work legal, and all eight in one download with free updates.</div></details>
+      <details><summary>What exactly do I get?</summary><div>A ZIP with eight template folders (each a single self-contained index.html), a README, a customization guide covering colors/fonts/sections, and the license. No build tools required — double-click and edit.</div></details>
+      <details><summary>Can I use these for client projects?</summary><div>Yes. The license covers unlimited personal and commercial projects. The only thing you can't do is repackage and resell the templates themselves.</div></details>
+      <details><summary>What if they're not as good as the demos?</summary><div>The demos <em>are</em> the templates — pixel for pixel. And there's a 30-day, no-questions refund either way.</div></details>
     </div>
-    <div class="faq">
-      <details class="reveal"><summary>Can't I just view-source the demos?</summary><div>Sure — the demos are HTML, like every website. What you're buying is the clean, organized source with the customization guide, a commercial license that makes client work legal, and all five in one download with free updates.</div></details>
-      <details class="reveal"><summary>What exactly do I get?</summary><div>A ZIP with five template folders (each a single self-contained index.html), a README, a customization guide covering colors/fonts/sections, and the license. No build tools required — double-click and edit.</div></details>
-      <details class="reveal"><summary>Can I use these for client projects?</summary><div>Yes. The license covers unlimited personal and commercial projects. The only thing you can't do is repackage and resell the templates themselves.</div></details>
-      <details class="reveal"><summary>What if they're not as good as the demos?</summary><div>The demos <em>are</em> the templates — pixel for pixel. And there's a 30-day, no-questions refund either way.</div></details>
-    </div>
+  </div>
+</section>
+
+<section class="endcta">
+  <div class="container reveal">
+    <h2>Ship it <span class="outline">tonight</span></h2>
+    <p>8 templates · $9 · downloaded in the next 30 seconds</p>
+    <a class="btn btn-acid buy-link" href="#pricing">Get the kit — $9</a>
   </div>
 </section>
 
 <footer class="site">
   <div class="container foot">
     <span>LaunchPages © 2026</span>
-    <span><a href="#templates" style="text-decoration:underline">Browse the templates</a></span>
+    <span><a href="#templates">Browse the templates</a></span>
   </div>
 </footer>
 
 <script>
-// GUMROAD_URL is swapped in once the store goes live
 const GUMROAD_URL="https://launchpages.gumroad.com/l/pszqyk";
 if(GUMROAD_URL && !GUMROAD_URL.startsWith("__")){
   document.querySelectorAll(".buy-link").forEach(a=>{a.href=GUMROAD_URL;a.target="_blank";a.rel="noopener"});

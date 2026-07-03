@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledger — Bookkeeping that closes itself</title>
+<meta name="description" content="Ledger reconciles your books daily and closes your month in hours, not weeks. Fintech SaaS landing page template.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7f5ef;
+  --green:#0c3b2e;
+  --green-2:#11523f;
+  --mint:#bde3c8;
+  --gold:#c99a2e;
+  --ink:#132018;
+  --ink-2:#4e5d54;
+  --ink-3:#8a968e;
+  --line:#dcd8cb;
+  --serif:'Instrument Serif',serif;
+  --sans:'Inter',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:92px 0}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:16px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:15px;padding:14px 28px;border-radius:8px;cursor:pointer;border:1.5px solid transparent;transition:all .17s ease}
+.btn:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px}
+.btn-green{background:var(--green);color:var(--cream)}
+.btn-green:hover{background:var(--green-2)}
+.btn-line{border-color:var(--green);color:var(--green)}
+.btn-line:hover{background:var(--green);color:var(--cream)}
+
+/* nav */
+.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(247,245,239,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:24px}
+.logo i{width:28px;height:28px;border-radius:7px;background:var(--green);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:14px;font-style:normal}
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center}
+.nav-links a{font-size:14.5px;font-weight:500;color:var(--ink-2)}
+.nav-links a:hover{color:var(--green)}
+
+/* hero */
+.hero{padding:168px 0 80px}
+.hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(42px,6vw,68px);margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hero p{font-size:17.5px;color:var(--ink-2);max-width:440px;margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.hero-note{font-size:13.5px;color:var(--ink-3)}
+.hero-note b{color:var(--ink-2)}
+
+/* ledger card */
+.book{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 30px 70px rgba(19,32,24,.12);overflow:hidden}
+.book-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line);background:var(--green);color:var(--cream)}
+.book-head b{font-family:var(--serif);font-size:18px;font-weight:400}
+.book-head span{font-family:var(--mono);font-size:11.5px;background:rgba(189,227,200,.18);border:1px solid rgba(189,227,200,.35);color:var(--mint);padding:4px 12px;border-radius:100px}
+.row{display:grid;grid-template-columns:1fr auto auto;gap:16px;padding:14px 22px;border-bottom:1px solid #efece3;font-size:13.5px;align-items:center}
+.row:last-child{border-bottom:none}
+.row .who b{display:block;font-weight:600;font-size:13.5px}
+.row .who span{color:var(--ink-3);font-size:12px}
+.amt{font-family:var(--mono);font-size:13px}
+.amt.in{color:#177245}
+.badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px}
+.badge.ok{background:#e2f2e7;color:#177245}
+.badge.auto{background:#fdf3dd;color:#8a6414}
+.book-foot{padding:16px 22px;background:#fbfaf6;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-2)}
+.book-foot b{font-family:var(--mono);color:var(--green)}
+
+/* logos */
+.logos{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fbfaf6}
+.logos .container{display:flex;justify-content:center;align-items:center;gap:clamp(24px,5vw,60px);flex-wrap:wrap}
+.logos span{font-family:var(--serif);font-size:18px;color:var(--ink-3)}
+.logos i{font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-family:var(--sans)}
+
+/* features */
+.section-head{max-width:620px;margin-bottom:52px}
+.section-head h2{font-size:clamp(30px,4.4vw,46px);margin-bottom:14px}
+.section-head h2 em{font-style:italic;color:var(--green)}
+.section-head p{color:var(--ink-2);font-size:16.5px}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:30px;transition:transform .18s ease,box-shadow .18s ease}
+.feat:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(19,32,24,.08)}
+.feat .n{font-family:var(--mono);font-size:12px;color:var(--gold);display:block;margin-bottom:16px}
+.feat h3{font-size:22px;margin-bottom:10px}
+.feat p{font-size:14.5px;color:var(--ink-2)}
+
+/* numbers band */
+.numbers{background:var(--green);color:var(--cream)}
+.numbers .container{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+.numbers b{font-family:var(--serif);font-size:clamp(40px,6vw,64px);display:block;color:var(--mint)}
+.numbers span{font-size:14px;color:rgba(247,245,239,.75)}
+.numbers .container>div{position:relative}
+.numbers .container>div:not(:last-child)::after{content:"";position:absolute;right:-20px;top:12%;bottom:12%;width:1px;background:rgba(189,227,200,.25)}
+
+/* quote */
+.quote{max-width:780px;margin:0 auto;text-align:center}
+.quote p{font-family:var(--serif);font-size:clamp(22px,3.4vw,32px);line-height:1.35;margin-bottom:26px}
+.quote p em{font-style:italic;color:var(--green)}
+.quote cite{font-style:normal;font-size:14px;color:var(--ink-3)}
+.quote cite b{color:var(--ink);font-weight:600}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:start}
+.tier{background:#fff;border:1px solid var(--line);border-radius:12px;padding:34px 30px}
+.tier.hot{border:1.5px solid var(--green);position:relative}
+.tier .tag{position:absolute;top:-12px;left:30px;background:var(--gold);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px}
+.tier h3{font-size:24px;margin-bottom:4px}
+.tier .for{font-size:13.5px;color:var(--ink-3);margin-bottom:22px}
+.tier .amt2{font-family:var(--serif);font-size:44px;margin-bottom:2px}
+.tier .amt2 small{font-size:15px;color:var(--ink-3);font-family:var(--sans)}
+.tier ul{list-style:none;margin:22px 0 28px;display:flex;flex-direction:column;gap:10px}
+.tier li{font-size:14px;color:var(--ink-2);padding-left:24px;position:relative}
+.tier li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.tier .btn{width:100%}
+
+/* faq */
+.faq{max-width:700px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{padding:22px 4px;cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--serif);font-size:24px;color:var(--gold)}
+.faq details[open] summary::after{content:"–"}
+.faq details div{padding:0 4px 22px;font-size:14.5px;color:var(--ink-2)}
+
+/* cta */
+.cta{background:var(--green);color:var(--cream);text-align:center;border-radius:20px;padding:76px 32px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:520px;height:520px;border-radius:50%;border:1px solid rgba(189,227,200,.2)}
+.cta::after{content:"";position:absolute;top:-25%;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;border:1px solid rgba(189,227,200,.25)}
+.cta h2{font-size:clamp(32px,5vw,52px);margin-bottom:16px;position:relative}
+.cta h2 em{font-style:italic;color:var(--mint)}
+.cta p{color:rgba(247,245,239,.8);margin-bottom:34px;position:relative}
+.cta .btn{position:relative;background:var(--cream);color:var(--green)}
+.cta .btn:hover{background:var(--mint)}
+
+footer.site{padding:44px 0;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13.5px;color:var(--ink-3)}
+.foot .links{display:flex;gap:22px}
+.foot a:hover{color:var(--green)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+@media (max-width:920px){
+  .hero .container{grid-template-columns:1fr}
+  .feats,.tiers{grid-template-columns:1fr 1fr}
+  .numbers .container{grid-template-columns:1fr;gap:28px}
+  .numbers .container>div::after{display:none}
+}
+@media (max-width:620px){
+  section{padding:60px 0}
+  .hero{padding:130px 0 56px}
+  .feats,.tiers{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav class="container">
+    <a class="logo" href="#" aria-label="Ledger home"><i>Σ</i>Ledger</a>
+    <ul class="nav-links">
+      <li><a href="#how">Product</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#">Sign in</a></li>
+    </ul>
+    <a class="btn btn-green" href="#pricing" style="padding:10px 20px;font-size:14px">Start closing faster</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <div>
+      <span class="eyebrow">Bookkeeping, automated</span>
+      <h1>The books close <em>themselves</em> now</h1>
+      <p>Ledger reconciles every transaction daily, drafts your journal entries, and turns month-end close from a two-week scramble into a Tuesday afternoon.</p>
+      <div class="hero-actions">
+        <a class="btn btn-green" href="#pricing">Start free for 30 days</a>
+        <a class="btn btn-line" href="#how">See how it works</a>
+      </div>
+      <p class="hero-note"><b>No credit card.</b> SOC 2 Type II · Works with QuickBooks, Xero & NetSuite</p>
+    </div>
+    <div class="book" aria-label="Reconciliation preview">
+      <div class="book-head"><b>June close</b><span>98.2% auto-matched</span></div>
+      <div class="row"><div class="who"><b>Stripe payout #8841</b><span>Matched to 214 invoices</span></div><span class="amt in">+$48,209.16</span><span class="badge auto">Auto</span></div>
+      <div class="row"><div class="who"><b>AWS — June</b><span>Categorized · Cloud infra</span></div><span class="amt">−$12,441.90</span><span class="badge ok">Done</span></div>
+      <div class="row"><div class="who"><b>Gusto payroll</b><span>Split across 4 departments</span></div><span class="amt">−$96,310.55</span><span class="badge ok">Done</span></div>
+      <div class="row"><div class="who"><b>Deel contractors</b><span>Accrual drafted for review</span></div><span class="amt">−$18,750.00</span><span class="badge auto">Auto</span></div>
+      <div class="book-foot"><span>Close progress</span><b>11 of 12 tasks · on day 2</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="logos">
+  <div class="container">
+    <i>Trusted by finance teams at</i>
+    <span>Harbor & Co</span><span>Beacon Health</span><span>Rowan Freight</span><span>Fieldstone</span><span>Marlow Labs</span>
+  </div>
+</div>
+
+<section id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What Ledger does</span>
+      <h2>Your month-end, <em>minus the month</em></h2>
+      <p>Ledger sits on top of your existing accounting stack — nothing to migrate, nothing to re-learn.</p>
+    </div>
+    <div class="feats">
+      <div class="feat reveal"><span class="n">— 01</span><h3>Daily reconciliation</h3><p>Bank feeds, processors, and payroll matched every night. Exceptions surface at breakfast, not at month-end.</p></div>
+      <div class="feat reveal"><span class="n">— 02</span><h3>Drafted journal entries</h3><p>Accruals, deferrals, and amortization schedules drafted with full audit trails. You review; Ledger writes.</p></div>
+      <div class="feat reveal"><span class="n">— 03</span><h3>Close checklist that runs itself</h3><p>Tasks auto-complete as their conditions are met. Your controller sees one screen, not nine spreadsheets.</p></div>
+      <div class="feat reveal"><span class="n">— 04</span><h3>Flux analysis, explained</h3><p>"Why is software spend up 40%?" answered in plain English, with the exact transactions behind it.</p></div>
+      <div class="feat reveal"><span class="n">— 05</span><h3>Audit-ready by default</h3><p>Every number links to its source document. Your auditors will think you hired three people.</p></div>
+      <div class="feat reveal"><span class="n">— 06</span><h3>Controls, not surprises</h3><p>Approval flows and anomaly alerts catch the $80k duplicate invoice before it pays out.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="numbers">
+  <div class="container">
+    <div class="reveal"><b>2.4 days</b><span>average close, down from 13</span></div>
+    <div class="reveal"><b>98%</b><span>of transactions auto-matched</span></div>
+    <div class="reveal"><b>$0</b><span>of audit adjustments last quarter, median customer</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="quote reveal">
+      <p>We closed June in <em>two days</em> with a two-person finance team. Our board thinks we're hiding headcount somewhere.</p>
+      <cite><b>Ruth Ellison</b> — VP Finance, Rowan Freight</cite>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:#fbfaf6;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pricing</span>
+      <h2>Priced like software, <em>not headcount</em></h2>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal">
+        <h3>Seed</h3>
+        <p class="for">Up to $1M annual expenses</p>
+        <div class="amt2">$149<small>/mo</small></div>
+        <ul>
+          <li>Daily reconciliation</li>
+          <li>2 entity, 3 seats</li>
+          <li>QuickBooks & Xero sync</li>
+        </ul>
+        <a class="btn btn-line" href="#">Start free trial</a>
+      </div>
+      <div class="tier hot reveal">
+        <span class="tag">Most popular</span>
+        <h3>Growth</h3>
+        <p class="for">Up to $20M annual expenses</p>
+        <div class="amt2">$449<small>/mo</small></div>
+        <ul>
+          <li>Everything in Seed</li>
+          <li>Unlimited entities & seats</li>
+          <li>Flux analysis & close checklist</li>
+          <li>Approval controls</li>
+        </ul>
+        <a class="btn btn-green" href="#">Start free trial</a>
+      </div>
+      <div class="tier reveal">
+        <h3>Scale</h3>
+        <p class="for">NetSuite, multi-currency, audit</p>
+        <div class="amt2">Custom</div>
+        <ul>
+          <li>NetSuite & Sage Intacct</li>
+          <li>Dedicated close manager</li>
+          <li>SSO, SOC reports, DPA</li>
+        </ul>
+        <a class="btn btn-line" href="#">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Sensible questions</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary>Does Ledger replace my accountant?</summary><div>No — it replaces their busywork. Ledger drafts and matches; a human approves. Firms use it to serve 3× the clients with the same team.</div></details>
+      <details class="reveal"><summary>Which systems does it connect to?</summary><div>QuickBooks Online, Xero, NetSuite, Sage Intacct, plus 12,000 banks, Stripe, Gusto, Deel, Ramp, and Brex. Anything else via CSV or API.</div></details>
+      <details class="reveal"><summary>Is my financial data safe?</summary><div>SOC 2 Type II, encryption at rest and in transit, read-only bank connections, and role-based access. We never move money.</div></details>
+      <details class="reveal"><summary>How long does setup take?</summary><div>Most teams connect their stack in under an hour and see their first auto-reconciled day tomorrow morning. Historical cleanup is available as a service.</div></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta reveal">
+      <h2>Close the month.<br><em>Keep the month.</em></h2>
+      <p>30 days free. Cancel with one click, keep the clean books.</p>
+      <a class="btn" href="#pricing">Start your free trial</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container foot">
+    <span style="font-family:var(--serif);font-size:16px">Ledger © 2026</span>
+    <div class="links"><a href="#">Security</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+    <span>Template: Ledger — LaunchPages kit</span>
+  </div>
+</footer>
+
+<script>
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PULSE ONE — The drop lands Friday</title>
+<meta name="description" content="Pulse One wireless earbuds — limited drop of 500 units. E-commerce product drop landing page template.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#f5f4f0;
+  --black:#0d0d0c;
+  --red:#ff2e00;
+  --gray:#77756e;
+  --line:#d8d6cf;
+  --display:'Archivo Black',sans-serif;
+  --body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--black);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--display);line-height:.95;text-transform:uppercase;letter-spacing:-.01em;font-weight:400}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:90px 0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--display);font-size:15px;text-transform:uppercase;padding:18px 36px;cursor:pointer;border:2px solid var(--black);transition:all .15s ease;letter-spacing:.03em}
+.btn:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.btn-red{background:var(--red);color:var(--white);border-color:var(--red)}
+.btn-red:hover{background:var(--black);border-color:var(--black)}
+.btn-line{background:transparent;color:var(--black)}
+.btn-line:hover{background:var(--black);color:var(--white)}
+
+/* ticker */
+.ticker{background:var(--red);color:var(--white);overflow:hidden;padding:10px 0;border-bottom:2px solid var(--black)}
+.ticker-track{display:flex;gap:40px;white-space:nowrap;animation:tick 18s linear infinite;width:max-content}
+.ticker span{font-family:var(--display);font-size:13px;text-transform:uppercase;letter-spacing:.08em;display:flex;gap:40px}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* nav */
+.nav-wrap{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:2px solid var(--black)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--display);font-size:20px;text-transform:uppercase}
+.logo i{font-style:normal;color:var(--red)}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-weight:600;font-size:13.5px;text-transform:uppercase;letter-spacing:.06em}
+.nav-links a:hover{color:var(--red)}
+.cart{position:relative;font-weight:700;font-size:13.5px;text-transform:uppercase;border:2px solid var(--black);padding:9px 18px;transition:all .15s}
+.cart:hover{background:var(--black);color:var(--white)}
+
+/* hero */
+.hero{border-bottom:2px solid var(--black);position:relative;overflow:hidden}
+.hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:60px;padding-bottom:60px}
+.drop-tag{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--black);padding:8px 16px;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:28px;background:#fff}
+.drop-tag i{width:9px;height:9px;background:var(--red);border-radius:50%;animation:blink 1.2s steps(1) infinite}
+@keyframes blink{50%{opacity:.25}}
+.hero h1{font-size:clamp(56px,10vw,130px);margin-bottom:22px}
+.hero h1 span{color:var(--red)}
+.hero p{font-size:17px;color:var(--gray);max-width:400px;margin-bottom:34px;font-weight:500}
+.hero p b{color:var(--black)}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.countdown{display:flex;gap:14px}
+.cd{border:2px solid var(--black);background:#fff;padding:12px 0;text-align:center;width:78px}
+.cd b{font-family:var(--display);font-size:26px;display:block}
+.cd span{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gray);font-weight:700}
+
+/* product visual */
+.stage{position:relative;display:grid;place-items:center;min-height:480px}
+.disc{position:absolute;width:400px;height:400px;border-radius:50%;background:var(--red)}
+.disc::after{content:"";position:absolute;inset:24px;border-radius:50%;border:2px dashed rgba(255,255,255,.5)}
+.bud{position:relative;z-index:2;width:150px;height:190px;background:linear-gradient(160deg,#1c1c1a,#393936 55%,#101010);border-radius:70px 70px 58px 58px;box-shadow:24px 32px 0 rgba(13,13,12,.18);transform:rotate(-14deg)}
+.bud::before{content:"";position:absolute;top:26px;left:26px;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#6b6b66,#22221f 70%)}
+.bud::after{content:"";position:absolute;bottom:-58px;right:34px;width:38px;height:98px;background:linear-gradient(180deg,#393936,#171715);border-radius:20px}
+.bud.two{position:absolute;z-index:1;transform:rotate(18deg) translate(120px,44px) scale(.82);opacity:.92}
+.sticker{position:absolute;z-index:3;font-family:var(--display);text-transform:uppercase;background:#fff;border:2px solid var(--black);padding:10px 16px;font-size:13px;box-shadow:5px 5px 0 var(--black)}
+.sticker.s1{top:44px;right:24px;transform:rotate(7deg)}
+.sticker.s2{bottom:60px;left:8px;transform:rotate(-6deg);background:var(--black);color:var(--white);box-shadow:5px 5px 0 var(--red)}
+
+/* specs strip */
+.specs{border-bottom:2px solid var(--black);background:var(--black);color:var(--white)}
+.specs .container{display:grid;grid-template-columns:repeat(4,1fr);padding:0}
+.spec{padding:30px 26px;border-right:2px solid #2c2c29}
+.spec:last-child{border-right:none}
+.spec b{font-family:var(--display);font-size:30px;display:block;color:var(--red)}
+.spec span{font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:#a3a19a;font-weight:600}
+
+/* story blocks */
+.blocks{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--black)}
+.block{padding:44px 40px;border-right:2px solid var(--black)}
+.block:last-child{border-right:none}
+.block.fill{background:var(--red);color:var(--white)}
+.block h3{font-size:clamp(22px,3vw,32px);margin-bottom:16px}
+.block p{font-size:15.5px;color:var(--gray);font-weight:500}
+.block.fill p{color:rgba(255,255,255,.85)}
+.block .num{font-family:var(--display);font-size:15px;display:block;margin-bottom:22px;color:var(--red)}
+.block.fill .num{color:var(--white)}
+
+/* gallery band */
+.band{border-top:2px solid var(--black);border-bottom:2px solid var(--black);display:grid;grid-template-columns:repeat(3,1fr)}
+.cell{aspect-ratio:1/.72;border-right:2px solid var(--black);display:grid;place-items:center;position:relative;overflow:hidden}
+.cell:last-child{border-right:none}
+.cell:nth-child(1){background:#e8e6df}
+.cell:nth-child(2){background:var(--black)}
+.cell:nth-child(3){background:var(--red)}
+.cell .mini{width:64px;height:82px;background:linear-gradient(160deg,#1c1c1a,#393936 55%,#101010);border-radius:30px 30px 24px 24px}
+.cell:nth-child(2) .mini{background:linear-gradient(160deg,#f5f4f0,#c9c7bf 60%,#a3a19a)}
+.cell .cap{position:absolute;bottom:14px;left:16px;font-family:var(--display);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.cell:nth-child(2) .cap,.cell:nth-child(3) .cap{color:var(--white)}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--black)}
+.review{padding:32px 28px;border-right:2px solid var(--black);background:#fff}
+.review:last-child{border-right:none}
+.review .stars{color:var(--red);font-size:17px;letter-spacing:3px;margin-bottom:14px;display:block}
+.review p{font-size:14.5px;font-weight:500;margin-bottom:18px}
+.review b{font-family:var(--display);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+
+/* buy section */
+.buy{background:var(--black);color:var(--white);border-top:2px solid var(--black)}
+.buy .container{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.buy h2{font-size:clamp(36px,6vw,72px);margin-bottom:18px}
+.buy h2 span{color:var(--red)}
+.buy .price-row{display:flex;align-items:baseline;gap:16px;margin-bottom:26px}
+.buy .price{font-family:var(--display);font-size:52px}
+.buy .was{color:#77756e;text-decoration:line-through;font-size:22px;font-weight:600}
+.opts{margin-bottom:26px}
+.opts p{font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:#a3a19a;margin-bottom:10px}
+.swatches{display:flex;gap:12px}
+.swatch{width:44px;height:44px;border-radius:50%;border:2px solid #3c3c39;cursor:pointer;transition:transform .12s,border-color .12s}
+.swatch:hover,.swatch.on{border-color:var(--white);transform:scale(1.1)}
+.buy ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.buy li{font-size:15px;font-weight:500;color:#c9c7bf;display:flex;gap:12px}
+.buy li::before{content:"■";color:var(--red);font-size:10px;line-height:2.2}
+.buy .btn-red{width:100%;font-size:17px;padding:22px}
+.buy .note{margin-top:14px;font-size:13px;color:#77756e;text-align:center}
+
+/* faq */
+.faq{max-width:720px;margin:0 auto}
+.faq details{border:2px solid var(--black);margin-bottom:-2px;background:#fff}
+.faq summary{padding:20px 24px;cursor:pointer;font-family:var(--display);font-size:14px;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--red);font-size:20px}
+.faq details[open] summary::after{content:"–"}
+.faq details div{padding:0 24px 22px;font-size:14.5px;color:var(--gray);font-weight:500}
+
+footer.site{border-top:2px solid var(--black);padding:36px 0;background:var(--white)}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
+.foot .links{display:flex;gap:24px}
+.foot a:hover{color:var(--red)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+  .ticker-track{animation:none}
+}
+@media (max-width:920px){
+  .hero .container{grid-template-columns:1fr}
+  .stage{min-height:420px;order:-1}
+  .specs .container{grid-template-columns:1fr 1fr}
+  .spec:nth-child(2){border-right:none}
+  .spec{border-bottom:2px solid #2c2c29}
+  .blocks{grid-template-columns:1fr}
+  .block{border-right:none;border-bottom:2px solid var(--black)}
+  .block:last-child{border-bottom:none}
+  .reviews{grid-template-columns:1fr}
+  .review{border-right:none;border-bottom:2px solid var(--black)}
+  .review:last-child{border-bottom:none}
+  .buy .container{grid-template-columns:1fr}
+  .band{grid-template-columns:1fr}
+  .cell{border-right:none;border-bottom:2px solid var(--black)}
+  .cell:last-child{border-bottom:none}
+}
+@media (max-width:620px){
+  section{padding:60px 0}
+  .nav-links{display:none}
+  .countdown{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Limited drop — 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■ Limited drop — 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■</span>
+    <span>Limited drop — 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■ Limited drop — 500 units ■ Free shipping worldwide ■ Drops Friday 10AM EST ■ No restocks. Ever. ■</span>
+  </div>
+</div>
+
+<div class="nav-wrap">
+  <nav class="container">
+    <a class="logo" href="#" aria-label="Pulse home">Pulse<i>.</i></a>
+    <ul class="nav-links">
+      <li><a href="#story">The One</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="cart" href="#buy">Get the drop</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <div>
+      <span class="drop-tag"><i aria-hidden="true"></i> Drop 004 — 500 units only</span>
+      <h1>Pulse <span>One</span></h1>
+      <p><b>Wireless earbuds tuned by producers, not committees.</b> 40-hour battery, studio-flat sound profile, and a case you'll fidget with in meetings.</p>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="#buy">Reserve yours — $129</a>
+        <a class="btn btn-line" href="#story">Why it slaps</a>
+      </div>
+      <div class="countdown" id="countdown" aria-label="Time until the drop">
+        <div class="cd"><b id="cdD">02</b><span>days</span></div>
+        <div class="cd"><b id="cdH">11</b><span>hours</span></div>
+        <div class="cd"><b id="cdM">48</b><span>mins</span></div>
+        <div class="cd"><b id="cdS">00</b><span>secs</span></div>
+      </div>
+    </div>
+    <div class="stage" aria-label="Pulse One earbuds illustration">
+      <div class="disc" aria-hidden="true"></div>
+      <div class="bud" aria-hidden="true"></div>
+      <div class="bud two" aria-hidden="true"></div>
+      <span class="sticker s1">40h battery</span>
+      <span class="sticker s2">No restocks</span>
+    </div>
+  </div>
+</header>
+
+<div class="specs">
+  <div class="container">
+    <div class="spec"><b>40h</b><span>Total battery</span></div>
+    <div class="spec"><b>-42dB</b><span>Active noise cancel</span></div>
+    <div class="spec"><b>11mm</b><span>Custom drivers</span></div>
+    <div class="spec"><b>IPX5</b><span>Sweat & rain proof</span></div>
+  </div>
+</div>
+
+<section id="story">
+  <div class="container">
+    <div class="blocks reveal">
+      <div class="block">
+        <span class="num">01</span>
+        <h3>Tuned flat, on purpose</h3>
+        <p>Most earbuds boost bass until everything sounds like a car ad. Pulse One ships with the studio-flat profile our producer friends actually mix on — and an EQ if you want to ruin it.</p>
+      </div>
+      <div class="block fill">
+        <span class="num">02</span>
+        <h3>500 units. That's it.</h3>
+        <p>Every drop is a single production run. When it's gone, we design the next one instead of reprinting the last. Your pair stays yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true">
+  <div class="cell"><div class="mini"></div><span class="cap">Bone — 250 units</span></div>
+  <div class="cell"><div class="mini"></div><span class="cap">Chalk — 150 units</span></div>
+  <div class="cell"><div class="mini"></div><span class="cap">Signal Red — 100 units</span></div>
+</div>
+
+<section id="reviews">
+  <div class="container">
+    <h2 class="reveal" style="font-size:clamp(28px,4.6vw,48px);margin-bottom:36px">Drop 003 buyers said</h2>
+    <div class="reviews reveal">
+      <div class="review">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <p>"Flat profile is a revelation. Heard a hi-hat in a song I've played 400 times. Never going back to boomy buds."</p>
+        <b>— Dre M., verified buyer</b>
+      </div>
+      <div class="review">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <p>"Case magnets are stupidly satisfying. Battery claim is real — charged mine twice in three weeks."</p>
+        <b>— Keiko T., verified buyer</b>
+      </div>
+      <div class="review">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <p>"Missed drop 002 and cried about it on two continents. Set six alarms for this one. Worth it."</p>
+        <b>— Sam R., verified buyer</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="buy" id="buy">
+  <div class="container">
+    <div>
+      <h2>Get in <span>before it's gone</span></h2>
+      <div class="price-row"><span class="price">$129</span><span class="was">$159</span></div>
+      <div class="opts">
+        <p>Colorway</p>
+        <div class="swatches" role="radiogroup" aria-label="Choose colorway">
+          <button class="swatch on" style="background:#e8e6df" aria-label="Bone"></button>
+          <button class="swatch" style="background:#f5f4f0" aria-label="Chalk"></button>
+          <button class="swatch" style="background:#ff2e00" aria-label="Signal Red"></button>
+        </div>
+      </div>
+      <ul>
+        <li>Free worldwide shipping, ships Monday</li>
+        <li>2-year no-questions warranty</li>
+        <li>30-day returns, even if you just don't vibe</li>
+      </ul>
+    </div>
+    <div>
+      <a class="btn btn-red" href="#">Reserve — drop opens Friday 10AM EST</a>
+      <p class="note">Card charged only when the drop opens. Cancel anytime before.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2 class="reveal" style="font-size:clamp(28px,4.6vw,48px);margin-bottom:36px">Questions</h2>
+    <div class="faq reveal">
+      <details><summary>When exactly does the drop open?</summary><div>Friday, 10:00 AM EST. Reservations lock your unit; open sales (if any remain) run until sellout — drop 003 lasted 41 minutes.</div></details>
+      <details><summary>Will there be a restock?</summary><div>No. Each drop is one production run. The next drop will be a different product. That's the whole point.</div></details>
+      <details><summary>What's in the box?</summary><div>Pulse One buds, charging case, three tip sizes, USB-C cable, and a sticker sheet you'll pretend not to care about.</div></details>
+      <details><summary>What if they don't fit / I don't like them?</summary><div>30-day returns for any reason, full refund, we pay return shipping. Warranty covers everything else for 2 years.</div></details>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container foot">
+    <span>Pulse. © 2026 — Drop 004</span>
+    <div class="links"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Support</a></div>
+    <span>Template: Pulse — LaunchPages kit</span>
+  </div>
+</footer>
+
+<script>
+// countdown to next Friday 10:00 (demo logic — replace with your real drop date)
+const target=(()=>{const d=new Date();d.setDate(d.getDate()+((5-d.getDay()+7)%7||7));d.setHours(10,0,0,0);return d})();
+const pad=n=>String(n).padStart(2,'0');
+function tick(){
+  let ms=target-Date.now();if(ms<0)ms=0;
+  document.getElementById('cdD').textContent=pad(Math.floor(ms/864e5));
+  document.getElementById('cdH').textContent=pad(Math.floor(ms/36e5)%24);
+  document.getElementById('cdM').textContent=pad(Math.floor(ms/6e4)%60);
+  document.getElementById('cdS').textContent=pad(Math.floor(ms/1e3)%60);
+}
+tick();setInterval(tick,1000);
+document.querySelectorAll('.swatch').forEach(s=>s.addEventListener('click',()=>{
+  document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('on'));s.classList.add('on');
+}));
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

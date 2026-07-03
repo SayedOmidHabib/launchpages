@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HORIZON 2026 — Two days at the edge of what ships</title>
+<meta name="description" content="Horizon is a two-day conference for people who build. Event landing page template.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#12081f;
+  --night-2:#1c0f2e;
+  --sun:#ff8a3d;
+  --pink:#ff4d8d;
+  --lav:#b892ff;
+  --cream:#fff4ea;
+  --line:rgba(255,244,234,.14);
+  --head:'Sora',sans-serif;
+  --body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--cream);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:92px 0}
+.grad-text{background:linear-gradient(95deg,var(--sun),var(--pink) 55%,var(--lav));-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);display:block;margin-bottom:16px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--head);font-weight:700;font-size:15px;padding:15px 30px;border-radius:100px;cursor:pointer;border:1.5px solid transparent;transition:transform .16s ease,box-shadow .16s ease,background .16s}
+.btn:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.btn-sun{background:linear-gradient(95deg,var(--sun),var(--pink));color:#2b0d14;box-shadow:0 10px 34px rgba(255,77,141,.35)}
+.btn-sun:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(255,77,141,.5)}
+.btn-line{border-color:var(--line);color:var(--cream)}
+.btn-line:hover{border-color:var(--sun);color:var(--sun)}
+
+/* nav */
+.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(18,8,31,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--head);font-weight:800;font-size:19px;letter-spacing:.02em}
+.logo span{color:var(--sun)}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-size:14px;font-weight:600;color:rgba(255,244,234,.75)}
+.nav-links a:hover{color:var(--sun)}
+
+/* hero */
+.hero{padding:170px 0 90px;position:relative;overflow:hidden;text-align:center}
+.horizon-arc{position:absolute;left:50%;bottom:-540px;transform:translateX(-50%);width:1400px;height:1400px;border-radius:50%;background:radial-gradient(circle at 50% 18%,rgba(255,138,61,.5),rgba(255,77,141,.24) 34%,transparent 62%);pointer-events:none}
+.hero-sun{position:absolute;left:50%;bottom:120px;transform:translateX(-50%);width:220px;height:110px;border-radius:220px 220px 0 0;background:linear-gradient(180deg,var(--sun),var(--pink));filter:blur(2px);opacity:.9;pointer-events:none}
+.hero .container{position:relative;z-index:1}
+.date-chip{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:rgba(255,244,234,.05);border-radius:100px;padding:9px 20px;font-size:14px;font-weight:600;margin-bottom:30px}
+.date-chip b{color:var(--sun)}
+.hero h1{font-size:clamp(52px,10vw,120px);font-weight:800;text-transform:uppercase;margin-bottom:18px}
+.hero .sub{font-size:clamp(17px,2.4vw,21px);color:rgba(255,244,234,.8);max-width:540px;margin:0 auto 40px}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
+.hero-meta{display:flex;justify-content:center;gap:clamp(20px,5vw,56px);flex-wrap:wrap;font-size:14px;color:rgba(255,244,234,.65)}
+.hero-meta b{display:block;font-family:var(--head);font-size:22px;color:var(--cream)}
+
+/* speakers */
+.section-head{max-width:620px;margin-bottom:52px}
+.section-head h2{font-size:clamp(30px,4.6vw,46px);margin-bottom:12px}
+.section-head p{color:rgba(255,244,234,.7)}
+.speakers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.speaker{background:var(--night-2);border:1px solid var(--line);border-radius:16px;padding:24px 20px;text-align:center;transition:transform .18s ease,border-color .18s}
+.speaker:hover{transform:translateY(-4px);border-color:rgba(255,138,61,.5)}
+.face{width:76px;height:76px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:24px;color:#2b0d14}
+.speaker b{font-family:var(--head);font-size:15.5px;display:block;margin-bottom:3px}
+.speaker span{font-size:12.5px;color:rgba(255,244,234,.6)}
+.speaker .talk{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--lav);font-style:italic}
+
+/* schedule */
+.days{display:flex;gap:10px;margin-bottom:28px}
+.day-tab{font-family:var(--head);font-weight:700;font-size:14px;padding:11px 26px;border-radius:100px;border:1.5px solid var(--line);cursor:pointer;background:transparent;color:rgba(255,244,234,.7);transition:all .15s}
+.day-tab.on{background:linear-gradient(95deg,var(--sun),var(--pink));color:#2b0d14;border-color:transparent}
+.slots{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.slot{display:grid;grid-template-columns:120px 1fr auto;gap:18px;padding:20px 24px;border-bottom:1px solid var(--line);background:var(--night-2);align-items:center}
+.slot:last-child{border-bottom:none}
+.slot time{font-family:var(--head);font-weight:700;font-size:14px;color:var(--sun)}
+.slot b{font-size:15.5px;display:block}
+.slot span{font-size:13px;color:rgba(255,244,234,.6)}
+.slot .kind{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;border:1px solid var(--line);color:var(--lav);white-space:nowrap}
+.slot .kind.talk{color:var(--sun)}
+
+/* venue band */
+.venue{background:linear-gradient(135deg,rgba(255,138,61,.14),rgba(255,77,141,.1) 50%,rgba(184,146,255,.12));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.venue .container{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.venue h2{font-size:clamp(26px,4vw,40px);margin-bottom:16px}
+.venue p{color:rgba(255,244,234,.75);margin-bottom:12px;font-size:15.5px}
+.map{aspect-ratio:16/11;border-radius:16px;border:1px solid var(--line);background:
+  radial-gradient(circle at 68% 38%,rgba(255,138,61,.9) 0 8px,transparent 9px),
+  linear-gradient(rgba(255,244,234,.07) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,244,234,.07) 1px,transparent 1px),
+  linear-gradient(160deg,var(--night-2),#241238);
+  background-size:auto,44px 44px,44px 44px,auto;position:relative}
+.map::after{content:"Pier 70 · San Francisco";position:absolute;bottom:14px;left:16px;font-family:var(--head);font-weight:700;font-size:13px;background:rgba(18,8,31,.8);border:1px solid var(--line);border-radius:100px;padding:7px 16px}
+
+/* tickets */
+.tix{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.tik{background:var(--night-2);border:1px solid var(--line);border-radius:18px;padding:32px;position:relative}
+.tik.hot{border:1.5px solid transparent;background:
+  linear-gradient(var(--night-2),var(--night-2)) padding-box,
+  linear-gradient(95deg,var(--sun),var(--pink),var(--lav)) border-box}
+.tik .tag{position:absolute;top:-12px;left:28px;background:linear-gradient(95deg,var(--sun),var(--pink));color:#2b0d14;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px;border-radius:100px}
+.tik h3{font-size:20px;margin-bottom:4px}
+.tik .for{font-size:13px;color:rgba(255,244,234,.6);margin-bottom:20px}
+.tik .amt{font-family:var(--head);font-weight:800;font-size:44px;margin-bottom:2px}
+.tik .amt small{font-size:14px;font-weight:600;color:rgba(255,244,234,.55)}
+.tik ul{list-style:none;margin:22px 0 26px;display:flex;flex-direction:column;gap:10px}
+.tik li{font-size:14px;color:rgba(255,244,234,.75);padding-left:24px;position:relative}
+.tik li::before{content:"→";position:absolute;left:0;color:var(--sun)}
+.tik .btn{width:100%}
+
+/* cta */
+.cta{text-align:center;position:relative;overflow:hidden;padding:110px 0}
+.cta .horizon-arc{bottom:-620px}
+.cta h2{font-size:clamp(34px,6vw,64px);font-weight:800;text-transform:uppercase;margin-bottom:16px;position:relative}
+.cta p{color:rgba(255,244,234,.75);margin-bottom:34px;position:relative}
+.cta .btn{position:relative}
+
+footer.site{border-top:1px solid var(--line);padding:40px 0}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13.5px;color:rgba(255,244,234,.55)}
+.foot .links{display:flex;gap:22px}
+.foot a:hover{color:var(--sun)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+@media (max-width:920px){
+  .speakers{grid-template-columns:1fr 1fr}
+  .tix{grid-template-columns:1fr}
+  .venue .container{grid-template-columns:1fr}
+  .slot{grid-template-columns:1fr;gap:8px}
+}
+@media (max-width:620px){
+  section{padding:60px 0}
+  .hero{padding:130px 0 70px}
+  .speakers{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav class="container">
+    <a class="logo" href="#" aria-label="Horizon home">HORIZON<span>'26</span></a>
+    <ul class="nav-links">
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#tickets">Tickets</a></li>
+    </ul>
+    <a class="btn btn-sun" href="#tickets" style="padding:10px 22px;font-size:13.5px">Get tickets</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="horizon-arc" aria-hidden="true"></div>
+  <div class="hero-sun" aria-hidden="true"></div>
+  <div class="container">
+    <span class="date-chip"><b>Oct 8–9, 2026</b> · Pier 70, San Francisco</span>
+    <h1>Hori<span class="grad-text">zon</span></h1>
+    <p class="sub">Two days with 600 people who ship. No panels about panels — just builders showing what's next, and the hallway track of the year.</p>
+    <div class="hero-actions">
+      <a class="btn btn-sun" href="#tickets">Get your ticket</a>
+      <a class="btn btn-line" href="#schedule">Browse the schedule</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>28</b>talks & demos</div>
+      <div><b>600</b>builders</div>
+      <div><b>2</b>days on the water</div>
+      <div><b>1</b>closing bonfire</div>
+    </div>
+  </div>
+</header>
+
+<section id="speakers">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Speakers</span>
+      <h2>People who <span class="grad-text">demo, not deck</span></h2>
+      <p>Every speaker ships something live on stage. It's the rule.</p>
+    </div>
+    <div class="speakers">
+      <div class="speaker reveal"><div class="face" style="background:linear-gradient(135deg,#ff8a3d,#ff4d8d)">AK</div><b>Amara Kide</b><span>CTO, Driftwork</span><p class="talk">"Rebuilding our stack live, in 18 minutes"</p></div>
+      <div class="speaker reveal"><div class="face" style="background:linear-gradient(135deg,#b892ff,#ff4d8d)">JO</div><b>Jules Okonkwo</b><span>Founder, Meridian</span><p class="talk">"The demo that raised our Series B"</p></div>
+      <div class="speaker reveal"><div class="face" style="background:linear-gradient(135deg,#ff8a3d,#b892ff)">SP</div><b>Sana Patel</b><span>Head of Eng, Cascade</span><p class="talk">"Deleting 400k lines of code, a love story"</p></div>
+      <div class="speaker reveal"><div class="face" style="background:linear-gradient(135deg,#ff4d8d,#ff8a3d)">LV</div><b>Leo Vance</b><span>Indie hacker</span><p class="talk">"$1M ARR with zero employees, receipts included"</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule" style="background:var(--night-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Schedule</span>
+      <h2>Two days, zero filler</h2>
+    </div>
+    <div class="days reveal" role="tablist" aria-label="Choose day">
+      <button class="day-tab on" id="tabD1" role="tab" aria-selected="true">Day 1 — Ship</button>
+      <button class="day-tab" id="tabD2" role="tab" aria-selected="false">Day 2 — Scale</button>
+    </div>
+    <div class="slots reveal" id="day1" role="tabpanel">
+      <div class="slot"><time>9:00</time><div><b>Doors + coffee on the pier</b><span>Badge pickup, breakfast burritos, ocean</span></div><span class="kind">Social</span></div>
+      <div class="slot"><time>10:00</time><div><b>Rebuilding our stack live, in 18 minutes</b><span>Amara Kide — with a real production cutover</span></div><span class="kind talk">Keynote</span></div>
+      <div class="slot"><time>11:30</time><div><b>Lightning demos ×8</b><span>Eight builders, six minutes each, no slides allowed</span></div><span class="kind talk">Demos</span></div>
+      <div class="slot"><time>13:00</time><div><b>Long lunch — the hallway track</b><span>90 minutes on purpose. This is where the good stuff happens</span></div><span class="kind">Social</span></div>
+      <div class="slot"><time>15:00</time><div><b>$1M ARR with zero employees</b><span>Leo Vance — dashboard open, numbers visible</span></div><span class="kind talk">Talk</span></div>
+      <div class="slot"><time>17:30</time><div><b>Sunset sessions</b><span>Unconference — pitch a topic at lunch, run it at sunset</span></div><span class="kind">Open</span></div>
+    </div>
+    <div class="slots reveal" id="day2" role="tabpanel" hidden>
+      <div class="slot"><time>9:30</time><div><b>Deleting 400k lines of code</b><span>Sana Patel — a love story with diffs</span></div><span class="kind talk">Keynote</span></div>
+      <div class="slot"><time>11:00</time><div><b>The demo that raised our Series B</b><span>Jules Okonkwo — the actual demo, warts included</span></div><span class="kind talk">Talk</span></div>
+      <div class="slot"><time>13:00</time><div><b>Lunch + office hours</b><span>Book 15 minutes with any speaker. Free, first-come</span></div><span class="kind">Social</span></div>
+      <div class="slot"><time>15:00</time><div><b>Live teardowns</b><span>Submit your landing page. The room fixes it together</span></div><span class="kind talk">Workshop</span></div>
+      <div class="slot"><time>18:00</time><div><b>The bonfire</b><span>On the beach. Bring a hoodie. Deals get done here</span></div><span class="kind">Social</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="venue" class="venue">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">The venue</span>
+      <h2>A shipyard, obviously</h2>
+      <p>Pier 70 — a restored 19th-century shipbuilding hall on the San Francisco waterfront. Exposed steel, ocean air, and enough space to think.</p>
+      <p>10 minutes from downtown. Bike valet, shuttle from Caltrain, and yes — the coffee is from the good place.</p>
+    </div>
+    <div class="map reveal" aria-label="Stylized venue map, Pier 70 San Francisco"></div>
+  </div>
+</section>
+
+<section id="tickets">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Tickets</span>
+      <h2>Priced so <span class="grad-text">builders can come</span></h2>
+      <p>No "platinum networking tier". Everyone gets the same two days.</p>
+    </div>
+    <div class="tix">
+      <div class="tik reveal">
+        <h3>Early believer</h3>
+        <p class="for">First 150 tickets · almost gone</p>
+        <div class="amt">$249</div>
+        <ul>
+          <li>Both days, all talks & demos</li>
+          <li>Lunches + closing bonfire</li>
+          <li>Talk recordings forever</li>
+        </ul>
+        <a class="btn btn-line" href="#">Grab one</a>
+      </div>
+      <div class="tik hot reveal">
+        <span class="tag">Standard</span>
+        <h3>Builder</h3>
+        <p class="for">Regular admission</p>
+        <div class="amt">$399</div>
+        <ul>
+          <li>Everything in Early believer</li>
+          <li>Speaker office-hours booking</li>
+          <li>Landing page teardown eligibility</li>
+        </ul>
+        <a class="btn btn-sun" href="#">Get your ticket</a>
+      </div>
+      <div class="tik reveal">
+        <h3>Team table</h3>
+        <p class="for">5 tickets + a home base</p>
+        <div class="amt">$1,599</div>
+        <ul>
+          <li>5 Builder tickets (save $396)</li>
+          <li>Reserved table both days</li>
+          <li>Team photo at the bonfire, framed, ridiculous</li>
+        </ul>
+        <a class="btn btn-line" href="#">Bring the team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="horizon-arc" aria-hidden="true"></div>
+  <div class="container">
+    <h2>See you at the <span class="grad-text">edge</span></h2>
+    <p>Oct 8–9 · Pier 70, San Francisco · 600 tickets, no more</p>
+    <a class="btn btn-sun" href="#tickets">Get your ticket</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container foot">
+    <span>HORIZON '26 — produced by people who also have to demo</span>
+    <div class="links"><a href="#">Code of conduct</a><a href="#">Sponsors</a><a href="#">Contact</a></div>
+    <span>Template: Horizon — LaunchPages kit</span>
+  </div>
+</footer>
+
+<script>
+const d1=document.getElementById('day1'),d2=document.getElementById('day2'),t1=document.getElementById('tabD1'),t2=document.getElementById('tabD2');
+function pick(a){
+  const one=a===1;
+  d1.hidden=!one;d2.hidden=one;
+  t1.classList.toggle('on',one);t2.classList.toggle('on',!one);
+  t1.setAttribute('aria-selected',one);t2.setAttribute('aria-selected',!one);
+}
+t1.addEventListener('click',()=>pick(1));t2.addEventListener('click',()=>pick(2));
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>
