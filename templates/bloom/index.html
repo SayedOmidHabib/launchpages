@@ -22,8 +22,9 @@
   --leaf:#3e9c6b;
   --leaf-soft:#e3f4ea;
   --sun:#ffb84d;
+  --lilac:#7c6cff;
   --border:#f0e2d6;
-  --radius:20px;
+  --r:22px;
   --head:'Plus Jakarta Sans',sans-serif;
   --body:'Inter',sans-serif;
 }
@@ -32,107 +33,124 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3{font-family:var(--head);line-height:1.15;letter-spacing:-.02em}
 a{color:inherit;text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:0 24px}
-section{padding:92px 0}
-.pill{display:inline-block;background:var(--leaf-soft);color:var(--leaf);font-weight:700;font-size:13px;padding:7px 16px;border-radius:100px;margin-bottom:18px;font-family:var(--head)}
-.section-head{max-width:600px;margin:0 auto 56px;text-align:center}
-.section-head h2{font-size:clamp(28px,4.2vw,40px);margin-bottom:14px}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:96px 0;position:relative}
+.pill{display:inline-block;background:var(--leaf-soft);color:var(--leaf);font-weight:700;font-size:13px;padding:8px 18px;border-radius:100px;margin-bottom:18px;font-family:var(--head)}
+.section-head{max-width:620px;margin:0 auto 58px;text-align:center}
+.section-head h2{font-size:clamp(28px,4.4vw,42px);margin-bottom:14px}
 .section-head p{color:var(--ink-2);font-size:17px}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--head);font-weight:700;font-size:15.5px;padding:14px 26px;border-radius:100px;cursor:pointer;border:2px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--head);font-weight:700;font-size:15.5px;padding:15px 28px;border-radius:100px;cursor:pointer;border:2px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
 .btn:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
-.btn-coral{background:var(--coral);color:#fff;box-shadow:0 8px 24px rgba(255,107,74,.32)}
-.btn-coral:hover{background:var(--coral-dark);transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,107,74,.4)}
+.btn-coral{background:var(--coral);color:#fff;box-shadow:0 10px 28px rgba(255,107,74,.35)}
+.btn-coral:hover{background:var(--coral-dark);transform:translateY(-2px) scale(1.02);box-shadow:0 16px 38px rgba(255,107,74,.45)}
 .btn-line{border-color:var(--border);background:var(--card);color:var(--ink)}
-.btn-line:hover{border-color:var(--ink-3)}
-.btn-lg{padding:17px 32px;font-size:16.5px}
+.btn-line:hover{border-color:var(--ink-3);transform:translateY(-2px)}
 
 /* nav */
-.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(255,250,245,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-nav{display:flex;align-items:center;justify-content:space-between;height:70px}
-.logo{font-family:var(--head);font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px}
-.logo svg{flex-shrink:0}
+.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(255,250,245,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--head);font-weight:800;font-size:22px;display:flex;align-items:center;gap:9px}
 .nav-links{display:flex;gap:30px;list-style:none;align-items:center}
 .nav-links a{font-weight:600;font-size:14.5px;color:var(--ink-2);transition:color .15s}
 .nav-links a:hover{color:var(--coral)}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;padding:8px}
 .nav-toggle span{display:block;width:22px;height:2.5px;background:var(--ink);margin:5px 0;border-radius:3px}
 
+/* floating leaves */
+.leaf-float{position:absolute;pointer-events:none;opacity:.6;animation:floaty 9s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-26px) rotate(9deg)}}
+
 /* hero */
-.hero{padding:160px 0 40px;position:relative;overflow:hidden}
-.hero .container{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.hero h1{font-size:clamp(38px,5.8vw,60px);margin-bottom:20px}
+.hero{padding:164px 0 60px;overflow:hidden}
+.hero .container{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(38px,5.6vw,58px);margin-bottom:20px}
 .hero h1 .hl{position:relative;white-space:nowrap;color:var(--coral)}
-.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;background:var(--peach);z-index:-1;border-radius:6px}
-.hero p{font-size:18px;color:var(--ink-2);max-width:440px;margin-bottom:32px}
-.stores{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
-.store{display:inline-flex;align-items:center;gap:11px;background:var(--ink);color:#fff;border-radius:14px;padding:11px 20px;transition:transform .18s ease}
-.store:hover{transform:translateY(-2px)}
+.hero h1 .hl i{position:absolute;left:0;right:0;bottom:5px;height:11px;background:var(--peach);z-index:-1;border-radius:6px;transform:scaleX(0);transform-origin:left;font-style:normal;transition:transform .7s cubic-bezier(.2,.7,.3,1) .4s}
+.hero h1 .hl i.go{transform:scaleX(1)}
+.hero p{font-size:18px;color:var(--ink-2);max-width:440px;margin-bottom:30px}
+.stores{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.store{display:inline-flex;align-items:center;gap:11px;background:var(--ink);color:#fff;border-radius:16px;padding:12px 20px;transition:transform .18s ease,box-shadow .18s ease}
+.store:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(43,33,25,.25)}
 .store svg{flex-shrink:0}
 .store small{display:block;font-size:10.5px;opacity:.75;line-height:1.2}
 .store b{font-family:var(--head);font-size:15px;line-height:1.2}
 .rating{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink-2)}
 .stars{color:var(--sun);letter-spacing:2px;font-size:15px}
 
-/* phone mock */
+/* phone */
 .phone-zone{position:relative;display:flex;justify-content:center}
-.blob{position:absolute;width:420px;height:420px;background:radial-gradient(circle,var(--peach),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);z-index:0}
-.phone{position:relative;z-index:1;width:280px;background:var(--ink);border-radius:44px;padding:10px;box-shadow:0 40px 90px rgba(43,33,25,.28)}
-.screen{background:linear-gradient(170deg,#fffdf9,#fff3e9);border-radius:36px;overflow:hidden;padding:22px 18px 18px}
-.notch{width:110px;height:26px;background:var(--ink);border-radius:0 0 16px 16px;margin:-22px auto 16px}
+.blob{position:absolute;width:440px;height:440px;background:radial-gradient(circle,var(--peach),transparent 68%);top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;animation:blobPulse 7s ease-in-out infinite}
+@keyframes blobPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.08)}}
+.phone{position:relative;z-index:1;width:290px;background:var(--ink);border-radius:46px;padding:10px;box-shadow:0 44px 90px rgba(43,33,25,.3);animation:phoneFloat 6s ease-in-out infinite}
+@keyframes phoneFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-14px) rotate(1deg)}}
+.screen{background:linear-gradient(170deg,#fffdf9,#fff3e9);border-radius:38px;overflow:hidden;padding:24px 18px 18px}
+.notch{width:110px;height:26px;background:var(--ink);border-radius:0 0 16px 16px;margin:-24px auto 16px}
 .app-greet{font-family:var(--head);font-weight:800;font-size:19px;margin-bottom:2px}
 .app-sub{font-size:12px;color:var(--ink-3);margin-bottom:16px}
-.garden{background:var(--leaf-soft);border-radius:16px;padding:14px;display:flex;justify-content:space-between;align-items:flex-end;height:96px;margin-bottom:14px}
-.plant{width:34px;display:flex;flex-direction:column;align-items:center;gap:3px}
-.stem{width:5px;border-radius:4px;background:var(--leaf)}
-.bulb{width:16px;height:16px;border-radius:50%}
+.garden{background:var(--leaf-soft);border-radius:18px;padding:14px;display:flex;justify-content:space-between;align-items:flex-end;height:100px;margin-bottom:14px}
+.plant{width:36px;display:flex;flex-direction:column;align-items:center;gap:3px}
+.stem{width:5px;border-radius:4px;background:var(--leaf);height:8px;transition:height 1.2s cubic-bezier(.2,.7,.3,1)}
+.bulb{width:16px;height:16px;border-radius:50%;transform:scale(.4);transition:transform .8s cubic-bezier(.34,1.56,.64,1) .6s}
+.plant.grown .bulb{transform:scale(1)}
 .plant span{font-size:8.5px;color:var(--leaf);font-weight:600}
-.habit{display:flex;align-items:center;gap:11px;background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:11px 13px;margin-bottom:9px}
-.habit .chk{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:grid;place-items:center}
-.habit .chk.done{background:var(--leaf)}
-.habit .chk.todo{border:2px dashed var(--ink-3)}
+.habit{display:flex;align-items:center;gap:11px;background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:11px 13px;margin-bottom:9px;transition:transform .3s ease,border-color .3s}
+.habit.done-anim{border-color:var(--leaf)}
+.habit .chk{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;border:2px dashed var(--ink-3);transition:all .3s ease;background:transparent}
+.habit .chk svg{opacity:0;transform:scale(.3);transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+.habit .chk.on{background:var(--leaf);border:2px solid var(--leaf)}
+.habit .chk.on svg{opacity:1;transform:scale(1)}
 .habit b{font-size:12.5px;font-family:var(--head);display:block;line-height:1.3}
 .habit small{font-size:10px;color:var(--ink-3)}
-.streak-chip{margin-left:auto;background:var(--bg-2);color:var(--coral);font-weight:700;font-size:10.5px;border-radius:100px;padding:4px 9px;font-family:var(--head);white-space:nowrap}
+.streak-chip{margin-left:auto;background:var(--bg-2);color:var(--coral);font-weight:700;font-size:10.5px;border-radius:100px;padding:4px 9px;font-family:var(--head);white-space:nowrap;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.streak-chip.pop{transform:scale(1.22)}
+.confetti{position:absolute;width:8px;height:8px;border-radius:2px;opacity:0;pointer-events:none;z-index:5}
 
-/* social proof strip */
-.strip{padding:26px 0;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.strip .container{display:flex;justify-content:center;gap:clamp(24px,6vw,72px);flex-wrap:wrap;text-align:center}
-.strip b{display:block;font-family:var(--head);font-size:24px;color:var(--coral)}
+/* stats strip */
+.strip{padding:0;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.strip .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip .container>div{padding:32px 16px;text-align:center;border-right:1px solid var(--border)}
+.strip .container>div:first-child{border-left:1px solid var(--border)}
+.strip b{display:block;font-family:var(--head);font-weight:800;font-size:clamp(24px,3.4vw,34px);color:var(--coral)}
 .strip span{font-size:13px;color:var(--ink-2)}
 
 /* features */
 .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.feat{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:30px;text-align:left;transition:transform .18s ease,box-shadow .18s ease}
-.feat:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(43,33,25,.09)}
-.feat .fic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px}
+.feat{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:32px;text-align:left;transition:transform .22s cubic-bezier(.34,1.4,.64,1),box-shadow .22s ease,border-color .22s}
+.feat:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 22px 48px rgba(43,33,25,.1);border-color:var(--peach)}
+.feat .fic{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;margin-bottom:18px;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.feat:hover .fic{transform:scale(1.12) rotate(6deg)}
 .feat h3{font-size:18px;margin-bottom:8px}
 .feat p{font-size:14.5px;color:var(--ink-2)}
 
 /* how */
 .how{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .how-step{text-align:center;padding:10px 18px}
-.how-num{width:52px;height:52px;border-radius:50%;background:var(--coral);color:#fff;font-family:var(--head);font-weight:800;font-size:20px;display:grid;place-items:center;margin:0 auto 18px;box-shadow:0 8px 20px rgba(255,107,74,.3)}
+.how-num{width:56px;height:56px;border-radius:50%;background:var(--coral);color:#fff;font-family:var(--head);font-weight:800;font-size:21px;display:grid;place-items:center;margin:0 auto 18px;box-shadow:0 10px 24px rgba(255,107,74,.32);transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.how-step:hover .how-num{transform:scale(1.12)}
 .how-step h3{font-size:18px;margin-bottom:8px}
 .how-step p{font-size:14.5px;color:var(--ink-2)}
 
-/* testimonials */
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.quote{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:16px}
-.quote .stars{font-size:14px}
-.quote p{font-size:14.5px;color:var(--ink-2)}
-.quote footer{display:flex;align-items:center;gap:11px;border:none;padding:0;background:none}
-.face{width:38px;height:38px;border-radius:50%;font-family:var(--head);font-weight:700;font-size:14px;color:#fff;display:grid;place-items:center}
-.quote b{font-size:14px;font-family:var(--head)}
-.quote small{color:var(--ink-3);font-size:12.5px;display:block}
+/* love marquee */
+.love-wrap{overflow:hidden;padding:8px 0}
+.love-track{display:flex;gap:20px;width:max-content;animation:loveScroll 36s linear infinite}
+.love-track:hover{animation-play-state:paused}
+@keyframes loveScroll{to{transform:translateX(-50%)}}
+.love{width:330px;flex-shrink:0;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px}
+.love .stars{font-size:14px}
+.love p{font-size:14px;color:var(--ink-2)}
+.love footer{display:flex;align-items:center;gap:11px;border:none;padding:0;background:none}
+.face{width:36px;height:36px;border-radius:50%;font-family:var(--head);font-weight:700;font-size:13px;color:#fff;display:grid;place-items:center}
+.love b{font-size:13.5px;font-family:var(--head)}
+.love small{color:var(--ink-3);font-size:12px;display:block}
 
 /* cta */
-.cta-card{background:linear-gradient(135deg,var(--coral),#ff8a3d);border-radius:32px;padding:72px 32px;text-align:center;color:#fff;position:relative;overflow:hidden}
-.cta-card::before,.cta-card::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.12)}
-.cta-card::before{width:280px;height:280px;top:-120px;left:-80px}
-.cta-card::after{width:200px;height:200px;bottom:-90px;right:-50px}
-.cta-card h2{font-size:clamp(28px,4.4vw,44px);margin-bottom:14px;position:relative}
-.cta-card p{opacity:.92;margin-bottom:32px;position:relative}
+.cta-card{background:linear-gradient(135deg,var(--coral),#ff8a3d);border-radius:34px;padding:78px 32px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-card::before,.cta-card::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.13)}
+.cta-card::before{width:300px;height:300px;top:-130px;left:-90px;animation:floaty 11s ease-in-out infinite}
+.cta-card::after{width:220px;height:220px;bottom:-100px;right:-60px;animation:floaty 9s ease-in-out infinite reverse}
+.cta-card h2{font-size:clamp(28px,4.6vw,46px);margin-bottom:14px;position:relative}
+.cta-card p{opacity:.93;margin-bottom:32px;position:relative}
 .cta-card .stores{justify-content:center;position:relative}
 .cta-card .store{background:#fff;color:var(--ink)}
 
@@ -141,24 +159,34 @@ footer.site{padding:48px 0;border-top:1px solid var(--border)}
 .foot .links{display:flex;gap:24px}
 .foot a:hover{color:var(--coral)}
 
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(22px) scale(.97);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.3,1)}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(1){transition-delay:0s}.stagger.in>*:nth-child(2){transition-delay:.09s}.stagger.in>*:nth-child(3){transition-delay:.18s}.stagger.in>*:nth-child(4){transition-delay:.27s}.stagger.in>*:nth-child(5){transition-delay:.36s}.stagger.in>*:nth-child(6){transition-delay:.45s}
+
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
+  .reveal,.stagger>*{opacity:1;transform:none}
   html{scroll-behavior:auto}
+  .hero h1 .hl i{transform:scaleX(1)}
+  .plant .bulb{transform:scale(1)}
+  .habit .chk svg{opacity:1;transform:scale(1)}
 }
-@media (max-width:920px){
+@media (max-width:940px){
   .hero .container{grid-template-columns:1fr;text-align:center}
   .hero p{margin-left:auto;margin-right:auto}
   .stores,.rating{justify-content:center}
-  .feats,.quotes,.how{grid-template-columns:1fr 1fr}
+  .feats,.how{grid-template-columns:1fr 1fr}
+  .strip .container{grid-template-columns:1fr 1fr}
+  .strip .container>div{border-bottom:1px solid var(--border)}
 }
-@media (max-width:620px){
-  section{padding:60px 0}
-  .hero{padding:120px 0 30px}
-  .feats,.quotes,.how{grid-template-columns:1fr}
-  .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;padding:24px;gap:18px}
+@media (max-width:640px){
+  section{padding:64px 0}
+  .hero{padding:128px 0 40px}
+  .feats,.how{grid-template-columns:1fr}
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;padding:24px;gap:18px}
   .nav-links.open{display:flex}
   .nav-toggle{display:block}
   .nav-dl{display:none}
@@ -170,7 +198,7 @@ footer.site{padding:48px 0;border-top:1px solid var(--border)}
 <div class="nav-wrap">
   <nav class="container">
     <a class="logo" href="#" aria-label="Bloom home">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22V10" stroke="#3e9c6b" stroke-width="2.5" stroke-linecap="round"/><path d="M12 12c0-4 3-7 7-7 0 4-3 7-7 7z" fill="#ff6b4a"/><path d="M12 15c0-3.3-2.5-6-5.8-6C6.2 12.3 8.7 15 12 15z" fill="#ffb84d"/></svg>
+      <svg width="27" height="27" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22V10" stroke="#3e9c6b" stroke-width="2.5" stroke-linecap="round"/><path d="M12 12c0-4 3-7 7-7 0 4-3 7-7 7z" fill="#ff6b4a"/><path d="M12 15c0-3.3-2.5-6-5.8-6C6.2 12.3 8.7 15 12 15z" fill="#ffb84d"/></svg>
       bloom
     </a>
     <ul class="nav-links" id="navLinks">
@@ -178,16 +206,18 @@ footer.site{padding:48px 0;border-top:1px solid var(--border)}
       <li><a href="#how">How it works</a></li>
       <li><a href="#love">Reviews</a></li>
     </ul>
-    <a class="btn btn-coral nav-dl" href="#get">Get the app</a>
+    <a class="btn btn-coral nav-dl" href="#get" style="padding:11px 22px;font-size:14px">Get the app</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 </div>
 
 <header class="hero">
+  <svg class="leaf-float" style="top:120px;left:4%" width="34" height="34" viewBox="0 0 24 24" fill="#3e9c6b" opacity=".35" aria-hidden="true"><path d="M12 22c6-4 9-9 9-15-6 0-11 3-15 9 2 3 4 5 6 6z"/></svg>
+  <svg class="leaf-float" style="top:340px;right:6%;animation-delay:2s" width="26" height="26" viewBox="0 0 24 24" fill="#ffb84d" opacity=".4" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
   <div class="container">
     <div>
       <span class="pill">🌱 #1 Self-care app of the year — 2026 App Awards</span>
-      <h1>Habits that <span class="hl">actually stick</span>, one tiny day at a time</h1>
+      <h1>Habits that <span class="hl">actually stick<i id="hlBar"></i></span>, one tiny day at a time</h1>
       <p>Every habit you keep waters a plant in your garden. Miss a day? Nothing dies — Bloom is the first habit tracker built on self-kindness, not streak anxiety.</p>
       <div class="stores" id="get">
         <a class="store" href="#" aria-label="Download on the App Store">
@@ -204,30 +234,31 @@ footer.site{padding:48px 0;border-top:1px solid var(--border)}
 
     <div class="phone-zone">
       <div class="blob" aria-hidden="true"></div>
-      <div class="phone" aria-label="Bloom app preview">
+      <div class="phone" aria-label="Bloom app preview, animated">
         <div class="screen">
           <div class="notch" aria-hidden="true"></div>
           <div class="app-greet">Good morning, Ava ☀️</div>
           <div class="app-sub">Your garden is thriving — day 34</div>
           <div class="garden" aria-hidden="true">
-            <div class="plant"><div class="bulb" style="background:#ff6b4a"></div><div class="stem" style="height:38px"></div><span>Read</span></div>
-            <div class="plant"><div class="bulb" style="background:#ffb84d"></div><div class="stem" style="height:52px"></div><span>Run</span></div>
-            <div class="plant"><div class="bulb" style="background:#e879a8"></div><div class="stem" style="height:28px"></div><span>Water</span></div>
-            <div class="plant"><div class="bulb" style="background:#7c6cff"></div><div class="stem" style="height:44px"></div><span>Sleep</span></div>
+            <div class="plant" data-h="40"><div class="bulb" style="background:#ff6b4a"></div><div class="stem"></div><span>Read</span></div>
+            <div class="plant" data-h="54"><div class="bulb" style="background:#ffb84d"></div><div class="stem"></div><span>Run</span></div>
+            <div class="plant" data-h="30"><div class="bulb" style="background:#e879a8"></div><div class="stem"></div><span>Water</span></div>
+            <div class="plant" data-h="46"><div class="bulb" style="background:#7c6cff"></div><div class="stem"></div><span>Sleep</span></div>
           </div>
-          <div class="habit">
-            <span class="chk done" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
-            <div><b>Read 10 pages</b><small>Done at 7:40 am</small></div>
-            <span class="streak-chip">🔥 34 days</span>
+          <div class="habit" data-habit>
+            <span class="chk" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><b>Read 10 pages</b><small>7:40 am · easy start</small></div>
+            <span class="streak-chip">🔥 <span data-n="34">33</span> days</span>
           </div>
-          <div class="habit">
-            <span class="chk done" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div class="habit" data-habit>
+            <span class="chk" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
             <div><b>Morning run</b><small>2.4 km · nice pace!</small></div>
-            <span class="streak-chip">🔥 12 days</span>
+            <span class="streak-chip">🔥 <span data-n="12">11</span> days</span>
           </div>
-          <div class="habit">
-            <span class="chk todo" aria-hidden="true"></span>
-            <div><b>Drink water</b><small>3 of 6 glasses</small></div>
+          <div class="habit" data-habit>
+            <span class="chk" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><b>Drink water</b><small>6 of 6 glasses</small></div>
+            <span class="streak-chip">🔥 <span data-n="8">7</span> days</span>
           </div>
         </div>
       </div>
@@ -237,9 +268,9 @@ footer.site{padding:48px 0;border-top:1px solid var(--border)}
 
 <div class="strip">
   <div class="container">
-    <div><b>2.1M</b><span>gardens growing</span></div>
+    <div><b class="count" data-to="2.1" data-dec="1" data-suffix="M">0M</b><span>gardens growing</span></div>
     <div><b>4.9★</b><span>average rating</span></div>
-    <div><b>68%</b><span>keep habits past 90 days</span></div>
+    <div><b class="count" data-to="68" data-suffix="%">0%</b><span>keep habits past 90 days</span></div>
     <div><b>Free</b><span>to start, forever</span></div>
   </div>
 </div>
@@ -251,34 +282,34 @@ footer.site{padding:48px 0;border-top:1px solid var(--border)}
       <h2>Kind to your brain, ruthless with results</h2>
       <p>Built with behavioral scientists so the streak serves you — not the other way around.</p>
     </div>
-    <div class="feats">
-      <div class="feat reveal">
-        <div class="fic" style="background:var(--leaf-soft)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3e9c6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V10M12 12c0-4 3-7 7-7 0 4-3 7-7 7zM12 15c0-3.3-2.5-6-5.8-6 .1 3.3 2.5 6 5.8 6z"/></svg></div>
+    <div class="feats stagger">
+      <div class="feat">
+        <div class="fic" style="background:var(--leaf-soft)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3e9c6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V10M12 12c0-4 3-7 7-7 0 4-3 7-7 7zM12 15c0-3.3-2.5-6-5.8-6 .1 3.3 2.5 6 5.8 6z"/></svg></div>
         <h3>Grow a real garden</h3>
         <p>Each habit is a plant. Consistency makes it flower; rare species unlock at 30, 90, and 365 days.</p>
       </div>
-      <div class="feat reveal">
-        <div class="fic" style="background:var(--bg-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C7 17 3 13.5 3 9.5A5.5 5.5 0 0112 6a5.5 5.5 0 019 3.5c0 4-4 7.5-9 11.5z"/></svg></div>
+      <div class="feat">
+        <div class="fic" style="background:var(--bg-2)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C7 17 3 13.5 3 9.5A5.5 5.5 0 0112 6a5.5 5.5 0 019 3.5c0 4-4 7.5-9 11.5z"/></svg></div>
         <h3>Grace days, not guilt</h3>
-        <p>Life happens. Two grace days a month keep your garden alive — because missing once shouldn't erase a month of work.</p>
+        <p>Two grace days a month keep your garden alive — missing once shouldn't erase a month of work.</p>
       </div>
-      <div class="feat reveal">
-        <div class="fic" style="background:#efeaff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c6cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg></div>
+      <div class="feat">
+        <div class="fic" style="background:#efeaff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c6cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg></div>
         <h3>Nudges that read the room</h3>
         <p>Smart reminders learn your rhythm and go quiet on weekends, holidays, and rough weeks.</p>
       </div>
-      <div class="feat reveal">
-        <div class="fic" style="background:#ffeef5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e879a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div class="feat">
+        <div class="fic" style="background:#ffeef5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e879a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
         <h3>Grow together</h3>
-        <p>Share a greenhouse with friends. See each other's gardens, cheer streaks, and plant duo-habits.</p>
+        <p>Share a greenhouse with friends. Cheer streaks, plant duo-habits, water each other's gardens.</p>
       </div>
-      <div class="feat reveal">
-        <div class="fic" style="background:#fff4dd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e5a13d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
+      <div class="feat">
+        <div class="fic" style="background:#fff4dd"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e5a13d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
         <h3>Insights that teach</h3>
         <p>Bloom finds your patterns — like "you run 3× more after 8 hours of sleep" — and helps you use them.</p>
       </div>
-      <div class="feat reveal">
-        <div class="fic" style="background:var(--leaf-soft)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3e9c6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+      <div class="feat">
+        <div class="fic" style="background:var(--leaf-soft)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3e9c6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
         <h3>Private by design</h3>
         <p>Your data stays on your device unless you say otherwise. No ads, no selling, ever.</p>
       </div>
@@ -292,10 +323,10 @@ footer.site{padding:48px 0;border-top:1px solid var(--border)}
       <span class="pill">Getting started</span>
       <h2>Planted in under a minute</h2>
     </div>
-    <div class="how">
-      <div class="how-step reveal"><div class="how-num">1</div><h3>Pick 1–3 habits</h3><p>Start tiny. "Read one page" beats "read a book a week" — Bloom will nudge you to level up later.</p></div>
-      <div class="how-step reveal"><div class="how-num">2</div><h3>Choose your seeds</h3><p>Every habit gets a plant. Ferns for gentle habits, cacti for the tough ones you're proud of.</p></div>
-      <div class="how-step reveal"><div class="how-num">3</div><h3>Water daily</h3><p>Check in with one tap. Watch your garden — and the person tending it — grow.</p></div>
+    <div class="how stagger">
+      <div class="how-step"><div class="how-num">1</div><h3>Pick 1–3 habits</h3><p>Start tiny. "Read one page" beats "read a book a week" — Bloom nudges you to level up later.</p></div>
+      <div class="how-step"><div class="how-num">2</div><h3>Choose your seeds</h3><p>Every habit gets a plant. Ferns for gentle habits, cacti for the tough ones you're proud of.</p></div>
+      <div class="how-step"><div class="how-num">3</div><h3>Water daily</h3><p>Check in with one tap. Watch your garden — and the person tending it — grow.</p></div>
     </div>
   </div>
 </section>
@@ -306,22 +337,14 @@ footer.site{padding:48px 0;border-top:1px solid var(--border)}
       <span class="pill">Wall of love</span>
       <h2>38,000 five-star reviews and counting</h2>
     </div>
-    <div class="quotes">
-      <div class="quote reveal">
-        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-        <p>"I've tried every habit app since 2019. Bloom is the only one that survived my worst month instead of shaming me for it. Day 214."</p>
-        <footer><span class="face" style="background:#ff6b4a">DK</span><div><b>Dana K.</b><small>App Store review</small></div></footer>
-      </div>
-      <div class="quote reveal">
-        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-        <p>"My daughter and I share a greenhouse. She waters her 'practice piano' plant so it doesn't fall behind my running fern. Genius."</p>
-        <footer><span class="face" style="background:#3e9c6b">MO</span><div><b>Marcus O.</b><small>Google Play review</small></div></footer>
-      </div>
-      <div class="quote reveal">
-        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-        <p>"The insight that I journal 4× more on days I walk first changed my whole routine. It's like therapy with charts."</p>
-        <footer><span class="face" style="background:#7c6cff">SR</span><div><b>Sofia R.</b><small>App Store review</small></div></footer>
-      </div>
+  </div>
+  <div class="love-wrap reveal" aria-label="Reviews carousel">
+    <div class="love-track" id="loveTrack">
+      <div class="love"><span class="stars">★★★★★</span><p>"I've tried every habit app since 2019. Bloom is the only one that survived my worst month instead of shaming me for it. Day 214."</p><footer><span class="face" style="background:#ff6b4a">DK</span><div><b>Dana K.</b><small>App Store review</small></div></footer></div>
+      <div class="love"><span class="stars">★★★★★</span><p>"My daughter and I share a greenhouse. She waters her 'practice piano' plant so it doesn't fall behind my running fern. Genius."</p><footer><span class="face" style="background:#3e9c6b">MO</span><div><b>Marcus O.</b><small>Google Play review</small></div></footer></div>
+      <div class="love"><span class="stars">★★★★★</span><p>"The insight that I journal 4× more on days I walk first changed my whole routine. Therapy with charts."</p><footer><span class="face" style="background:#7c6cff">SR</span><div><b>Sofia R.</b><small>App Store review</small></div></footer></div>
+      <div class="love"><span class="stars">★★★★★</span><p>"Grace days are the reason I still have a 190-day garden after getting the flu. Every other app would've reset me to zero."</p><footer><span class="face" style="background:#e879a8">JT</span><div><b>Jae T.</b><small>App Store review</small></div></footer></div>
+      <div class="love"><span class="stars">★★★★★</span><p>"I don't even like plants and I'm emotionally attached to a pixel cactus named Gerald. 10/10."</p><footer><span class="face" style="background:#ffb84d">LP</span><div><b>Lena P.</b><small>Google Play review</small></div></footer></div>
     </div>
   </div>
 </section>
@@ -349,18 +372,89 @@ footer.site{padding:48px 0;border-top:1px solid var(--border)}
   <div class="container foot">
     <span>© 2026 Bloom Wellness, Inc. Made with 🧡 and patience.</span>
     <div class="links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Support</a></div>
-    <span>Template: Bloom — part of the LaunchPages kit</span>
+    <span>Template: Bloom — LaunchPages kit</span>
   </div>
 </footer>
 
 <script>
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* nav */
 const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
 t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.setAttribute('aria-expanded',o)});
 l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+
+/* reveal */
+if(!reduced){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+  document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal,.stagger').forEach(el=>el.classList.add('in'))}
+
+/* headline highlighter */
+setTimeout(()=>document.getElementById('hlBar').classList.add('go'),300);
+
+/* count-up */
+function countUp(el){
+  const to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||0),suf=el.dataset.suffix||'';
+  const dur=1400,t0=performance.now();
+  (function f(t){
+    const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=(to*e).toFixed(dec)+suf;
+    if(p<1)requestAnimationFrame(f);
+  })(t0);
+}
+if(!reduced){
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target)}}),{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+}else{document.querySelectorAll('.count').forEach(el=>el.textContent=el.dataset.to+(el.dataset.suffix||''))}
+
+/* phone demo loop: habits check themselves, plants grow, streaks pop */
+const habits=[...document.querySelectorAll('[data-habit]')];
+const plants=[...document.querySelectorAll('.plant')];
+async function w(ms){return new Promise(r=>setTimeout(r,ms))}
+function confettiBurst(x,y,host){
+  const colors=['#ff6b4a','#ffb84d','#3e9c6b','#7c6cff','#e879a8'];
+  for(let i=0;i<10;i++){
+    const c=document.createElement('span');c.className='confetti';
+    c.style.background=colors[i%colors.length];
+    c.style.left=x+'px';c.style.top=y+'px';c.style.opacity=1;
+    host.appendChild(c);
+    const ang=Math.random()*Math.PI*2,dist=30+Math.random()*46;
+    c.animate([
+      {transform:'translate(0,0) rotate(0deg)',opacity:1},
+      {transform:`translate(${Math.cos(ang)*dist}px,${Math.sin(ang)*dist-18}px) rotate(${Math.random()*360}deg)`,opacity:0}
+    ],{duration:700+Math.random()*300,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>c.remove();
+  }
+}
+async function phoneLoop(){
+  const phone=document.querySelector('.phone-zone');
+  if(reduced){
+    habits.forEach(h=>h.querySelector('.chk').classList.add('on'));
+    plants.forEach(p=>{p.querySelector('.stem').style.height=p.dataset.h+'px';p.classList.add('grown')});
+    return;
+  }
+  while(true){
+    // reset
+    habits.forEach(h=>{h.querySelector('.chk').classList.remove('on');
+      const n=h.querySelector('[data-n]');n.textContent=parseInt(n.dataset.n)-1});
+    plants.forEach(p=>{p.querySelector('.stem').style.height='8px';p.classList.remove('grown')});
+    await w(1400);
+    for(let i=0;i<habits.length;i++){
+      const h=habits[i],chk=h.querySelector('.chk'),chip=h.querySelector('.streak-chip'),n=h.querySelector('[data-n]');
+      chk.classList.add('on');
+      const r=chk.getBoundingClientRect(),pr=phone.getBoundingClientRect();
+      confettiBurst(r.left-pr.left+13,r.top-pr.top+13,phone);
+      n.textContent=n.dataset.n;
+      chip.classList.add('pop');setTimeout(()=>chip.classList.remove('pop'),350);
+      // grow matching plant
+      if(plants[i]){plants[i].querySelector('.stem').style.height=plants[i].dataset.h+'px';plants[i].classList.add('grown')}
+      await w(1250);
+    }
+    if(plants[3]){plants[3].querySelector('.stem').style.height=plants[3].dataset.h+'px';plants[3].classList.add('grown')}
+    await w(4200);
+  }
+}
+phoneLoop();
 </script>
 </body>
 </html>

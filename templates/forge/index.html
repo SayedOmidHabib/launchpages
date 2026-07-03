@@ -21,6 +21,7 @@
   --green:#3ddc84;
   --green-dim:rgba(61,220,132,.12);
   --amber:#ffc53d;
+  --red:#ff7b72;
   --mono:'JetBrains Mono',monospace;
   --sans:'Inter',sans-serif;
 }
@@ -29,104 +30,118 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3{letter-spacing:-.025em;line-height:1.12}
 a{color:inherit;text-decoration:none}
-.mono{font-family:var(--mono)}
-.container{max-width:1080px;margin:0 auto;padding:0 24px}
-section{padding:92px 0}
-.kicker{font-family:var(--mono);font-size:13px;color:var(--green);margin-bottom:14px;display:block}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:100px 0}
+.kicker{font-family:var(--mono);font-size:13px;color:var(--green);margin-bottom:16px;display:block}
 .kicker::before{content:"~/ "}
-.section-head{max-width:600px;margin-bottom:52px}
-.section-head h2{font-size:clamp(26px,3.8vw,38px);margin-bottom:12px}
-.section-head p{color:var(--text-2)}
+.section-head{max-width:620px;margin-bottom:56px}
+.section-head h2{font-size:clamp(28px,4vw,42px);margin-bottom:14px}
+.section-head p{color:var(--text-2);font-size:16.5px}
 
-.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:all .16s ease;font-family:var(--sans)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;padding:13px 24px;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:all .17s ease;font-family:var(--sans);position:relative}
 .btn:focus-visible{outline:2px solid var(--green);outline-offset:3px}
-.btn-green{background:var(--green);color:#06130b}
-.btn-green:hover{background:#5ce69a;transform:translateY(-1px)}
+.btn-green{background:var(--green);color:#06130b;box-shadow:0 8px 28px rgba(61,220,132,.25)}
+.btn-green:hover{background:#5ce69a;transform:translateY(-2px);box-shadow:0 12px 36px rgba(61,220,132,.35)}
 .btn-line{border-color:var(--border-2);color:var(--text)}
 .btn-line:hover{border-color:var(--green);color:var(--green)}
-.btn-lg{padding:15px 28px;font-size:16px}
+.btn-lg{padding:16px 30px;font-size:16px}
 
 /* nav */
-.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(10,14,12,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:var(--mono);font-weight:700;font-size:18px;display:flex;align-items:center;gap:9px}
-.logo i{width:26px;height:26px;border-radius:6px;background:var(--green);display:grid;place-items:center;font-style:normal;color:#06130b;font-size:15px}
-.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
-.nav-links a{font-size:14px;font-weight:500;color:var(--text-2)}
+.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(10,14,12,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:var(--mono);font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+.logo i{width:28px;height:28px;border-radius:7px;background:var(--green);display:grid;place-items:center;font-style:normal;color:#06130b;font-size:15px;box-shadow:0 0 18px rgba(61,220,132,.4)}
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text-2);transition:color .15s}
 .nav-links a:hover{color:var(--green)}
-.nav-right{display:flex;align-items:center;gap:12px}
-.gh-stars{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:13px;border:1px solid var(--border-2);border-radius:8px;padding:8px 14px;color:var(--text-2);transition:border-color .16s}
-.gh-stars:hover{border-color:var(--green)}
+.gh-stars{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:13px;border:1px solid var(--border-2);border-radius:9px;padding:8px 14px;color:var(--text-2);transition:border-color .16s,transform .16s}
+.gh-stars:hover{border-color:var(--green);transform:translateY(-1px)}
 .gh-stars svg{fill:var(--amber);stroke:none}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;padding:8px}
 .nav-toggle span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0;border-radius:2px}
 
 /* hero */
-.hero{padding:150px 0 70px;position:relative;background:
+.hero{padding:158px 0 80px;position:relative;background:
   linear-gradient(var(--border) 1px,transparent 1px),
   linear-gradient(90deg,var(--border) 1px,transparent 1px);
   background-size:56px 56px;background-position:center}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,transparent 30%,var(--bg) 85%);pointer-events:none}
-.hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(34px,5vw,52px);margin-bottom:18px}
-.hero h1 em{font-style:normal;color:var(--green)}
-.hero-lead{font-size:17px;color:var(--text-2);margin-bottom:30px;max-width:460px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
-.install{display:inline-flex;align-items:center;gap:14px;font-family:var(--mono);font-size:13.5px;background:var(--surface);border:1px solid var(--border-2);border-radius:8px;padding:11px 16px;color:var(--text-2);cursor:pointer;transition:border-color .16s}
-.install:hover{border-color:var(--green)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 72% 62% at 50% 38%,transparent 28%,var(--bg) 86%);pointer-events:none}
+.hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+.hero h1{font-size:clamp(34px,4.8vw,54px);margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--green);position:relative}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:8px;background:var(--green-dim);z-index:-1}
+.hero-lead{font-size:17px;color:var(--text-2);margin-bottom:32px;max-width:460px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.install{display:inline-flex;align-items:center;gap:14px;font-family:var(--mono);font-size:13.5px;background:var(--surface);border:1px solid var(--border-2);border-radius:9px;padding:12px 16px;color:var(--text-2);cursor:pointer;transition:border-color .16s,transform .16s}
+.install:hover{border-color:var(--green);transform:translateY(-1px)}
 .install b{color:var(--green);font-weight:500}
 .install .copy{color:var(--text-3);font-size:12px}
 
-/* terminal */
-.term{background:#0c110e;border:1px solid var(--border-2);border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(61,220,132,.06);font-family:var(--mono);font-size:13px;line-height:1.75}
-.term-bar{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-bottom:1px solid var(--border);color:var(--text-3);font-size:12px}
+/* live terminal */
+.term{background:#0b100d;border:1px solid var(--border-2);border-radius:14px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(61,220,132,.08),0 -20px 70px rgba(61,220,132,.04);font-family:var(--mono);font-size:13px;line-height:1.8}
+.term-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text-3);font-size:12px}
 .term-dots{display:flex;gap:6px}
-.term-dots i{width:9px;height:9px;border-radius:50%;background:var(--border-2)}
-.term-body{padding:20px 22px;color:var(--text-2)}
-.term-body .ln{display:block;white-space:pre-wrap;word-break:break-word}
+.term-dots i{width:10px;height:10px;border-radius:50%}
+.term-dots i:nth-child(1){background:#ff5f57}.term-dots i:nth-child(2){background:#febc2e}.term-dots i:nth-child(3){background:#28c840}
+.term-body{padding:20px 22px;color:var(--text-2);min-height:322px}
+.ln{display:block;white-space:pre-wrap;word-break:break-word;min-height:23px}
 .p{color:var(--green)}
 .c{color:var(--text-3)}
 .y{color:var(--amber)}
+.r{color:var(--red)}
 .w{color:var(--text)}
-.cursor{display:inline-block;width:8px;height:15px;background:var(--green);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+.cursor{display:inline-block;width:8px;height:15px;background:var(--green);vertical-align:-2px;animation:blink 1.05s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
+.progress-line{display:inline-block;width:120px;height:6px;border-radius:100px;background:var(--border);vertical-align:1px;margin:0 8px;overflow:hidden}
+.progress-line i{display:block;height:100%;width:0;background:var(--green);transition:width .1s linear}
 
-/* trust strip */
-.strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 0;background:var(--bg-2)}
-.strip .container{display:flex;justify-content:center;gap:clamp(20px,5vw,56px);flex-wrap:wrap;font-family:var(--mono);font-size:13px;color:var(--text-3)}
-.strip b{color:var(--green);font-weight:500}
+/* stats strip */
+.strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0;background:var(--bg-2)}
+.strip .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 18px;text-align:center;border-right:1px solid var(--border)}
+.stat:first-child{border-left:1px solid var(--border)}
+.stat b{font-family:var(--mono);font-size:clamp(24px,3.4vw,36px);font-weight:700;color:var(--green);display:block}
+.stat span{font-size:12.5px;color:var(--text-3);font-family:var(--mono)}
 
 /* features */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.feat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px;transition:border-color .18s,transform .18s}
-.feat:hover{border-color:var(--border-2);transform:translateY(-2px)}
-.feat .fic{width:38px;height:38px;border-radius:9px;background:var(--green-dim);border:1px solid rgba(61,220,132,.25);display:grid;place-items:center;margin-bottom:18px}
+.feat{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:28px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.feat::after{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);transform:translateX(-100%);transition:transform .6s ease}
+.feat:hover{border-color:var(--border-2);transform:translateY(-3px)}
+.feat:hover::after{transform:translateX(100%)}
+.feat .fic{width:40px;height:40px;border-radius:10px;background:var(--green-dim);border:1px solid rgba(61,220,132,.25);display:grid;place-items:center;margin-bottom:18px}
 .feat .fic svg{stroke:var(--green)}
 .feat h3{font-size:17px;margin-bottom:8px}
 .feat p{font-size:14px;color:var(--text-2)}
 .feat code{font-family:var(--mono);font-size:12.5px;background:var(--green-dim);color:var(--green);padding:1.5px 6px;border-radius:5px}
 
-/* code compare */
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
-.compare .term{box-shadow:none}
-.compare h3{font-size:15px;margin-bottom:12px;font-family:var(--mono);font-weight:500}
-.compare .bad h3{color:#ff7b72}
-.compare .good h3{color:var(--green)}
+/* workflow tabs */
+.tabs{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.tab{font-family:var(--mono);font-size:13px;padding:10px 20px;border-radius:100px;border:1px solid var(--border-2);background:transparent;color:var(--text-2);cursor:pointer;transition:all .15s}
+.tab:hover{color:var(--green);border-color:var(--green)}
+.tab.on{background:var(--green);color:#06130b;border-color:var(--green);font-weight:700}
+.tab-panels{position:relative}
+.panel{display:none}
+.panel.on{display:block;animation:panelIn .35s ease}
+@keyframes panelIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.panel .term{box-shadow:none}
+.panel .term-body{min-height:240px}
 
 /* quote band */
-.band{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.band blockquote{max-width:760px;margin:0 auto;text-align:center}
-.band blockquote p{font-size:clamp(19px,2.8vw,26px);line-height:1.45;font-weight:500;margin-bottom:24px}
-.band blockquote p::before{content:"“"}.band blockquote p::after{content:"”"}
-.band cite{font-style:normal;font-family:var(--mono);font-size:13.5px;color:var(--text-3)}
-.band cite b{color:var(--text-2);font-weight:500}
+blockquote.big{max-width:780px;margin:0 auto;text-align:center}
+blockquote.big p{font-size:clamp(19px,2.8vw,27px);line-height:1.45;font-weight:500;margin-bottom:24px}
+blockquote.big p::before{content:"“"}blockquote.big p::after{content:"”"}
+blockquote.big em{font-style:normal;color:var(--green)}
+blockquote.big cite{font-style:normal;font-family:var(--mono);font-size:13.5px;color:var(--text-3)}
+blockquote.big cite b{color:var(--text-2);font-weight:500}
 
 /* pricing */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
-.plan{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px}
-.plan.hot{border-color:var(--green)}
+.plan{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:30px;transition:transform .2s,border-color .2s}
+.plan:hover{transform:translateY(-4px)}
+.plan.hot{border-color:var(--green);box-shadow:0 0 40px rgba(61,220,132,.12)}
 .plan .lvl{font-family:var(--mono);font-size:12.5px;color:var(--green);margin-bottom:14px;display:block}
-.plan .amt{font-size:38px;font-weight:700;letter-spacing:-.03em;margin-bottom:4px}
+.plan .amt{font-size:40px;font-weight:700;letter-spacing:-.03em;margin-bottom:4px}
 .plan .amt small{font-size:14px;font-weight:400;color:var(--text-3)}
 .plan .for{font-size:13.5px;color:var(--text-3);margin-bottom:20px}
 .plan ul{list-style:none;margin-bottom:26px;display:flex;flex-direction:column;gap:10px}
@@ -135,44 +150,49 @@ nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .plan .btn{width:100%;justify-content:center}
 
 /* faq */
-.faq{max-width:700px;margin:0 auto}
+.faq{max-width:720px;margin:0 auto}
 .faq details{border-bottom:1px solid var(--border)}
-.faq summary{padding:20px 4px;cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary{padding:21px 4px;cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:">";font-family:var(--mono);color:var(--green);transition:transform .18s}
+.faq summary::after{content:">";font-family:var(--mono);color:var(--green);transition:transform .2s}
 .faq details[open] summary::after{transform:rotate(90deg)}
 .faq details div{padding:0 4px 20px;font-size:14.5px;color:var(--text-2)}
 
 /* cta */
-.cta{text-align:center}
-.cta h2{font-size:clamp(28px,4.4vw,44px);margin-bottom:14px}
+.cta{text-align:center;position:relative;overflow:hidden}
+.cta h2{font-size:clamp(30px,4.6vw,48px);margin-bottom:14px}
 .cta h2 em{font-style:normal;color:var(--green)}
 .cta p{color:var(--text-2);margin-bottom:30px}
-.cta .install{margin-top:18px}
 
 footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
 .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13.5px;color:var(--text-3)}
 .foot .links{display:flex;gap:22px}
 .foot a:hover{color:var(--green)}
-.foot .mono{font-size:12.5px}
+.foot .mono{font-family:var(--mono);font-size:12.5px}
 
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(1){transition-delay:0s}.stagger.in>*:nth-child(2){transition-delay:.07s}.stagger.in>*:nth-child(3){transition-delay:.14s}.stagger.in>*:nth-child(4){transition-delay:.21s}.stagger.in>*:nth-child(5){transition-delay:.28s}.stagger.in>*:nth-child(6){transition-delay:.35s}
+
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
+  .reveal,.stagger>*{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
-@media (max-width:920px){
+@media (max-width:940px){
   .hero .container{grid-template-columns:1fr;gap:40px}
   .grid3,.plans{grid-template-columns:1fr 1fr}
-  .compare{grid-template-columns:1fr}
+  .strip .container{grid-template-columns:1fr 1fr}
+  .stat{border-bottom:1px solid var(--border)}
 }
 @media (max-width:620px){
-  section{padding:60px 0}
-  .hero{padding:120px 0 52px}
+  section{padding:64px 0}
+  .hero{padding:126px 0 56px}
   .grid3,.plans{grid-template-columns:1fr}
-  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-2);border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start;padding:22px;gap:18px}
+  .nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:var(--bg-2);border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start;padding:22px;gap:18px}
   .nav-links.open{display:flex}
   .nav-toggle{display:block}
   .gh-stars{display:none}
@@ -186,17 +206,17 @@ footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
     <a class="logo" href="#" aria-label="Forge home"><i aria-hidden="true">▲</i>forge</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#features">Features</a></li>
-      <li><a href="#compare">Why Forge</a></li>
+      <li><a href="#workflows">Workflows</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#">Docs</a></li>
     </ul>
-    <div class="nav-right">
+    <div style="display:flex;gap:12px;align-items:center">
       <a class="gh-stars" href="#" aria-label="GitHub repository, 8.2 thousand stars">
         <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>
         8.2k
       </a>
-      <a class="btn btn-green" href="#pricing">Get started</a>
+      <a class="btn btn-green" href="#pricing" style="padding:10px 20px;font-size:14px">Get started</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -210,38 +230,26 @@ footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
       <p class="hero-lead">Forge branches your database like git branches your code. Every PR gets an isolated, masked copy of production data — spun up in seconds, torn down on merge.</p>
       <div class="hero-actions">
         <a class="btn btn-green btn-lg" href="#pricing">Start free</a>
-        <a class="btn btn-line btn-lg" href="#">Read the docs</a>
+        <a class="btn btn-line btn-lg" href="#workflows">See workflows</a>
       </div>
       <button class="install" id="installBtn" aria-label="Copy install command">
         <span><b>$</b> curl -fsSL forge.sh | sh</span>
-        <span class="copy" id="copyLabel">copy</span>
+        <span class="copy">copy</span>
       </button>
     </div>
-    <div class="term" aria-label="Terminal demo showing forge branch creation">
+    <div class="term" aria-label="Live terminal demo">
       <div class="term-bar"><div class="term-dots"><i></i><i></i><i></i></div><span>zsh — forge</span></div>
-      <div class="term-body">
-        <span class="ln"><span class="p">$</span> <span class="w">forge branch create pr-482</span></span>
-        <span class="ln"><span class="c">→ snapshotting prod (2.1 TB)…</span></span>
-        <span class="ln"><span class="c">→ masking 14 PII columns…</span></span>
-        <span class="ln"><span class="y">✓</span> branch ready in <span class="y">3.4s</span></span>
-        <span class="ln">&nbsp;</span>
-        <span class="ln"><span class="c">postgres://pr-482.db.forge.sh:5432</span></span>
-        <span class="ln">&nbsp;</span>
-        <span class="ln"><span class="p">$</span> <span class="w">forge diff --schema</span></span>
-        <span class="ln"><span class="y">~</span> ALTER TABLE users ADD COLUMN plan_tier text</span>
-        <span class="ln"><span class="y">!</span> full table rewrite · est. lock: <span class="y">41s</span> on prod</span>
-        <span class="ln"><span class="p">$</span> <span class="cursor" aria-hidden="true"></span></span>
-      </div>
+      <div class="term-body" id="heroTerm"></div>
     </div>
   </div>
 </header>
 
 <div class="strip">
   <div class="container">
-    <span><b>3.4s</b> median branch time</span>
-    <span><b>2,900+</b> engineering teams</span>
-    <span><b>0</b> prod incidents caused</span>
-    <span><b>MIT</b> licensed CLI</span>
+    <div class="stat"><b class="count" data-to="3.4" data-dec="1" data-suffix="s">0s</b><span>median branch time</span></div>
+    <div class="stat"><b class="count" data-to="2900" data-suffix="+">0+</b><span>engineering teams</span></div>
+    <div class="stat"><b class="count" data-to="0">0</b><span>prod incidents caused</span></div>
+    <div class="stat"><b>MIT</b><span>licensed CLI</span></div>
   </div>
 </div>
 
@@ -252,33 +260,33 @@ footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
       <h2>Migrations without the fear</h2>
       <p>Everything you need to test schema changes against real data — without touching real data.</p>
     </div>
-    <div class="grid3">
-      <div class="feat reveal">
+    <div class="grid3 stagger">
+      <div class="feat">
         <div class="fic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12a3 3 0 003 3h9"/><circle cx="6" cy="3" r="2.5"/><circle cx="18" cy="18" r="2.5"/></svg></div>
         <h3>Copy-on-write branches</h3>
-        <p>A 2 TB database branches in seconds, not hours. Storage costs pennies because only changed pages are duplicated.</p>
+        <p>A 2 TB database branches in seconds, not hours. Storage costs pennies because only changed pages duplicate.</p>
       </div>
-      <div class="feat reveal">
+      <div class="feat">
         <div class="fic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
         <h3>Automatic PII masking</h3>
-        <p>Emails, names, and card numbers are detected and masked on branch. Compliant by default — <code>forge mask --audit</code> shows exactly what changed.</p>
+        <p>Emails, names, and card numbers detected and masked on branch. <code>forge mask --audit</code> shows exactly what changed.</p>
       </div>
-      <div class="feat reveal">
+      <div class="feat">
         <div class="fic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></div>
         <h3>Lock-time warnings</h3>
-        <p>Forge estimates how long each migration will lock production tables — before you merge, not after pagers fire.</p>
+        <p>Forge estimates how long each migration locks production tables — before you merge, not after pagers fire.</p>
       </div>
-      <div class="feat reveal">
+      <div class="feat">
         <div class="fic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg></div>
         <h3>CI-native</h3>
         <p>One GitHub Action. Every PR comments with its branch URL, schema diff, and migration risk score.</p>
       </div>
-      <div class="feat reveal">
+      <div class="feat">
         <div class="fic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
         <h3>Query replay</h3>
         <p>Replay yesterday's production traffic against your branch. Catch the N+1 before your users do.</p>
       </div>
-      <div class="feat reveal">
+      <div class="feat">
         <div class="fic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3>Zero prod access</h3>
         <p>Branches run in isolated compute. Nobody needs production credentials to test against production-shaped data.</p>
@@ -287,42 +295,59 @@ footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
   </div>
 </section>
 
-<section id="compare" style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<section id="workflows" style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="container">
     <div class="section-head reveal">
-      <span class="kicker">before &amp; after</span>
-      <h2>Retire the shared staging database</h2>
-      <p>One stale, fought-over staging DB versus an isolated branch per developer.</p>
+      <span class="kicker">workflows</span>
+      <h2>One CLI, three superpowers</h2>
+      <p>Branch, diff, and replay — the loop that makes database changes boring.</p>
     </div>
-    <div class="compare">
-      <div class="bad reveal">
-        <h3># before: staging roulette</h3>
-        <div class="term"><div class="term-body">
-          <span class="ln"><span class="p">$</span> <span class="w">psql staging -f migrate.sql</span></span>
-          <span class="ln"><span class="c">ERROR: column "plan_tier" already exists</span></span>
-          <span class="ln"><span class="c"># someone else's half-applied migration…</span></span>
-          <span class="ln"><span class="p">$</span> <span class="w">slack: "who broke staging??"</span></span>
-          <span class="ln"><span class="c"># 47 replies. it was nobody. it was everybody.</span></span>
-        </div></div>
+    <div class="reveal">
+      <div class="tabs" role="tablist" aria-label="Forge workflows">
+        <button class="tab on" data-panel="p1" role="tab" aria-selected="true">$ forge branch</button>
+        <button class="tab" data-panel="p2" role="tab" aria-selected="false">$ forge diff</button>
+        <button class="tab" data-panel="p3" role="tab" aria-selected="false">$ forge replay</button>
       </div>
-      <div class="good reveal">
-        <h3># after: forge branches</h3>
-        <div class="term"><div class="term-body">
-          <span class="ln"><span class="p">$</span> <span class="w">forge branch create my-feature</span></span>
-          <span class="ln"><span class="y">✓</span> isolated branch ready in 3.1s</span>
-          <span class="ln"><span class="p">$</span> <span class="w">psql $FORGE_URL -f migrate.sql</span></span>
-          <span class="ln"><span class="y">✓</span> ALTER TABLE · 0 conflicts · yours alone</span>
-          <span class="ln"><span class="c"># staging channel: silence. beautiful silence.</span></span>
-        </div></div>
+      <div class="tab-panels">
+        <div class="panel on" id="p1">
+          <div class="term"><div class="term-bar"><div class="term-dots"><i></i><i></i><i></i></div><span>branch</span></div><div class="term-body">
+<span class="ln"><span class="p">$</span> <span class="w">forge branch create pr-482</span></span>
+<span class="ln"><span class="c">→ snapshotting prod (2.1 TB) via copy-on-write…</span></span>
+<span class="ln"><span class="c">→ masking 14 PII columns (emails, cards, names)…</span></span>
+<span class="ln"><span class="y">✓</span> branch ready in <span class="y">3.4s</span></span>
+<span class="ln">&nbsp;</span>
+<span class="ln"><span class="c">postgres://pr-482.db.forge.sh:5432 · expires on merge</span></span>
+          </div></div>
+        </div>
+        <div class="panel" id="p2">
+          <div class="term"><div class="term-bar"><div class="term-dots"><i></i><i></i><i></i></div><span>diff</span></div><div class="term-body">
+<span class="ln"><span class="p">$</span> <span class="w">forge diff --schema</span></span>
+<span class="ln"><span class="y">~</span> ALTER TABLE users ADD COLUMN plan_tier text</span>
+<span class="ln"><span class="r">!</span> full table rewrite · est. lock: <span class="r">41s</span> on prod</span>
+<span class="ln"><span class="c">  hint: add DEFAULT NULL to avoid rewrite (est. lock: 0.2s)</span></span>
+<span class="ln">&nbsp;</span>
+<span class="ln"><span class="y">~</span> CREATE INDEX CONCURRENTLY idx_users_tier <span class="p">✓ safe</span></span>
+          </div></div>
+        </div>
+        <div class="panel" id="p3">
+          <div class="term"><div class="term-bar"><div class="term-dots"><i></i><i></i><i></i></div><span>replay</span></div><div class="term-body">
+<span class="ln"><span class="p">$</span> <span class="w">forge replay --from yesterday --speed 10x</span></span>
+<span class="ln"><span class="c">→ replaying 1.2M queries against pr-482…</span></span>
+<span class="ln"><span class="p">✓</span> 1,199,982 queries matched baseline</span>
+<span class="ln"><span class="r">!</span> 18 queries slower &gt;100ms — all on users.plan_tier</span>
+<span class="ln"><span class="c">  worst: SELECT … WHERE plan_tier = $1 (seq scan, 840ms)</span></span>
+<span class="ln"><span class="c">  hint: your new index isn't used — add WHERE clause match</span></span>
+          </div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="container band-inner">
-    <blockquote class="reveal">
-      <p>We went from one schema change a month — planned like a moon landing — to shipping five a week. Forge made the database boring, which is the highest compliment I can give.</p>
+  <div class="container">
+    <blockquote class="big reveal">
+      <p>We went from one schema change a month — planned like a moon landing — to shipping <em>five a week</em>. Forge made the database boring, which is the highest compliment I can give.</p>
       <cite><b>Priya Natarajan</b> · Staff Engineer, Alloy Systems</cite>
     </blockquote>
   </div>
@@ -335,8 +360,8 @@ footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
       <h2>Free to start. Honest at scale.</h2>
       <p>Priced by branch-hours, not seats. Your whole team can use it.</p>
     </div>
-    <div class="plans">
-      <div class="plan reveal">
+    <div class="plans stagger">
+      <div class="plan">
         <span class="lvl">// hobby</span>
         <div class="amt">$0<small>/mo</small></div>
         <p class="for">Side projects &amp; evaluation</p>
@@ -347,7 +372,7 @@ footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
         </ul>
         <a class="btn btn-line" href="#">Start free</a>
       </div>
-      <div class="plan hot reveal">
+      <div class="plan hot">
         <span class="lvl">// team</span>
         <div class="amt">$99<small>/mo</small></div>
         <p class="for">Startups shipping fast</p>
@@ -359,7 +384,7 @@ footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
         </ul>
         <a class="btn btn-green" href="#">Start 14-day trial</a>
       </div>
-      <div class="plan reveal">
+      <div class="plan">
         <span class="lvl">// enterprise</span>
         <div class="amt">Custom</div>
         <p class="for">Multi-TB, multi-region</p>
@@ -380,11 +405,11 @@ footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
       <span class="kicker">faq</span>
       <h2>Common questions</h2>
     </div>
-    <div class="faq">
-      <details class="reveal"><summary>Which databases are supported?</summary><div>PostgreSQL 13+, MySQL 8+, and MariaDB today. SQL Server is in private beta — join the waitlist from your dashboard.</div></details>
-      <details class="reveal"><summary>Does production performance suffer?</summary><div>No. Branches are created from continuous WAL-based replicas, never from your primary. Production sees zero additional load.</div></details>
-      <details class="reveal"><summary>How does masking know what's PII?</summary><div>A classifier flags likely PII columns (names, emails, tokens, card numbers) and proposes masking rules. You approve them once; they're versioned in your repo like any config.</div></details>
-      <details class="reveal"><summary>Can I self-host?</summary><div>Yes — the Forge data plane can run entirely in your VPC on Team and Enterprise plans. The control plane never sees row data.</div></details>
+    <div class="faq stagger">
+      <details><summary>Which databases are supported?</summary><div>PostgreSQL 13+, MySQL 8+, and MariaDB today. SQL Server is in private beta — join the waitlist from your dashboard.</div></details>
+      <details><summary>Does production performance suffer?</summary><div>No. Branches are created from continuous WAL-based replicas, never from your primary. Production sees zero additional load.</div></details>
+      <details><summary>How does masking know what's PII?</summary><div>A classifier flags likely PII columns and proposes masking rules. You approve them once; they're versioned in your repo like any config.</div></details>
+      <details><summary>Can I self-host?</summary><div>Yes — the Forge data plane can run entirely in your VPC on Team and Enterprise plans. The control plane never sees row data.</div></details>
     </div>
   </div>
 </section>
@@ -394,28 +419,52 @@ footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
     <h2>Your next migration could be <em>boring</em></h2>
     <p>Set up in five minutes. First branch is free forever.</p>
     <a class="btn btn-green btn-lg" href="#pricing">Create your first branch</a>
-    <br>
-    <button class="install" id="installBtn2" aria-label="Copy install command">
-      <span><b>$</b> curl -fsSL forge.sh | sh</span>
-      <span class="copy">copy</span>
-    </button>
   </div>
 </section>
 
 <footer>
   <div class="container foot">
     <span class="mono">▲ forge — © 2026 Forge Data, Inc.</span>
-    <div class="links">
-      <a href="#">Docs</a><a href="#">GitHub</a><a href="#">Status</a><a href="#">Privacy</a>
-    </div>
-    <span class="mono">Template: Forge — part of the LaunchPages kit</span>
+    <div class="links"><a href="#">Docs</a><a href="#">GitHub</a><a href="#">Status</a><a href="#">Privacy</a></div>
+    <span class="mono">Template: Forge — LaunchPages kit</span>
   </div>
 </footer>
 
 <script>
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* nav */
 const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
 t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.setAttribute('aria-expanded',o)});
 l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
+
+/* reveal */
+if(!reduced){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+  document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal,.stagger').forEach(el=>el.classList.add('in'))}
+
+/* count-up */
+function countUp(el){
+  const to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||0),suf=el.dataset.suffix||'';
+  const dur=1400,t0=performance.now();
+  function f(t){
+    const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+    let v=(to*e).toFixed(dec);
+    if(to>=1000)v=Math.round(to*e).toLocaleString();
+    el.textContent=v+suf;
+    if(p<1)requestAnimationFrame(f);
+  }
+  requestAnimationFrame(f);
+}
+if(!reduced){
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target)}}),{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+}else{
+  document.querySelectorAll('.count').forEach(el=>{const v=parseFloat(el.dataset.to);el.textContent=(v>=1000?v.toLocaleString():v)+(el.dataset.suffix||'')});
+}
+
+/* copy install */
 document.querySelectorAll('.install').forEach(btn=>{
   btn.addEventListener('click',async()=>{
     try{await navigator.clipboard.writeText('curl -fsSL forge.sh | sh');
@@ -423,10 +472,73 @@ document.querySelectorAll('.install').forEach(btn=>{
     }catch(e){}
   });
 });
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+
+/* workflow tabs */
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false')});
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
+    tab.classList.add('on');tab.setAttribute('aria-selected','true');
+    document.getElementById(tab.dataset.panel).classList.add('on');
+  });
+});
+
+/* live typing terminal */
+const term=document.getElementById('heroTerm');
+const scriptLines=[
+  {type:'cmd',text:'forge branch create pr-482'},
+  {type:'out',html:'<span class="c">→ snapshotting prod (2.1 TB)…</span>',delay:340},
+  {type:'progress',dur:900},
+  {type:'out',html:'<span class="c">→ masking 14 PII columns…</span>',delay:300},
+  {type:'out',html:'<span class="y">✓</span> branch ready in <span class="y">3.4s</span>',delay:420},
+  {type:'out',html:'&nbsp;',delay:120},
+  {type:'out',html:'<span class="c">postgres://pr-482.db.forge.sh:5432</span>',delay:200},
+  {type:'out',html:'&nbsp;',delay:600},
+  {type:'cmd',text:'forge diff --schema'},
+  {type:'out',html:'<span class="y">~</span> ALTER TABLE users ADD COLUMN plan_tier text',delay:380},
+  {type:'out',html:'<span class="r">!</span> full table rewrite · est. lock: <span class="r">41s</span> on prod',delay:340},
+  {type:'out',html:'<span class="c">  hint: add DEFAULT NULL → lock drops to 0.2s</span>',delay:320}
+];
+function line(html){const s=document.createElement('span');s.className='ln';s.innerHTML=html;term.appendChild(s);return s}
+async function w(ms){return new Promise(r=>setTimeout(r,ms))}
+async function typeCmd(text){
+  const s=line('<span class="p">$</span> <span class="w"></span><span class="cursor"></span>');
+  const tgt=s.querySelector('.w');
+  for(const ch of text){tgt.textContent+=ch;await w(26+Math.random()*40)}
+  s.querySelector('.cursor').remove();
+}
+async function progress(dur){
+  const s=line('<span class="c">  copying pages </span><span class="progress-line"><i></i></span><span class="c pct">0%</span>');
+  const bar=s.querySelector('i'),pct=s.querySelector('.pct');
+  const t0=performance.now();
+  await new Promise(res=>{
+    (function f(t){
+      const p=Math.min((t-t0)/dur,1);
+      bar.style.width=(p*100)+'%';pct.textContent=Math.round(p*100)+'%';
+      p<1?requestAnimationFrame(f):res();
+    })(t0);
+  });
+}
+async function playTerm(){
+  if(reduced){
+    scriptLines.forEach(s=>{
+      if(s.type==='cmd')line('<span class="p">$</span> <span class="w">'+s.text+'</span>');
+      else if(s.type==='out')line(s.html);
+    });
+    return;
+  }
+  while(true){
+    term.innerHTML='';
+    for(const s of scriptLines){
+      if(s.type==='cmd'){await typeCmd(s.text)}
+      else if(s.type==='progress'){await progress(s.dur)}
+      else{await w(s.delay);line(s.html)}
+    }
+    line('<span class="p">$</span> <span class="cursor"></span>');
+    await w(4200);
+  }
+}
+playTerm();
 </script>
 </body>
 </html>

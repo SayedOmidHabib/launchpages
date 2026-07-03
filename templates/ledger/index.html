@@ -29,77 +29,93 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:
 h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spacing:-.01em}
 a{color:inherit;text-decoration:none}
 .container{max-width:1100px;margin:0 auto;padding:0 24px}
-section{padding:92px 0}
+section{padding:96px 0;position:relative}
 .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:16px}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:15px;padding:14px 28px;border-radius:8px;cursor:pointer;border:1.5px solid transparent;transition:all .17s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:15px;padding:14px 28px;border-radius:8px;cursor:pointer;border:1.5px solid transparent;transition:all .18s ease}
 .btn:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px}
-.btn-green{background:var(--green);color:var(--cream)}
-.btn-green:hover{background:var(--green-2)}
+.btn-green{background:var(--green);color:var(--cream);box-shadow:0 8px 24px rgba(12,59,46,.22)}
+.btn-green:hover{background:var(--green-2);transform:translateY(-2px);box-shadow:0 14px 32px rgba(12,59,46,.3)}
 .btn-line{border-color:var(--green);color:var(--green)}
 .btn-line:hover{background:var(--green);color:var(--cream)}
 
 /* nav */
-.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(247,245,239,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-wrap{position:fixed;inset:0 0 auto;z-index:100;background:rgba(247,245,239,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:24px}
-.logo i{width:28px;height:28px;border-radius:7px;background:var(--green);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:14px;font-style:normal}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:25px}
+.logo i{width:29px;height:29px;border-radius:8px;background:var(--green);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:14px;font-style:normal}
 .nav-links{display:flex;gap:30px;list-style:none;align-items:center}
-.nav-links a{font-size:14.5px;font-weight:500;color:var(--ink-2)}
+.nav-links a{font-size:14.5px;font-weight:500;color:var(--ink-2);position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;height:2px;width:0;background:var(--gold);transition:width .2s}
 .nav-links a:hover{color:var(--green)}
+.nav-links a:hover::after{width:100%}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;padding:8px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0}
 
 /* hero */
-.hero{padding:168px 0 80px}
-.hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
-.hero h1{font-size:clamp(42px,6vw,68px);margin-bottom:22px}
-.hero h1 em{font-style:italic;color:var(--green)}
+.hero{padding:170px 0 84px;overflow:hidden}
+.hero .container{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(42px,6vw,66px);margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--green);position:relative}
 .hero p{font-size:17.5px;color:var(--ink-2);max-width:440px;margin-bottom:32px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
 .hero-note{font-size:13.5px;color:var(--ink-3)}
 .hero-note b{color:var(--ink-2)}
 
-/* ledger card */
-.book{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 30px 70px rgba(19,32,24,.12);overflow:hidden}
+/* animated ledger card */
+.book{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 34px 76px rgba(19,32,24,.14);overflow:hidden}
 .book-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line);background:var(--green);color:var(--cream)}
-.book-head b{font-family:var(--serif);font-size:18px;font-weight:400}
-.book-head span{font-family:var(--mono);font-size:11.5px;background:rgba(189,227,200,.18);border:1px solid rgba(189,227,200,.35);color:var(--mint);padding:4px 12px;border-radius:100px}
-.row{display:grid;grid-template-columns:1fr auto auto;gap:16px;padding:14px 22px;border-bottom:1px solid #efece3;font-size:13.5px;align-items:center}
-.row:last-child{border-bottom:none}
+.book-head b{font-family:var(--serif);font-size:19px;font-weight:400}
+.book-head .match{font-family:var(--mono);font-size:11.5px;background:rgba(189,227,200,.18);border:1px solid rgba(189,227,200,.35);color:var(--mint);padding:4px 12px;border-radius:100px;font-variant-numeric:tabular-nums}
+.rows{min-height:264px}
+.row{display:grid;grid-template-columns:1fr auto auto;gap:16px;padding:14px 22px;border-bottom:1px solid #efece3;font-size:13.5px;align-items:center;opacity:0;transform:translateX(-14px);transition:opacity .45s ease,transform .45s ease}
+.row.show{opacity:1;transform:none}
 .row .who b{display:block;font-weight:600;font-size:13.5px}
 .row .who span{color:var(--ink-3);font-size:12px}
-.amt{font-family:var(--mono);font-size:13px}
+.amt{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
 .amt.in{color:#177245}
-.badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px}
+.badge{font-size:11px;font-weight:600;padding:4px 11px;border-radius:100px;transition:all .3s ease;min-width:64px;text-align:center}
+.badge.scan{background:#fdf3dd;color:#8a6414}
+.badge.scan::after{content:"";display:inline-block;width:9px;height:9px;border:2px solid #c99a2e;border-top-color:transparent;border-radius:50%;margin-left:6px;vertical-align:-1px;animation:rot .8s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
 .badge.ok{background:#e2f2e7;color:#177245}
-.badge.auto{background:#fdf3dd;color:#8a6414}
-.book-foot{padding:16px 22px;background:#fbfaf6;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-2)}
-.book-foot b{font-family:var(--mono);color:var(--green)}
+.book-foot{padding:16px 22px;background:#fbfaf6;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-2);gap:16px}
+.book-foot b{font-family:var(--mono);color:var(--green);font-variant-numeric:tabular-nums;white-space:nowrap}
+.close-bar{flex:1;height:7px;border-radius:100px;background:#e8e4d8;overflow:hidden;max-width:180px}
+.close-bar i{display:block;height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,var(--green),#2e8b6a);transition:width .5s ease}
+.closed-flag{position:absolute;inset:0;display:grid;place-items:center;background:rgba(255,255,255,.94);opacity:0;pointer-events:none;transition:opacity .5s ease}
+.closed-flag.show{opacity:1}
+.closed-flag .inner{text-align:center}
+.closed-flag .seal{width:74px;height:74px;margin:0 auto 14px;border-radius:50%;background:var(--green);display:grid;place-items:center;animation:sealPop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes sealPop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+.closed-flag b{font-family:var(--serif);font-size:24px;display:block}
+.closed-flag span{font-size:13px;color:var(--ink-3)}
 
 /* logos */
-.logos{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fbfaf6}
-.logos .container{display:flex;justify-content:center;align-items:center;gap:clamp(24px,5vw,60px);flex-wrap:wrap}
-.logos span{font-family:var(--serif);font-size:18px;color:var(--ink-3)}
-.logos i{font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-family:var(--sans)}
+.logos{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fbfaf6;overflow:hidden}
+.logos .track{display:flex;gap:64px;width:max-content;animation:marq 26s linear infinite}
+.logos .track span{font-family:var(--serif);font-size:19px;color:var(--ink-3);white-space:nowrap;display:flex;gap:64px}
+@keyframes marq{to{transform:translateX(-50%)}}
 
 /* features */
-.section-head{max-width:620px;margin-bottom:52px}
+.section-head{max-width:640px;margin-bottom:56px}
 .section-head h2{font-size:clamp(30px,4.4vw,46px);margin-bottom:14px}
 .section-head h2 em{font-style:italic;color:var(--green)}
 .section-head p{color:var(--ink-2);font-size:16.5px}
 .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.feat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:30px;transition:transform .18s ease,box-shadow .18s ease}
-.feat:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(19,32,24,.08)}
+.feat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s}
+.feat:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(19,32,24,.09);border-color:var(--mint)}
 .feat .n{font-family:var(--mono);font-size:12px;color:var(--gold);display:block;margin-bottom:16px}
-.feat h3{font-size:22px;margin-bottom:10px}
+.feat h3{font-size:23px;margin-bottom:10px}
 .feat p{font-size:14.5px;color:var(--ink-2)}
 
 /* numbers band */
-.numbers{background:var(--green);color:var(--cream)}
-.numbers .container{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
-.numbers b{font-family:var(--serif);font-size:clamp(40px,6vw,64px);display:block;color:var(--mint)}
+.numbers{background:var(--green);color:var(--cream);overflow:hidden}
+.numbers::before{content:"";position:absolute;top:-140px;right:-100px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(189,227,200,.18)}
+.numbers::after{content:"";position:absolute;bottom:-180px;left:-80px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(189,227,200,.14)}
+.numbers .container{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center;position:relative}
+.numbers b{font-family:var(--serif);font-size:clamp(40px,6vw,64px);display:block;color:var(--mint);font-variant-numeric:tabular-nums}
 .numbers span{font-size:14px;color:rgba(247,245,239,.75)}
-.numbers .container>div{position:relative}
-.numbers .container>div:not(:last-child)::after{content:"";position:absolute;right:-20px;top:12%;bottom:12%;width:1px;background:rgba(189,227,200,.25)}
 
 /* quote */
 .quote{max-width:780px;margin:0 auto;text-align:center}
@@ -110,14 +126,15 @@ nav{display:flex;align-items:center;justify-content:space-between;height:68px}
 
 /* pricing */
 .tiers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:start}
-.tier{background:#fff;border:1px solid var(--line);border-radius:12px;padding:34px 30px}
+.tier{background:#fff;border:1px solid var(--line);border-radius:14px;padding:36px 32px;transition:transform .2s,box-shadow .2s}
+.tier:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(19,32,24,.09)}
 .tier.hot{border:1.5px solid var(--green);position:relative}
-.tier .tag{position:absolute;top:-12px;left:30px;background:var(--gold);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px}
-.tier h3{font-size:24px;margin-bottom:4px}
+.tier .tag{position:absolute;top:-13px;left:32px;background:var(--gold);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 15px;border-radius:100px}
+.tier h3{font-size:25px;margin-bottom:4px}
 .tier .for{font-size:13.5px;color:var(--ink-3);margin-bottom:22px}
-.tier .amt2{font-family:var(--serif);font-size:44px;margin-bottom:2px}
+.tier .amt2{font-family:var(--serif);font-size:46px;margin-bottom:2px}
 .tier .amt2 small{font-size:15px;color:var(--ink-3);font-family:var(--sans)}
-.tier ul{list-style:none;margin:22px 0 28px;display:flex;flex-direction:column;gap:10px}
+.tier ul{list-style:none;margin:22px 0 28px;display:flex;flex-direction:column;gap:11px}
 .tier li{font-size:14px;color:var(--ink-2);padding-left:24px;position:relative}
 .tier li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
 .tier .btn{width:100%}
@@ -127,43 +144,50 @@ nav{display:flex;align-items:center;justify-content:space-between;height:68px}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{padding:22px 4px;cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--serif);font-size:24px;color:var(--gold)}
-.faq details[open] summary::after{content:"–"}
+.faq summary::after{content:"+";font-family:var(--serif);font-size:26px;color:var(--gold);transition:transform .25s;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
 .faq details div{padding:0 4px 22px;font-size:14.5px;color:var(--ink-2)}
 
 /* cta */
-.cta{background:var(--green);color:var(--cream);text-align:center;border-radius:20px;padding:76px 32px;position:relative;overflow:hidden}
-.cta::before{content:"";position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:520px;height:520px;border-radius:50%;border:1px solid rgba(189,227,200,.2)}
-.cta::after{content:"";position:absolute;top:-25%;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;border:1px solid rgba(189,227,200,.25)}
+.cta{background:var(--green);color:var(--cream);text-align:center;border-radius:22px;padding:80px 32px;position:relative;overflow:hidden}
+.cta .ring{position:absolute;left:50%;top:-46%;transform:translateX(-50%);width:540px;height:540px;border-radius:50%;border:1px solid rgba(189,227,200,.22);animation:ringGrow 5s ease-in-out infinite}
+.cta .ring.r2{width:360px;height:360px;top:-28%;animation-delay:1.2s}
+@keyframes ringGrow{0%,100%{transform:translateX(-50%) scale(1);opacity:.6}50%{transform:translateX(-50%) scale(1.05);opacity:1}}
 .cta h2{font-size:clamp(32px,5vw,52px);margin-bottom:16px;position:relative}
 .cta h2 em{font-style:italic;color:var(--mint)}
 .cta p{color:rgba(247,245,239,.8);margin-bottom:34px;position:relative}
 .cta .btn{position:relative;background:var(--cream);color:var(--green)}
-.cta .btn:hover{background:var(--mint)}
+.cta .btn:hover{background:var(--mint);transform:translateY(-2px)}
 
 footer.site{padding:44px 0;border-top:1px solid var(--line)}
 .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13.5px;color:var(--ink-3)}
 .foot .links{display:flex;gap:22px}
 .foot a:hover{color:var(--green)}
 
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
 .reveal.in{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(1){transition-delay:0s}.stagger.in>*:nth-child(2){transition-delay:.08s}.stagger.in>*:nth-child(3){transition-delay:.16s}.stagger.in>*:nth-child(4){transition-delay:.24s}.stagger.in>*:nth-child(5){transition-delay:.32s}.stagger.in>*:nth-child(6){transition-delay:.4s}
+
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
+  .reveal,.stagger>*,.row{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
-@media (max-width:920px){
+@media (max-width:940px){
   .hero .container{grid-template-columns:1fr}
   .feats,.tiers{grid-template-columns:1fr 1fr}
   .numbers .container{grid-template-columns:1fr;gap:28px}
-  .numbers .container>div::after{display:none}
 }
 @media (max-width:620px){
-  section{padding:60px 0}
-  .hero{padding:130px 0 56px}
+  section{padding:62px 0}
+  .hero{padding:132px 0 56px}
   .feats,.tiers{grid-template-columns:1fr}
-  .nav-links{display:none}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--line);flex-direction:column;padding:24px;gap:18px}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
 }
 </style>
 </head>
@@ -172,13 +196,14 @@ footer.site{padding:44px 0;border-top:1px solid var(--line)}
 <div class="nav-wrap">
   <nav class="container">
     <a class="logo" href="#" aria-label="Ledger home"><i>Σ</i>Ledger</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#how">Product</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#">Sign in</a></li>
     </ul>
     <a class="btn btn-green" href="#pricing" style="padding:10px 20px;font-size:14px">Start closing faster</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 </div>
 
@@ -192,23 +217,31 @@ footer.site{padding:44px 0;border-top:1px solid var(--line)}
         <a class="btn btn-green" href="#pricing">Start free for 30 days</a>
         <a class="btn btn-line" href="#how">See how it works</a>
       </div>
-      <p class="hero-note"><b>No credit card.</b> SOC 2 Type II · Works with QuickBooks, Xero & NetSuite</p>
+      <p class="hero-note"><b>No credit card.</b> SOC 2 Type II · Works with QuickBooks, Xero &amp; NetSuite</p>
     </div>
-    <div class="book" aria-label="Reconciliation preview">
-      <div class="book-head"><b>June close</b><span>98.2% auto-matched</span></div>
-      <div class="row"><div class="who"><b>Stripe payout #8841</b><span>Matched to 214 invoices</span></div><span class="amt in">+$48,209.16</span><span class="badge auto">Auto</span></div>
-      <div class="row"><div class="who"><b>AWS — June</b><span>Categorized · Cloud infra</span></div><span class="amt">−$12,441.90</span><span class="badge ok">Done</span></div>
-      <div class="row"><div class="who"><b>Gusto payroll</b><span>Split across 4 departments</span></div><span class="amt">−$96,310.55</span><span class="badge ok">Done</span></div>
-      <div class="row"><div class="who"><b>Deel contractors</b><span>Accrual drafted for review</span></div><span class="amt">−$18,750.00</span><span class="badge auto">Auto</span></div>
-      <div class="book-foot"><span>Close progress</span><b>11 of 12 tasks · on day 2</b></div>
+    <div class="book" aria-label="Live reconciliation demo" style="position:relative">
+      <div class="book-head"><b>June close</b><span class="match"><span id="pct">0</span>% auto-matched</span></div>
+      <div class="rows" id="rows"></div>
+      <div class="book-foot">
+        <span>Close progress</span>
+        <div class="close-bar"><i id="closeBar"></i></div>
+        <b><span id="tasks">0</span> of 12 tasks · day 2</b>
+      </div>
+      <div class="closed-flag" id="closedFlag" aria-hidden="true">
+        <div class="inner">
+          <div class="seal"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#bde3c8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <b>June closed</b>
+          <span>2 days, 4 hours — a company record</span>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 <div class="logos">
-  <div class="container">
-    <i>Trusted by finance teams at</i>
-    <span>Harbor & Co</span><span>Beacon Health</span><span>Rowan Freight</span><span>Fieldstone</span><span>Marlow Labs</span>
+  <div class="track" aria-hidden="true">
+    <span>Harbor &amp; Co · Beacon Health · Rowan Freight · Fieldstone · Marlow Labs · Cardinal Supply ·&nbsp;</span>
+    <span>Harbor &amp; Co · Beacon Health · Rowan Freight · Fieldstone · Marlow Labs · Cardinal Supply ·&nbsp;</span>
   </div>
 </div>
 
@@ -219,22 +252,22 @@ footer.site{padding:44px 0;border-top:1px solid var(--line)}
       <h2>Your month-end, <em>minus the month</em></h2>
       <p>Ledger sits on top of your existing accounting stack — nothing to migrate, nothing to re-learn.</p>
     </div>
-    <div class="feats">
-      <div class="feat reveal"><span class="n">— 01</span><h3>Daily reconciliation</h3><p>Bank feeds, processors, and payroll matched every night. Exceptions surface at breakfast, not at month-end.</p></div>
-      <div class="feat reveal"><span class="n">— 02</span><h3>Drafted journal entries</h3><p>Accruals, deferrals, and amortization schedules drafted with full audit trails. You review; Ledger writes.</p></div>
-      <div class="feat reveal"><span class="n">— 03</span><h3>Close checklist that runs itself</h3><p>Tasks auto-complete as their conditions are met. Your controller sees one screen, not nine spreadsheets.</p></div>
-      <div class="feat reveal"><span class="n">— 04</span><h3>Flux analysis, explained</h3><p>"Why is software spend up 40%?" answered in plain English, with the exact transactions behind it.</p></div>
-      <div class="feat reveal"><span class="n">— 05</span><h3>Audit-ready by default</h3><p>Every number links to its source document. Your auditors will think you hired three people.</p></div>
-      <div class="feat reveal"><span class="n">— 06</span><h3>Controls, not surprises</h3><p>Approval flows and anomaly alerts catch the $80k duplicate invoice before it pays out.</p></div>
+    <div class="feats stagger">
+      <div class="feat"><span class="n">— 01</span><h3>Daily reconciliation</h3><p>Bank feeds, processors, and payroll matched every night. Exceptions surface at breakfast, not at month-end.</p></div>
+      <div class="feat"><span class="n">— 02</span><h3>Drafted journal entries</h3><p>Accruals, deferrals, and amortization schedules drafted with full audit trails. You review; Ledger writes.</p></div>
+      <div class="feat"><span class="n">— 03</span><h3>Self-running checklist</h3><p>Close tasks auto-complete as their conditions are met. Your controller sees one screen, not nine spreadsheets.</p></div>
+      <div class="feat"><span class="n">— 04</span><h3>Flux analysis, explained</h3><p>"Why is software spend up 40%?" answered in plain English, with the exact transactions behind it.</p></div>
+      <div class="feat"><span class="n">— 05</span><h3>Audit-ready by default</h3><p>Every number links to its source document. Your auditors will think you hired three people.</p></div>
+      <div class="feat"><span class="n">— 06</span><h3>Controls, not surprises</h3><p>Approval flows and anomaly alerts catch the $80k duplicate invoice before it pays out.</p></div>
     </div>
   </div>
 </section>
 
 <section class="numbers">
   <div class="container">
-    <div class="reveal"><b>2.4 days</b><span>average close, down from 13</span></div>
-    <div class="reveal"><b>98%</b><span>of transactions auto-matched</span></div>
-    <div class="reveal"><b>$0</b><span>of audit adjustments last quarter, median customer</span></div>
+    <div class="reveal"><b><span class="count" data-to="2.4" data-dec="1">0</span> days</b><span>average close, down from 13</span></div>
+    <div class="reveal"><b><span class="count" data-to="98">0</span>%</b><span>of transactions auto-matched</span></div>
+    <div class="reveal"><b>$<span class="count" data-to="0">0</span></b><span>of audit adjustments last quarter, median customer</span></div>
   </div>
 </section>
 
@@ -253,37 +286,37 @@ footer.site{padding:44px 0;border-top:1px solid var(--line)}
       <span class="eyebrow">Pricing</span>
       <h2>Priced like software, <em>not headcount</em></h2>
     </div>
-    <div class="tiers">
-      <div class="tier reveal">
+    <div class="tiers stagger">
+      <div class="tier">
         <h3>Seed</h3>
         <p class="for">Up to $1M annual expenses</p>
         <div class="amt2">$149<small>/mo</small></div>
         <ul>
           <li>Daily reconciliation</li>
-          <li>2 entity, 3 seats</li>
-          <li>QuickBooks & Xero sync</li>
+          <li>2 entities, 3 seats</li>
+          <li>QuickBooks &amp; Xero sync</li>
         </ul>
         <a class="btn btn-line" href="#">Start free trial</a>
       </div>
-      <div class="tier hot reveal">
+      <div class="tier hot">
         <span class="tag">Most popular</span>
         <h3>Growth</h3>
         <p class="for">Up to $20M annual expenses</p>
         <div class="amt2">$449<small>/mo</small></div>
         <ul>
           <li>Everything in Seed</li>
-          <li>Unlimited entities & seats</li>
-          <li>Flux analysis & close checklist</li>
+          <li>Unlimited entities &amp; seats</li>
+          <li>Flux analysis &amp; close checklist</li>
           <li>Approval controls</li>
         </ul>
         <a class="btn btn-green" href="#">Start free trial</a>
       </div>
-      <div class="tier reveal">
+      <div class="tier">
         <h3>Scale</h3>
         <p class="for">NetSuite, multi-currency, audit</p>
         <div class="amt2">Custom</div>
         <ul>
-          <li>NetSuite & Sage Intacct</li>
+          <li>NetSuite &amp; Sage Intacct</li>
           <li>Dedicated close manager</li>
           <li>SSO, SOC reports, DPA</li>
         </ul>
@@ -299,11 +332,11 @@ footer.site{padding:44px 0;border-top:1px solid var(--line)}
       <span class="eyebrow">FAQ</span>
       <h2>Sensible questions</h2>
     </div>
-    <div class="faq">
-      <details class="reveal"><summary>Does Ledger replace my accountant?</summary><div>No — it replaces their busywork. Ledger drafts and matches; a human approves. Firms use it to serve 3× the clients with the same team.</div></details>
-      <details class="reveal"><summary>Which systems does it connect to?</summary><div>QuickBooks Online, Xero, NetSuite, Sage Intacct, plus 12,000 banks, Stripe, Gusto, Deel, Ramp, and Brex. Anything else via CSV or API.</div></details>
-      <details class="reveal"><summary>Is my financial data safe?</summary><div>SOC 2 Type II, encryption at rest and in transit, read-only bank connections, and role-based access. We never move money.</div></details>
-      <details class="reveal"><summary>How long does setup take?</summary><div>Most teams connect their stack in under an hour and see their first auto-reconciled day tomorrow morning. Historical cleanup is available as a service.</div></details>
+    <div class="faq stagger">
+      <details><summary>Does Ledger replace my accountant?</summary><div>No — it replaces their busywork. Ledger drafts and matches; a human approves. Firms use it to serve 3× the clients with the same team.</div></details>
+      <details><summary>Which systems does it connect to?</summary><div>QuickBooks Online, Xero, NetSuite, Sage Intacct, plus 12,000 banks, Stripe, Gusto, Deel, Ramp, and Brex. Anything else via CSV or API.</div></details>
+      <details><summary>Is my financial data safe?</summary><div>SOC 2 Type II, encryption at rest and in transit, read-only bank connections, and role-based access. We never move money.</div></details>
+      <details><summary>How long does setup take?</summary><div>Most teams connect their stack in under an hour and see their first auto-reconciled day tomorrow morning. Historical cleanup is available as a service.</div></details>
     </div>
   </div>
 </section>
@@ -311,6 +344,8 @@ footer.site{padding:44px 0;border-top:1px solid var(--line)}
 <section>
   <div class="container">
     <div class="cta reveal">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="ring r2" aria-hidden="true"></div>
       <h2>Close the month.<br><em>Keep the month.</em></h2>
       <p>30 days free. Cancel with one click, keep the clean books.</p>
       <a class="btn" href="#pricing">Start your free trial</a>
@@ -320,17 +355,93 @@ footer.site{padding:44px 0;border-top:1px solid var(--line)}
 
 <footer class="site">
   <div class="container foot">
-    <span style="font-family:var(--serif);font-size:16px">Ledger © 2026</span>
+    <span style="font-family:var(--serif);font-size:17px">Ledger © 2026</span>
     <div class="links"><a href="#">Security</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
     <span>Template: Ledger — LaunchPages kit</span>
   </div>
 </footer>
 
 <script>
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* nav */
+const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
+
+/* reveal */
+if(!reduced){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+  document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal,.stagger').forEach(el=>el.classList.add('in'))}
+
+/* count-up */
+function countUp(el){
+  const to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||0);
+  const dur=1400,t0=performance.now();
+  (function f(t){
+    const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=(to*e).toFixed(dec);
+    if(p<1)requestAnimationFrame(f);
+  })(t0);
+}
+if(!reduced){
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target)}}),{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+}else{document.querySelectorAll('.count').forEach(el=>el.textContent=el.dataset.to)}
+
+/* animated reconciliation demo */
+const txns=[
+  {who:'Stripe payout #8841',sub:'Matching to 214 invoices…',subDone:'Matched to 214 invoices',amt:'+$48,209.16',cls:'in'},
+  {who:'AWS — June',sub:'Categorizing…',subDone:'Categorized · Cloud infra',amt:'−$12,441.90',cls:''},
+  {who:'Gusto payroll',sub:'Splitting departments…',subDone:'Split across 4 departments',amt:'−$96,310.55',cls:''},
+  {who:'Deel contractors',sub:'Drafting accrual…',subDone:'Accrual drafted for review',amt:'−$18,750.00',cls:''}
+];
+const rows=document.getElementById('rows'),pct=document.getElementById('pct'),tasks=document.getElementById('tasks'),bar=document.getElementById('closeBar'),flag=document.getElementById('closedFlag');
+async function w(ms){return new Promise(r=>setTimeout(r,ms))}
+function mkRow(t){
+  const d=document.createElement('div');d.className='row';
+  d.innerHTML=`<div class="who"><b>${t.who}</b><span>${t.sub}</span></div><span class="amt ${t.cls}">${t.amt}</span><span class="badge scan">Matching</span>`;
+  rows.appendChild(d);return d;
+}
+function setNum(el,to,dur){
+  const from=parseInt(el.textContent)||0,t0=performance.now();
+  (function f(tm){
+    const p=Math.min((tm-t0)/dur,1);
+    el.textContent=Math.round(from+(to-from)*p);
+    if(p<1)requestAnimationFrame(f);
+  })(t0);
+}
+async function bookLoop(){
+  if(reduced){
+    txns.forEach(t=>{const r=mkRow(t);r.classList.add('show');
+      r.querySelector('.badge').className='badge ok';r.querySelector('.badge').textContent='Done';
+      r.querySelector('.who span').textContent=t.subDone});
+    pct.textContent='98';tasks.textContent='11';bar.style.width='92%';
+    return;
+  }
+  while(true){
+    rows.innerHTML='';flag.classList.remove('show');
+    pct.textContent='0';tasks.textContent='0';bar.style.width='0';
+    await w(900);
+    let done=0;
+    for(const tx of txns){
+      const r=mkRow(tx);await w(80);r.classList.add('show');
+      await w(1050);
+      const b=r.querySelector('.badge');b.className='badge ok';b.textContent='Done';
+      r.querySelector('.who span').textContent=tx.subDone;
+      done++;
+      setNum(pct,Math.round(done/txns.length*98),500);
+      setNum(tasks,Math.round(done/txns.length*12),500);
+      bar.style.width=(done/txns.length*100)+'%';
+      await w(420);
+    }
+    await w(900);
+    flag.classList.add('show');
+    await w(3400);
+  }
+}
+bookLoop();
 </script>
 </body>
 </html>
