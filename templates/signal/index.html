@@ -58,7 +58,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:66px}
   radial-gradient(circle at 88% 78%, var(--paper-2) 0%, transparent 32%);position:relative;overflow:hidden}
 .hero .issue-no{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-3);margin-bottom:24px}
 .hero h1{font-size:clamp(40px,6.6vw,74px);font-weight:700;max-width:840px;margin:0 auto 26px}
-.hero h1 .word{display:inline-block;opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+.hero h1 .word{display:inline-block;margin-right:.24em;opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
 .hero h1 .word.in{opacity:1;transform:none}
 .hero h1 em{font-style:italic;color:var(--rust);position:relative}
 .hero h1 em svg{position:absolute;left:0;right:0;bottom:-14px;width:100%}
@@ -384,8 +384,8 @@ const h=document.getElementById('heroTitle');
       n.remove();
     }
   });
-  const frag=(ws)=>ws.map(w=>{const s=document.createElement('span');s.className='word';s.textContent=w+' ';return s});
-  frag(before).reverse().forEach(s=>h.insertBefore(s,em));
+  const frag=(ws)=>ws.map(w=>{const s=document.createElement('span');s.className='word';s.textContent=w;return s});
+  frag(before).forEach(s=>h.insertBefore(s,em));
   frag(after).forEach(s=>h.appendChild(s));
   em.classList.add('word');
   const words=[...h.querySelectorAll('.word')];
